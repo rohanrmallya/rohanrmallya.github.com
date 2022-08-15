@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+
+{%- include head.html -%}
+
+<body>
+
+  {%- include header.html -%}
+  {% assign orgs = site.data.work.organizations %}
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <h1>💻  Work Experience </h1>
+      <!-- {{ content }} -->
+      {%- for org in orgs -%}
+      <h2>At {{org.name}} as {{org.role}}</h2>
+      <ul>
+        {%- for achievement in org.work -%}
+        <li>{{achievement.name}}
+          {%- for more_point in achievement.more_points -%}
+          <ul>
+            <li>{{more_point}}</li>
+          </ul>
+          {%- endfor %}
+        </li>
+        {%- endfor %}
+      </ul>
+      {%- endfor -%}
+
+    </div>
+  </main>
+</body>
+
+</html>

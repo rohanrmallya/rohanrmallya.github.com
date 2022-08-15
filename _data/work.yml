@@ -1,0 +1,62 @@
+organizations:
+  - name: "Edgeverve Technologies"
+    role: "Member of Technical Staff"
+    from: 2021
+    to: present
+    work:
+      - name: Developed and Released Finacle Authentication Microservice
+        url: some_url
+        more_points:
+          - Currently used by 4+ vendors to integrate their application with Finacle
+          - Cloud-native microservice that can be plugged to work with any Finacle Database
+          - Responsible for 0-to-1 development, CI/CD pipelines, documentation, release planning & Road Map creation.
+      - name: Developed and Released Finacle Reporting Microservice
+        url: some_url
+        more_points:
+          - Currently used by one of the Top 5 largest banks in America
+          - Adds 4+ features like Asynchronous Report Generation & Advanced Report Templating to existing monolithic report service
+          - Cloud-native microservice & ready to integrate with AWS S3, RabitMQ, Kafka out of the box.
+          - Responsible for 0-to-1 development, CI/CD pipelines, documentation, initial release & deployment support
+          - Formed a team of 2 members to train & handover the roadmap for future releases
+      - name: Build Finacle's Developer License Portal
+        url: some_url
+        more_points:
+         - Built the Internal Portal to generate Developer Licenses for Finacle
+         - Used by 400+ people to generate 1,200+ Finacle licenses
+         - Conceptualized UX prototypes and worked on full stack development
+         - Used this opportunity to kickstarted a community-learning event to help team members upskill
+         - Mentored a team of 6 people to learn new things by implementation
+  - name: "Edgeverve Technologies"
+    role: "Product Engineer"
+    from: 2019
+    to: 2021
+    work:
+      - name: Owned Finacle's Signature Management Infrastructure
+        url: some_url
+        more_points:
+          - Communicated with 15+ bank persons to understand requirements and deliver enhancements
+          - Overhauled documentation to reduce repeated customer queries
+          - Supported 5+ Go-Lives and version upgrades
+          - Mentored 1 developer to upskill & fix defects
+      - name: Implemented a new UX flavor to Finacle
+        url: some_url
+        more_points:
+         - Worked with the Design Team to incorporate a redesigned login and landing page for Finacle.
+         - Reduced lines of code & optimized load time by replacing or re-writing third party modules.
+
+      - name: Re-wrote Finacle WebApp's Integration with Scanners to ease uploading signatures to Finacle
+        url: some_url
+        more_points:
+         - Used by 6+ banks
+         - Developed a browser & scanner agnostic mechanism to replace the older implementation that worked only with one browser & few scanners.
+         - Delivered an easy-to-install Desktop App that is coupled with Finacle to help Finacle Web App communicate with the Scanner.
+         - Assisted with plans to extend support to all existing Finacle versions
+
+projects:
+  - name: "PES University"
+    from: 2019
+    to: present
+    work:
+      - achievement_1
+      - achievement_2
+

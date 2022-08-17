@@ -2,18 +2,39 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
   {%- include head.html -%}
-
+  {%- include custom-head.html -%}
   <body>
 
-    {%- include header.html -%}
-
-    <main class="page-content" aria-label="Content">
+    <!-- {%- include header.html -%} -->
+    <div class="container py-4">
+      <div class="p-5 mb-4 bg-light rounded-2 ">
+        <div class="container-fluid py-5 ">
+          <p class="col-md-8 fs-5"> Hey, I am</p>
+          <p class="display-6 fw-bold">Rohan Mallya 👋</p>
+          <p class="col-md-8 fs-5">A curious Software Developer with an interest in identifying & solving problems with tech. Also interested in the cycle of structuring solutions, building software & creating efficient release strategies. </p>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <p class="col-3 fs-5"><a href="/work">What do I do at work?</a></p>
+            <p class="col-3 fs-5">Find me on: 
+              <i class="bi bi-linkedin"></i>
+              <i class="bi bi-twitter"></i>
+              <i class="bi bi-github"></i>
+              <i class="bi bi-reddit"></i>
+            </p>
+            <p class="col-6 fs-5">Work opportunities? <i class="bi bi-envelope"></i> bangalorerohan@gmail.com! </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
-    </main>
+    </main> -->
 
-    {%- include footer.html -%}
+    {%- include foot.html -%}
 
   </body>
 

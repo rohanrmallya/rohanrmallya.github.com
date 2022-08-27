@@ -5,14 +5,16 @@
 
 <body>
 
+  
   {%- include header.html -%}
-  {% assign orgs = site.data.work.organizations %}
+  {% assign orgs = site.data[page.type].organizations %}
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
-      <h1>💻  Work Experience </h1>
-      <!-- {{ content }} -->
+      
+      <h1>💻  {{site.data[page.type].title}} </h1>
       {%- for org in orgs -%}
-      <h2>At {{org.name}} as {{org.role}}</h2>
+      <h2>At {{org.name}} as {{org.role}} <span style="font-size:0.5em">({{org.from}} - {{org.to}})</span></h2>
+      
       <ul>
         {%- for achievement in org.work -%}
         <li>{{achievement.name}}

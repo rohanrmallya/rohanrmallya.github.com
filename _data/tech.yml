@@ -5,13 +5,13 @@ organizations:
     from: 2021
     to: present
     work:
-      - name: Developed and Released Finacle Authentication Microservice
+      - name: Developed and Released <a href="www.finacle.com">Finacle</a> Authentication Microservice
         url: some_url
         more_points:
-          - Currently used by 4+ vendors to integrate their application with Finacle
-          - Cloud-native microservice that can be plugged to work with any Finacle Database
+          - Currently used by 4+ vendors to integrate their application with <a href="www.finacle.com">Finacle</a>
+          - Cloud-native microservice that can be plugged to work with any <a href="www.finacle.com">Finacle</a> Database
           - Responsible for 0-to-1 development, CI/CD pipelines, documentation, release planning & Road Map creation.
-      - name: Developed and Released Finacle Reporting Microservice
+      - name: Developed and Released <a href="www.finacle.com">Finacle</a> Reporting Microservice
         url: some_url
         more_points:
           - Currently used by one of the Top 5 largest banks in America
@@ -19,11 +19,11 @@ organizations:
           - Cloud-native microservice & ready to integrate with AWS S3, RabitMQ, Kafka out of the box.
           - Responsible for 0-to-1 development, CI/CD pipelines, documentation, initial release & deployment support
           - Formed a team of 2 members to train & handover the roadmap for future releases
-      - name: Build Finacle's Developer License Portal
+      - name: Build <a href="www.finacle.com">Finacle</a>'s Developer License Portal
         url: some_url
         more_points:
-         - Built the Internal Portal to generate Developer Licenses for Finacle
-         - Used by 400+ people to generate 1,200+ Finacle licenses
+         - Built the Internal Portal to generate Developer Licenses for <a href="www.finacle.com">Finacle</a>
+         - Used by 400+ people to generate 1,200+ <a href="www.finacle.com">Finacle</a> licenses
          - Conceptualized UX prototypes and worked on full stack development
          - Used this opportunity to kickstarted a community-learning event to help team members upskill
          - Mentored a team of 6 people to learn new things by implementation
@@ -32,26 +32,26 @@ organizations:
     from: 2019
     to: 2021
     work:
-      - name: Owned Finacle's Signature Management Infrastructure
+      - name: Owned <a href="www.finacle.com">Finacle</a>'s Signature Management Infrastructure
         url: some_url
         more_points:
           - Communicated with 15+ bank persons to understand requirements and deliver enhancements
           - Overhauled documentation to reduce repeated customer queries
           - Supported 5+ Go-Lives and version upgrades
           - Mentored 1 developer to upskill & fix defects
-      - name: Implemented a new UX flavor to Finacle
+      - name: Implemented a new UX flavor to <a href="www.finacle.com">Finacle</a>
         url: some_url
         more_points:
-         - Worked with the Design Team to incorporate a redesigned login and landing page for Finacle.
+         - Worked with the Design Team to incorporate a redesigned login and landing page for <a href="www.finacle.com">Finacle</a>.
          - Reduced lines of code & optimized load time by replacing or re-writing third party modules.
 
-      - name: Re-wrote Finacle WebApp's Integration with Scanners to ease uploading signatures to Finacle
+      - name: Re-wrote <a href="www.finacle.com">Finacle</a> WebApp's Integration with Scanners to ease uploading signatures to <a href="www.finacle.com">Finacle</a>
         url: some_url
         more_points:
          - Used by 6+ banks
          - Developed a browser & scanner agnostic mechanism to replace the older implementation that worked only with one browser & few scanners.
-         - Delivered an easy-to-install Desktop App that is coupled with Finacle to help Finacle Web App communicate with the Scanner.
-         - Assisted with plans to extend support to all existing Finacle versions
+         - Delivered an easy-to-install Desktop App that is coupled with <a href="www.finacle.com">Finacle</a> to help <a href="www.finacle.com">Finacle</a> Web App communicate with the Scanner.
+         - Assisted with plans to extend support to all existing <a href="www.finacle.com">Finacle</a> versions
 
 projects:
   - name: "PES University"

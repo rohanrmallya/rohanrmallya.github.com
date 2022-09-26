@@ -19,18 +19,18 @@ organizations:
     work:
       - name: "<b>Product Development</b>"
         more_points:
-         - Built a Reporting Microservice for Finacle that is used by one of the top 5 biggest banks in America.
-         - Built an Authorization Microservice for Finacle. Currently used by 4+ vendors & banks to integrate multiple internal and external applications with Finacle.
-         - Re-wrote the integration between Finacle Web App & Scanner devices to replace the old implementation that supported only Internet Explorer. The re-write supports all browsers & scanners. Used by 6+ banks & is an alternative to third-party integration software that would be expensive!
+         - Built a Reporting Microservice for <a href="www.finacle.com">Finacle</a> that is used by one of the top 5 biggest banks in America.
+         - Built an Authorization Microservice for <a href="www.finacle.com">Finacle</a>. Currently used by 4+ vendors & banks to integrate multiple internal and external applications with Finacle.
+         - Re-wrote the integration between <a href="www.finacle.com">Finacle</a> Web App & Scanner devices to replace the old implementation that supported only Internet Explorer. The re-write supports all browsers & scanners. Actively used by 6+ banks & is an alternative to expensive, third party integrations!
       - name: "<b>Process Development</b>"
         more_points:
-        - Automated Deployment processes for Finacle Infrastructure Services to reduces the time taken to test changes by 40%.
+        - Automated Deployment processes for <a href="www.finacle.com">Finacle</a> Infrastructure Services to reduces the time taken to test changes by 40%.
         - Automated FOSS checks & Static Code scan to move from "1 release, 1 scan" to "1 change, 1 scan" model. Resulted in better code quality and quicker releases.
         - Introduced Continuous Documentation to ensure changes to documentation are pushed along with code changes. Increased quality of documentation & reduces effort spent in KTs.
       - name: "<b>Release Planning</b>"
         more_points:
-        - Owned the development pipeline for 2 microservices within Finacle Infrastructure
-        - Interacted with customers & technical architects to create release plans, test plans & future roadmaps
+        - Owned the development pipeline for 2 microservices within <a href="www.finacle.com">Finacle</a> Infrastructure
+        - Interacted with customer facing teams & technical architects to create release plans, test plans & future roadmaps
   - name: "Edgeverve Technologies"
     role: "Product Engineer"
     from: 2019
@@ -38,21 +38,13 @@ organizations:
     work:
       - name: "<b> Product Ownership </b>"
         more_points:
-         - Owned Finacle's Signature Management Infrastructure
-         - Interacted with 15+ bank persons to address technical concerns and usability challenges to Singature Management Infrastructure
-         - Re-wrote re-wrote product documentation resulting in a reduction of recurring queries & enabled users to troubleshoot common errors
+         - Briefly owned <a href="www.finacle.com">Finacle</a>'s Signature Management Infrastructure
+         - Interacted with 5+ bank teams to address technical concerns and usability challenges to Singature Management infrastructure
+         - Re-wrote the product documentation resulting in a reduction of recurring queries & enabled users to troubleshoot common errors
       - name: "<b> Product Development </b>"
         more_points:
-         - Owned end-to-end development of Finacle's License Generation portal. Used by 400+ people to generate 700+ developer licenses.
+         - Owned end-to-end development of <a href="www.finacle.com">Finacle</a>'s Developer License Generation portal. Used by 400+ members to generate 700+ licenses.
          - Contributed in creating foundational components required to standardize Cloud Deployment of Finacle.
       - name: "<b> Team Initiatives </b>"
         more_points:
-          - Led a team-wide upskilling initiative to encourage upskilling by building small-to-medium scale products. Built 4+ productivity-enhancing products & processes.
-projects:
-  - name: "PES University"
-    from: 2019
-    to: present
-    work:
-      - achievement_1
-      - achievement_2
-
+          - Co-piloted a team-wide upskilling initiative to encourage upskilling by building small-to-medium scale products. Built 4+ productivity-enhancing products & processes.

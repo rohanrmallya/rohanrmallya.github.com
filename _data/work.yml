@@ -52,11 +52,3 @@ organizations:
          - Delivered an easy-to-install Desktop App that is coupled with Finacle to help Finacle Web App communicate with the Scanner.
          - Assisted with plans to extend support to all existing Finacle versions
 
-projects:
-  - name: "PES University"
-    from: 2019
-    to: present
-    work:
-      - achievement_1
-      - achievement_2
-

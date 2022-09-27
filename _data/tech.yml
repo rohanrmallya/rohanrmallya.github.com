@@ -9,17 +9,18 @@ organizations:
         url: some_url
         more_points:
           - Currently used by 4+ vendors to integrate their application with <a href="https://www.edgeverve.com/finacle/">Finacle</a>
-          - Cloud-native microservice that can be plugged to work with any <a href="https://www.edgeverve.com/finacle/">Finacle</a> Database
+          - Cloud-native microservice that helps authenticate & authorize calls between multiple <a href="https://www.edgeverve.com/finacle/">Finacle</a> modules.
+          - Can be plugged to work with any <a href="https://www.edgeverve.com/finacle/">Finacle</a> Database
           - Responsible for 0-to-1 development, CI/CD pipelines, documentation, release planning & Road Map creation.
       - name: Developed and Released <a href="https://www.edgeverve.com/finacle/">Finacle</a> Reporting Microservice
         url: some_url
         more_points:
           - Currently used by one of the Top 5 largest banks in America
-          - Adds 4+ features like Asynchronous Report Generation & Advanced Report Templating to existing monolithic report service
-          - Cloud-native microservice & ready to integrate with AWS S3, RabitMQ, Kafka out of the box.
+          - Adds 4+ features like Asynchronous Report Generation & Advanced Report Templating to extend what the present-day monolith does.
+          - Cloud-native microservice & ready to integrate with AWS S3, RabitMQ, and Kafka out of the box.
           - Responsible for 0-to-1 development, CI/CD pipelines, documentation, initial release & deployment support
           - Formed a team of 2 members to train & handover the roadmap for future releases
-      - name: Build <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Developer License Portal
+      - name: Built <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Developer License Portal
         url: some_url
         more_points:
          - Built the Internal Portal to generate Developer Licenses for <a href="https://www.edgeverve.com/finacle/">Finacle</a>
@@ -35,23 +36,30 @@ organizations:
       - name: Owned <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Signature Management Infrastructure
         url: some_url
         more_points:
-          - Communicated with 15+ bank persons to understand requirements and deliver enhancements
+          - Communicated with 5+ bank teams to understand requirements and deliver enhancements.
+          - Enhanced the Signature Management Infra to support Postgres database
           - Overhauled documentation to reduce repeated customer queries
           - Supported 5+ Go-Lives and version upgrades
-          - Mentored 1 developer to upskill & fix defects
       - name: Implemented a new UX flavor to <a href="https://www.edgeverve.com/finacle/">Finacle</a>
         url: some_url
         more_points:
          - Worked with the Design Team to incorporate a redesigned login and landing page for <a href="https://www.edgeverve.com/finacle/">Finacle</a>.
-         - Reduced lines of code & optimized load time by replacing or re-writing third party modules.
-
+         - Reduced lines of code & optimized load time by replacing or re-writing third-party modules.
       - name: Re-wrote <a href="https://www.edgeverve.com/finacle/">Finacle</a> WebApp's Integration with Scanners to ease uploading signatures to <a href="https://www.edgeverve.com/finacle/">Finacle</a>
         url: some_url
         more_points:
          - Used by 6+ banks
-         - Developed a browser & scanner agnostic mechanism to replace the older implementation that worked only with one browser & few scanners.
+         - Developed a browser & scanner agnostic mechanism to replace the older implementation that worked only with Internet Explorer & few scanners.
          - Delivered an easy-to-install Desktop App that is coupled with <a href="https://www.edgeverve.com/finacle/">Finacle</a> to help <a href="https://www.edgeverve.com/finacle/">Finacle</a> Web App communicate with the Scanner.
          - Assisted with plans to extend support to all existing <a href="https://www.edgeverve.com/finacle/">Finacle</a> versions
+         - This served as an in-house alternative to 3rd party adapters that were a costly & recurring expense to customers
+      - name: Improved Developer Operations
+        url: some_url
+        more_points:
+         - Moved important pipelines from managed Jenkins instances to self-hosted instances of Gitlab Runner.
+         - Made Gitlab Runner independent of the underlying machine by making it Docker-friendly. This resulted in easy portability when compared to the managed Jenkins instance
+         - Set up daily builds to create Portable Versions of applications for developers to test their changes offline
+         - Introduced Continuous Deployment to replace time-slot-based deployments. This helped developers test their changes quickly & help save time.
 
 projects:
   - name: "PES University"

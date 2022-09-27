@@ -5,12 +5,12 @@ organizations:
     from: 05/2022
     to: 09/2022
     work:
-      - name: "Understanding Product Management"
+      - name: "<b>Improving Product Management</b>"
         more_points:
           - Part of a 16-week, cohort-based program to dive deep into Product Management
           - Conceptualized a Creator Marketplace for Instagram and drafted a PRD. More info <a href="https://docs.google.com/document/d/1EE4SJgT2ZndSJiMLa9o2kNHNd4nIED1QzqJ8cHkFSLk/edit?usp=sharing">here</a>.
           - Drafted a PRD to reduce drop-off in LinkedIn's Job Search. More info <a href="https://docs.google.com/document/d/1sJtRemPfhsMzY_yC1OOmEAU9VRy8LN7iS5Lky0HJtWM/edit?usp=sharing">here</a>.
-          - Networked with 20+ peers and 6+ experts to fine tune Product Sense, Metrics & Execution
+          - Networked with 20+ peers and 6+ experts to fine-tune Product Sense, Metrics & Execution
           - Find my Product Portfolio <a href="https://www.upraised.co/portfolio/rohan-mallya"> here </a>
   - name: "Edgeverve Technologies"
     role: "Member of Technical Staff"
@@ -21,16 +21,16 @@ organizations:
         more_points:
          - Built a Reporting Microservice for <a href="https://www.edgeverve.com/finacle/">Finacle</a> that is used by one of the top 5 biggest banks in America.
          - Built an Authorization Microservice for <a href="https://www.edgeverve.com/finacle/">Finacle</a>. Currently used by 4+ vendors & banks to integrate multiple internal and external applications with Finacle.
-         - Re-wrote the integration between <a href="https://www.edgeverve.com/finacle/">Finacle</a> Web App & Scanner devices to replace the old implementation that supported only Internet Explorer. The re-write supports all browsers & scanners. Actively used by 6+ banks & is an alternative to expensive, third party integrations!
+         - Re-wrote the integration between <a href="https://www.edgeverve.com/finacle/">Finacle</a> Web App & Scanner devices to replace the old implementation that supported only Internet Explorer. The rewrite supports all browsers & scanners. Actively used by 6+ banks & is an alternative to expensive, third-party integrations!
       - name: "<b>Process Development</b>"
         more_points:
         - Automated Deployment processes for <a href="https://www.edgeverve.com/finacle/">Finacle</a> Infrastructure Services to reduces the time taken to test changes by 40%.
-        - Automated FOSS checks & Static Code scan to move from "1 release, 1 scan" to "1 change, 1 scan" model. Resulted in better code quality and quicker releases.
-        - Introduced Continuous Documentation to ensure changes to documentation are pushed along with code changes. Increased quality of documentation & reduces effort spent in KTs.
+        - Automated FOSS checks & Static Code scan to move from "1 release, 1 scan" to "1 change, 1 scan" model. This resulted in better code quality and quicker releases.
+        - Introduced Continuous Documentation to ensure changes to documentation are pushed along with code changes. Increased quality of documentation & reduces the effort spent in KTs.
       - name: "<b>Release Planning</b>"
         more_points:
         - Owned the development pipeline for 2 microservices within <a href="https://www.edgeverve.com/finacle/">Finacle</a> Infrastructure
-        - Interacted with customer facing teams & technical architects to create release plans, test plans & future roadmaps
+        - Interacted with customer-facing teams & technical architects to create release plans, test plans & future roadmaps
   - name: "Edgeverve Technologies"
     role: "Product Engineer"
     from: 2019
@@ -39,12 +39,12 @@ organizations:
       - name: "<b> Product Ownership </b>"
         more_points:
          - Briefly owned <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Signature Management Infrastructure
-         - Interacted with 5+ bank teams to address technical concerns and usability challenges to Singature Management infrastructure
+         - Interacted with 5+ bank teams to address technical concerns and usability challenges to Signature Management infrastructure
          - Re-wrote the product documentation resulting in a reduction of recurring queries & enabled users to troubleshoot common errors
       - name: "<b> Product Development </b>"
         more_points:
-         - Owned end-to-end development of <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Developer License Generation portal. Used by 400+ members to generate 700+ licenses.
-         - Contributed in creating foundational components required to standardize Cloud Deployment of Finacle.
+         - Owned end-to-end development of <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Developer License Generation portal. This is used by 400+ members to generate 1,200+ licenses.
+         - Contributed to creating foundational components required to standardize Cloud Deployment of Finacle.
       - name: "<b> Team Initiatives </b>"
         more_points:
           - Co-piloted a team-wide upskilling initiative to encourage upskilling by building small-to-medium scale products. Built 4+ productivity-enhancing products & processes.

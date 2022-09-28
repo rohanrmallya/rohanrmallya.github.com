@@ -24,12 +24,12 @@ organizations:
          - Re-wrote the integration between <a href="https://www.edgeverve.com/finacle/">Finacle</a> Web App & Scanner devices to replace the old implementation that supported only Internet Explorer. The rewrite supports all browsers & scanners. Actively used by 6+ banks & is an alternative to expensive, third-party integrations!
       - name: "<b>Process Development</b>"
         more_points:
-        - Automated Deployment processes for <a href="https://www.edgeverve.com/finacle/">Finacle</a> Infrastructure Services to reduces the time taken to test changes by 40%.
+        - Automated Deployment processes for <a href="https://www.edgeverve.com/finacle/">Finacle</a> Infrastructure Services, reducing the time taken to test changes by 40%.
         - Automated FOSS checks & Static Code scan to move from "1 release, 1 scan" to "1 change, 1 scan" model. This resulted in better code quality and quicker releases.
-        - Introduced Continuous Documentation to ensure changes to documentation are pushed along with code changes. Increased quality of documentation & reduces the effort spent in KTs.
+        - Introduced Continuous Documentation to ensure changes to documentation are pushed along with code changes. Increased quality of documentation & reduced the effort spent in KTs.
       - name: "<b>Release Planning</b>"
         more_points:
-        - Owned the development pipeline for 2 microservices within <a href="https://www.edgeverve.com/finacle/">Finacle</a> Infrastructure
+        - Owned the development pipeline for Reporting & Authorization microservices within <a href="https://www.edgeverve.com/finacle/">Finacle</a> Infrastructure
         - Interacted with customer-facing teams & technical architects to create release plans, test plans & future roadmaps
   - name: "Edgeverve Technologies"
     role: "Product Engineer"
@@ -43,8 +43,9 @@ organizations:
          - Re-wrote the product documentation resulting in a reduction of recurring queries & enabled users to troubleshoot common errors
       - name: "<b> Product Development </b>"
         more_points:
-         - Owned end-to-end development of <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Developer License Generation portal. This is used by 400+ members to generate 1,200+ licenses.
+         - Owned the end-to-end development for <a href="https://www.edgeverve.com/finacle/">Finacle</a>'s Developer License Generation portal. This is used by 300+ members to generate 700+ licenses & decrypt 1,200+ licenses.
          - Contributed to creating foundational components required to standardize Cloud Deployment of Finacle.
       - name: "<b> Team Initiatives </b>"
         more_points:
-          - Co-piloted a team-wide upskilling initiative to encourage upskilling by building small-to-medium scale products. Built 4+ productivity-enhancing products & processes.
+          - Co-piloted a team-wide upskilling initiative to encourage upskilling by building small-to-medium scale products. 
+          - Built 4+ productivity-enhancing products & processes.

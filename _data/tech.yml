@@ -10,7 +10,7 @@ organizations:
         more_points:
           - Currently used by 4+ vendors to integrate their application with <a href="https://www.edgeverve.com/finacle/">Finacle</a>
           - Cloud-native microservice that helps authenticate & authorize calls between multiple <a href="https://www.edgeverve.com/finacle/">Finacle</a> modules.
-          - Can be plugged to work with any <a href="https://www.edgeverve.com/finacle/">Finacle</a> Database
+          - Can be plugged to work with any version of <a href="https://www.edgeverve.com/finacle/">Finacle</a> Database
           - Responsible for 0-to-1 development, CI/CD pipelines, documentation, release planning & Road Map creation.
       - name: Developed and Released <a href="https://www.edgeverve.com/finacle/">Finacle</a> Reporting Microservice
         url: some_url
@@ -24,10 +24,10 @@ organizations:
         url: some_url
         more_points:
          - Built the Internal Portal to generate Developer Licenses for <a href="https://www.edgeverve.com/finacle/">Finacle</a>
-         - Used by 400+ people to generate 1,200+ <a href="https://www.edgeverve.com/finacle/">Finacle</a> licenses
+         - Used by 300+ people to generate 700+ <a href="https://www.edgeverve.com/finacle/">Finacle</a> licenses & decrypt 1,200+ licenses.
          - Conceptualized UX prototypes and worked on full stack development
-         - Used this opportunity to kickstarted a community-learning event to help team members upskill
-         - Mentored a team of 6 people to learn new things by implementation
+         - Used this opportunity to kickstart a community-learning event to help team members upskill
+         - Mentored a team of 6 people to pick up Spring Boot, Vue.js & Kubernetes by implementation
   - name: "Edgeverve Technologies"
     role: "Product Engineer"
     from: 2019
@@ -49,7 +49,7 @@ organizations:
         url: some_url
         more_points:
          - Used by 6+ banks
-         - Developed a browser & scanner agnostic mechanism to replace the older implementation that worked only with Internet Explorer & few scanners.
+         - Developed a browser-agnostic & scanner-agnostic mechanism to replace the older implementation that worked only with Internet Explorer & few scanners.
          - Delivered an easy-to-install Desktop App that is coupled with <a href="https://www.edgeverve.com/finacle/">Finacle</a> to help <a href="https://www.edgeverve.com/finacle/">Finacle</a> Web App communicate with the Scanner.
          - Assisted with plans to extend support to all existing <a href="https://www.edgeverve.com/finacle/">Finacle</a> versions
          - This served as an in-house alternative to 3rd party adapters that were a costly & recurring expense to customers
@@ -60,12 +60,3 @@ organizations:
          - Made Gitlab Runner independent of the underlying machine by making it Docker-friendly. This resulted in easy portability when compared to the managed Jenkins instance
          - Set up daily builds to create Portable Versions of applications for developers to test their changes offline
          - Introduced Continuous Deployment to replace time-slot-based deployments. This helped developers test their changes quickly & help save time.
-
-projects:
-  - name: "PES University"
-    from: 2019
-    to: present
-    work:
-      - achievement_1
-      - achievement_2
-

@@ -1,0 +1,345 @@
+<html>
+
+<head>
+
+    <style>
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            border: 0;
+            padding: 0;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            -webkit-box-sizing: inherit;
+            -moz-box-sizing: inherit;
+            box-sizing: inherit;
+        }
+
+        #app {
+            width: 100%;
+            height: 100%;
+
+            background: #212121;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .doors {
+            display: flex;
+        }
+
+        .door {
+            background: #fafafa;
+            box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+
+            border-radius: 1ex;
+            margin: 1ch;
+        }
+
+        .door_values {
+            background: #fafafa;
+            box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.4) inset;
+
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+
+            border-radius: 1ex;
+            margin: 1ch;
+        }
+
+        .boxes {
+            /* transform: translateY(0); */
+            transition: transform 1s ease-in-out;
+        }
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 3rem;
+        }
+
+        .buttons {
+            margin: 1rem 0 2rem 0;
+        }
+
+        button {
+            cursor: pointer;
+
+            font-size: 1.2rem;
+            text-transform: uppercase;
+
+            margin: 0 0.2rem 0 0.2rem;
+        }
+
+        .info {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+    <!-- Code Credits: https://codepen.io/1isten/pen/wvMdNPp -->
+    <div id="app">
+        <!-- <div class="form-floating" style="width:65%; margin-bottom:3vh">
+            <textarea class="form-control" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">Allowed Numeric Values</label>
+
+
+        </div>
+        <div class="form-floating" style="width:65%; margin-bottom:3vh">
+            <textarea class="form-control" id="floatingTextareaDeno"></textarea>
+            <label for="floatingTextareaDeno">Allowed Denominations</label>
+        </div> -->
+        <div class="doors">
+            <div class="door">
+                <div class="boxes">
+                    <!-- <div class="box">?</div> -->
+                </div>
+            </div>
+
+            <div class="door">
+                <div class="boxes">
+                    <!-- <div class="box">?</div> -->
+                </div>
+            </div>
+
+            <div class="door_values">
+                <div class="boxes">
+                    <!-- <div class="box">?</div> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons d-grid gap-2 col-6 mx-auto">
+            <button id="spinner" class="btn btn-primary btn-lg">Spin</button>
+            <!-- <button id="reseter" class="btn btn-warning btn-lg">Reset</button> -->
+            <!-- <button id="initter" class="btn btn-success btn-lg">Init</button> -->
+
+        </div>
+
+        <p class="info"></p>
+    </div>
+</body>
+
+<script>
+    (function () {
+        "use strict";
+        var called_times = 0;
+        var already_spun = false;
+        const doors = document.querySelectorAll(".door");
+        const door_values = document.querySelectorAll(".door_values")
+        document.querySelector("#spinner").addEventListener("click", function() {
+            if (already_spun) {
+                init(true, 1, 2, false);
+                spin();
+            } else {
+                init(true, 1, 2, false);
+                spin();
+                already_spun = true;
+            }
+        });
+        // document.querySelector("#initter").addEventListener("click", init)
+        // document.querySelector("#reseter").addEventListener("click", function () {
+        //     if (called_times => 3) {
+        //         console.log("called times is 3")
+        //         init(true, 1, 2, true)
+        //     } else {
+        //         init(true, 1, 2, false)
+        //     }
+        // });
+
+        async function spin() {
+            console.log("Calling spin")
+            called_times += 1;
+            if (called_times >= 3) {
+                init(false, 1, 2, true);
+
+            } else {
+                init(false, 1, 2);
+            }
+            for (const door of doors) {
+                const boxes = door.querySelector(".boxes");
+                const duration = parseInt(boxes.style.transitionDuration);
+                boxes.style.transform = "translateY(0)";
+                await new Promise((resolve) => setTimeout(resolve, duration * 100));
+            }
+
+            for (const door of door_values) {
+                const boxes = door.querySelector(".boxes");
+                const duration = parseInt(boxes.style.transitionDuration);
+                boxes.style.transform = "translateY(0)";
+                await new Promise((resolve) => setTimeout(resolve, duration * 100));
+            }
+        }
+
+        function init(firstInit = true, groups = 1, duration = 1, fudge_values = false) {
+            // var items_text = document.querySelector('#floatingTextarea').value
+            // var values_text = document.querySelector('#floatingTextareaDeno').value
+            // items_text = items_text.split(",")
+            // values_text = values_text.split(",")
+            var items = ["4","5","6","7","8","9"];
+            var values = ["K", "L"];
+            console.log("calling init with fudged_values " + fudge_values)
+            for (const door of doors) {
+                if (firstInit) {
+                    door.dataset.spinned = "0";
+                } else if (door.dataset.spinned === "1") {
+                    return;
+                }
+
+                const boxes = door.querySelector(".boxes");
+                const boxesClone = boxes.cloneNode(false);
+
+                const pool = ["❓"];
+                if (!firstInit) {
+                    const arr = [];
+                    for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
+                        if (fudge_values) {
+                            arr.push(...[1, 2, 3])
+                        } else {
+                            arr.push(...items);
+                        }
+                    }
+                    pool.push(...shuffle(arr));
+                    boxesClone.addEventListener(
+                        "transitionstart",
+                        function () {
+                            door.dataset.spinned = "1";
+                            this.querySelectorAll(".box").forEach((box) => {
+                                box.style.filter = "blur(1px)";
+                            });
+                        },
+                        { once: true }
+                    );
+
+                    boxesClone.addEventListener(
+                        "transitionend",
+                        function () {
+                            this.querySelectorAll(".box").forEach((box, index) => {
+                                box.style.filter = "blur(0)";
+                                if (index > 0) this.removeChild(box);
+                            });
+                        },
+                        { once: true }
+                    );
+                }
+                // console.log(pool);
+
+                for (let i = pool.length - 1; i >= 0; i--) {
+                    const box = document.createElement("div");
+                    box.classList.add("box");
+                    box.style.width = door.clientWidth + "px";
+                    box.style.height = door.clientHeight + "px";
+                    box.textContent = pool[i];
+                    boxesClone.appendChild(box);
+                }
+                boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
+                boxesClone.style.transform = `translateY(-${door.clientHeight * (pool.length - 1)
+                    }px)`;
+                door.replaceChild(boxesClone, boxes);
+                // console.log(door);
+            }
+
+            for (const door of door_values) {
+                if (firstInit) {
+                    door.dataset.spinned = "0";
+                } else if (door.dataset.spinned === "1") {
+                    return;
+                }
+
+                const boxes = door.querySelector(".boxes");
+                const boxesClone = boxes.cloneNode(false);
+
+                const pool_v = ["❓"];
+                if (!firstInit) {
+                    const arr_v = [];
+                    for (let n = 0; n < (groups > 0 ? groups : 1); n++) {
+                        if (fudge_values) {
+                            arr_v.push(...['K', '00'])
+                        } else {
+                            arr_v.push(...values)
+                        }
+                    }
+                    pool_v.push(...shuffle(arr_v))
+                    boxesClone.addEventListener(
+                        "transitionstart",
+                        function () {
+                            door.dataset.spinned = "1";
+                            this.querySelectorAll(".box").forEach((box) => {
+                                box.style.filter = "blur(1px)";
+                            });
+                        },
+                        { once: true }
+                    );
+
+                    boxesClone.addEventListener(
+                        "transitionend",
+                        function () {
+                            this.querySelectorAll(".box").forEach((box, index) => {
+                                box.style.filter = "blur(0)";
+                                if (index > 0) this.removeChild(box);
+                            });
+                        },
+                        { once: true }
+                    );
+                }
+                // console.log(pool);
+
+                for (let i = pool_v.length - 1; i >= 0; i--) {
+                    const box = document.createElement("div");
+                    box.classList.add("box");
+                    box.style.width = door.clientWidth + "px";
+                    box.style.height = door.clientHeight + "px";
+                    box.textContent = pool_v[i];
+                    boxesClone.appendChild(box);
+                }
+                boxesClone.style.transitionDuration = `${duration > 0 ? duration : 1}s`;
+                boxesClone.style.transform = `translateY(-${door.clientHeight * (pool_v.length - 1)
+                    }px)`;
+                door.replaceChild(boxesClone, boxes);
+
+            }
+        }
+
+        function shuffle([...arr]) {
+            let m = arr.length;
+            while (m) {
+                const i = Math.floor(Math.random() * m--);
+                [arr[m], arr[i]] = [arr[i], arr[m]];
+            }
+            return arr;
+        }
+        init()
+    })();
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+</html>

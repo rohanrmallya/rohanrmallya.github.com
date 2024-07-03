@@ -3,40 +3,33 @@
 
   {%- include head.html -%}
   {%- include custom-head.html -%}
-  <body>
+  <body class="flex items-center justify-center min-h-screen bg-ro-blue text-ro-pink">
 
-    <!-- {%- include header.html -%} -->
-    <div class="container py-4">
-      <div class="p-5 mb-4 bg-light rounded-2 justify-content-md-center ">
-        <div class="container-fluid py-5 ">
-          <p class="col-md-8 fs-5"> Hey, I am</p>
-          <p class="display-6 fw-bold">Rohan Mallya 👋</p>
-          <p class="col-md-8 fs-5">A curious Software Developer with an interest in identifying & solving problems with tech. Also interested in the cycle of structuring solutions, building software & creating efficient release strategies. </p>
-           <p class="col-md-8 fs-5">Find me on: 
-            <a href="https://linkedin.com/in/rohanmallya"><i class="bi bi-linkedin"></i></a>
-            <a href="https://twitter.com/NotRohanMallya"><i class="bi bi-twitter"></i></a>
-            <a href="https://github.com/rohanrmallya"><i class="bi bi-github"></i></a>
-            <a href="https://www.pinterest.com/rohanrmallya"><i class="bi bi-pinterest"></i></a>
-          </p>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <p class="col-md-2 fs-5"><a href="/work/product">Product Work</a></p>
-            <p class="col-md-2 fs-5"><a href="/work/tech">Tech Work</a></p>
-            <p class="col-md-6 fs-5">Work opportunities? <i class="bi bi-envelope"></i> <a href='mailto:hello@rohanmallya.com'>hello@rohanmallya.com</a></p>
+        <!-- Mobile View -->
+        <div class="w-full max-w-sm p-4 rounded-lg shadow-md md:hidden">
+          <div class="flex flex-col items-center space-y-4">
+              <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-32 h-32 object-cover rounded-full">
+              <h1 class="text-xl font-bold">Rohan Mallya</h1>
+              <p class="text-center text-gray-600">This is a small one-liner.</p>
+              <p class="text-center text-gray-600">Another small one-liner.</p>
+              <button class="px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded-sm">Talk, talk</button>
           </div>
-        </div>
       </div>
-    </div> 
-    
-    <!-- <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
+  
+      <!-- Desktop View -->
+      <div class="hidden md:flex w-full max-w-5xl h-full p-8  rounded-lg shadow-md">
+          <div class="w-7/12 pr-8">
+              <div class="space-y-4">
+                  <h1 class="text-2xl font-bold">Rohan Mallya</h1>
+                  <p class="text-gray-600">This is a small one-liner.</p>
+                  <p class="text-gray-600">Another small one-liner.</p>
+                  <button class="px-4 py-2 mt-4 font-bold  bg-blue-500 rounded-full">Talk, talk</button>
+              </div>
+          </div>
+          <div class="w-5/12">
+              <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-full h-auto rounded-lg">
+          </div>
       </div>
-    </main> -->
-
-    {%- include foot.html -%}
-
   </body>
 
 </html>

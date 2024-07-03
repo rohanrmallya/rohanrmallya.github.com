@@ -8,9 +8,13 @@ module.exports = {
       './*.html',
     ],
     theme: {
-      theme: {
-        extend: {},
-      },
+        extend: {
+          colors: {
+            'ro-blue': "#050926",
+            "ro-pink": "#DA1881"
+          }
+
+        },
     },
     plugins: []
   }

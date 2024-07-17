@@ -3,33 +3,20 @@
 
   {%- include head.html -%}
   {%- include custom-head.html -%}
-  <body class="flex items-center justify-center min-h-screen bg-ro-blue text-ro-pink">
-
-        <!-- Mobile View -->
-        <div class="w-full max-w-sm p-4 rounded-lg shadow-md md:hidden">
-          <div class="flex flex-col items-center space-y-4">
-              <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-32 h-32 object-cover rounded-full">
-              <h1 class="text-4xl font-bold">Rohan Mallya</h1>
-              <p class="text-center text-2xl text-white">software dev. product thinking. business dev.</p>
-              <p class="text-center text-lg text-white">socials: twitter / linkedin / pinterest</p>
-              <button class="px-6 py-4 mt-4 font-bold text-white bg-ro-pink rounded-sm">Talk to me</button>
-          </div>
-      </div>
-  
-      <!-- Desktop View -->
-      <div class="hidden md:flex w-full max-w-5xl h-full p-8  rounded-lg shadow-md">
-          <div class="w-7/12 pr-8 flex items-center">
-              <div class="space-y-4">
-                  <h1 class="text-6xl font-bold">Rohan Mallya</h1>
-                  <p class="text-2xl text-white">software dev. product thinking. business dev.</p>
-                  <p class="text-xl text-white">socials: twitter / linkedin / pinterest</p>
-                  <button class="px-6 py-4 mt-4 text-xl text-white bg-ro-pink rounded-sm">Talk to me!</button>
-              </div>
-          </div>
-          <div class="w-5/12">
-              <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-full h-auto rounded-lg">
-          </div>
-      </div>
+  <body class="items-center justify-center min-h-screen bg-ro-blue text-ro-pink">
+      <div class="flex flex-row md:flex-row items-center justify-center p-4 md:p-8 rounded-lg shadow-md w-full max-w-5xl">
+        <!-- Text Section for both Mobile and Desktop -->
+        <div class="w-1/2 space-y-4">
+            <h1 class="text-4xl md:text-6xl font-bold">Rohan Mallya</h1>
+            <p class="text-2xl text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis vel eros donec ac odio tempor orci dapibus. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et. A condimentum vitae sapien pellentesque.</p>
+            <p class="text-lg md:text-xl text-white">socials: twitter / linkedin / pinterest</p>
+        </div>
+        <!-- Image Section for both Mobile and Desktop -->
+        <div class="w-1/2 flex justify-end md:justify-end mt-4 md:mt-0">
+            <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-32 h-32 md:w-96 md:h-96 object-cover rounded-full md:rounded-lg">
+            <!-- <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-32 h-32 md:w-full md:h-full object-cover rounded-full md:rounded-none md:w-full md:h-full"> -->
+        </div>
+    </div>
   </body>
 
 </html>

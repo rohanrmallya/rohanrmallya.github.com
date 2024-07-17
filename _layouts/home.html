@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}">
 
-  {%- include head.html -%}
-  {%- include custom-head.html -%}
-  <body class="items-center justify-center min-h-screen bg-ro-blue text-ro-pink">
-      <div class="flex flex-row md:flex-row items-center justify-center p-4 md:p-8 rounded-lg shadow-md w-full max-w-5xl">
-        <!-- Text Section for both Mobile and Desktop -->
-        <div class="w-1/2 space-y-4">
-            <h1 class="text-4xl md:text-6xl font-bold">Rohan Mallya</h1>
-            <p class="text-2xl text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis vel eros donec ac odio tempor orci dapibus. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et. A condimentum vitae sapien pellentesque.</p>
-            <p class="text-lg md:text-xl text-white">socials: twitter / linkedin / pinterest</p>
+{%- include head.html -%}
+{%- include custom-head.html -%}
+<!-- {%- include nav.html -%} -->
+
+<body class="">
+        <div class="min-w-screen min-h-screen bg-ro-blue text-ro-pink flex flex-col md:flex-row items-center justify-center p-4 md:p-8 w-full ">
+            <div class="md:hidden w-1/2 flex justify-center mt-4 mb-4">
+                <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture"
+                    class="w-96 h-96 object-cover rounded-lg ">
+            </div>
+            
+            <div class="w-full md:wd-1/2 space-y-4 text-center md:text-left md:mr-8">
+                <h1 class="text-4xl md:text-6xl font-bold">Rohan Mallya</h1>
+                <p class="text-2xl text-white text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis vel eros donec ac odio tempor orci
+                    dapibus. Condimentum vitae sapien pellentesque habitant morbi tristique senectus et. A condimentum vitae
+                    sapien pellentesque.</p>
+                <p class="text-lg md:text-xl text-white">socials: twitter / linkedin / pinterest</p>
+            </div>
+            <div class="hidden md:w-1/2 md:flex md:justify-end mt-4 md:mt-0">
+                <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture"
+                    class="w-32 h-32 md:w-96 md:h-96 object-cover rounded-full md:rounded-lg">
+            </div>
         </div>
-        <!-- Image Section for both Mobile and Desktop -->
-        <div class="w-1/2 flex justify-end md:justify-end mt-4 md:mt-0">
-            <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-32 h-32 md:w-96 md:h-96 object-cover rounded-full md:rounded-lg">
-            <!-- <img src="{{ site.baseurl }}/assets/imgs/me.png" alt="Picture" class="w-32 h-32 md:w-full md:h-full object-cover rounded-full md:rounded-none md:w-full md:h-full"> -->
-        </div>
-    </div>
-  </body>
+
+</body>
 
 </html>

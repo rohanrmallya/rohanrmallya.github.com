@@ -7,10 +7,11 @@ layout: basic
 
 
 
-<div class="home bg-ro-blue-800 text-white mt-16 min-w-screen min-h-screen page-content">
+<div class="home bg-ro-blue-800 text-white mt-16 min-w-screen min-h-screen ">
   <div class="wrapper">
     {%- if page.title -%}
-    <h1 class="text-white page-heading">{{ page.title }}</h1>
+    <h1 class="text-white page-heading font-bold">{{ page.title }}</h1>
+    <p class="text-ro-pink">{{page.subtitle}}</p>
     {%- endif -%}
 
     {{ content }}
@@ -26,13 +27,13 @@ layout: basic
     {%- if page.list_title -%}
     <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
-    <ul class="post-list">
+    <ul class="post-list mt-8">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {%- for post in posts -%}
       <li>
         <span class="text-gray-500">{{ post.date | date: date_format }}</span>
         <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
+          <a class="text-3xl visited:text-white underline hover:text-ro-pink focus:text-ro-pink" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
         </h3>

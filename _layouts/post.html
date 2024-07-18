@@ -2,8 +2,12 @@
 layout: basic
 ---
 
-<article class="mx-auto mt-32 max-w-4xl  h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="home bg-ro-blue-800 text-white mt-16 min-w-screen min-h-screen ">
 
+<article class="mx-auto mt-8 max-w-4xl h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="back-link mt-4">
+    <a href="javascript:history.back()" class="text-blue-500 hover:text-blue-700">Go Back</a>
+  </div>
   <header class="post-header">
     <h1 class="font-bold text-4xl p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
@@ -27,7 +31,7 @@ layout: basic
       {%- endif -%}</p>
   </header>
 
-  <div class="text-pint-500 post-content e-content" itemprop="articleBody">
+  <div class="text-pint-500 text-base leading-loose text-pretty" itemprop="articleBody">
     {{ content }}
   </div>
 
@@ -37,3 +41,4 @@ layout: basic
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+</div>

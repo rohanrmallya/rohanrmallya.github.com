@@ -44,6 +44,9 @@ paginate: 5
 paginate_path: "/blog/page:num/"
 permalink: /blog/:year/:month/:day/:title/
 
+minima:
+  skin: dark
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.

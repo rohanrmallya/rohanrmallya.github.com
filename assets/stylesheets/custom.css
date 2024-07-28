@@ -1,0 +1,15 @@
+---
+---
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+pre, code {
+    @apply bg-pink-50 text-sm text-black border-ro-blue-600 rounded-lg p-1
+}
+
+.highlight{
+    @apply bg-transparent
+}

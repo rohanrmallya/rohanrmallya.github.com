@@ -1,8 +1,29 @@
 organizations:
   - name: "Edgeverve Technologies"
-    role: "Member of Technical Staff"
-    from: 2021
+    role: "Senior Member of Technical Staff"
+    from: 2023
     to: present
+    work:
+      - name: Guided a team of 4 to add Content Security Policy (CSP) support in multiple Finacle products
+        url: some_url
+        more_points:
+         - Developed a Python utility to modify over 100 JSPs, removing inline JavaScript and CSS to comply with CSP standards.
+         - Contributed to the integration of CSP into 6 foundational modules within the Finacle ecosystem.
+      - name: Implemented System for Cross-domain Identity Management (SCIM) protocol on Finacle Authorization Server.
+        url: some_url
+        more_points:
+          - Enabled SCIM-compliant applications to create and manage Finacle users and roles seamlessly.
+          - Successfully deployed SCIM features through the Finacle Authentication Microservice alongside the existing monolith architecture.
+      - name: Piloted the migration from Java Virtual Machine (JVM) to Native Images.
+        url: some_url
+        more_points:
+          - Conducted comprehensive benchmarks comparing traditional JVM applications with native apps.
+          - Transitioned selected Spring Boot microservices to Spring Native, delivering them as native images.
+          - chieved a remarkable 1000% increase in application startup speed and reduced memory/CPU consumption by 70%.
+  - name: "Edgeverve Technologies"
+    role: "AMember of Technical Staff"
+    from: 2021
+    to: 2023
     work:
       - name: Developed and Released Finacle Authentication Microservice
         url: some_url

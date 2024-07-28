@@ -1,42 +1,75 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}"> {%- include
+head.html -%} {%- include custom-head.html -%} {%- include nav.html -%}
 
-  {%- include head.html -%}
-  {%- include custom-head.html -%}
-  <body>
+<body class="">
+  <div
+    class="min-w-screen min-h-screen w-full pt-16 p-4 md:pt-16 2xl:px-80 lg:px-10 pr-10 pl-10 bg-ro-blue-800 text-ro-pink flex flex-col md:flex-row items-center justify-center"
+  >
+    <div class="md:hidden w-full flex justify-center mt-4 mb-4">
+      <img
+        src="{{ site.baseurl }}/assets/imgs/me.png"
+        alt="Picture"
+        class="w-96 h-96 object-cover rounded-lg"
+      />
+    </div>
 
-    <!-- {%- include header.html -%} -->
-    <div class="container py-4">
-      <div class="p-5 mb-4 bg-light rounded-2 justify-content-md-center ">
-        <div class="container-fluid py-5 ">
-          <p class="col-md-8 fs-5"> Hey, I am</p>
-          <p class="display-6 fw-bold">Rohan Mallya 👋</p>
-          <p class="col-md-8 fs-5">A curious Software Developer with an interest in identifying & solving problems with tech. Also interested in the cycle of structuring solutions, building software & creating efficient release strategies. </p>
-           <p class="col-md-8 fs-5">Find me on: 
-            <a href="https://linkedin.com/in/rohanmallya"><i class="bi bi-linkedin"></i></a>
-            <a href="https://twitter.com/NotRohanMallya"><i class="bi bi-twitter"></i></a>
-            <a href="https://github.com/rohanrmallya"><i class="bi bi-github"></i></a>
-            <a href="https://www.pinterest.com/rohanrmallya"><i class="bi bi-pinterest"></i></a>
-          </p>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <p class="col-md-2 fs-5"><a href="/work/product">Product Work</a></p>
-            <p class="col-md-2 fs-5"><a href="/work/tech">Tech Work</a></p>
-            <p class="col-md-6 fs-5">Work opportunities? <i class="bi bi-envelope"></i> <a href='mailto:hello@rohanmallya.com'>hello@rohanmallya.com</a></p>
-          </div>
-        </div>
-      </div>
-    </div> 
-    
-    <!-- <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main> -->
+    <div
+      class="w-full lg:w-4/5 md:w-5/7 space-y-4 text-center md:text-left md:mr-8"
+    >
+      <p
+        class="mt-5 md:mt-0 lg:mt-0 text-5xl md:text-4xl lg:text-5xl text-white"
+      >
+        Hello! I am <span class="text-ro-pink">Rohan Mallya. </span>
+      </p>
+      <p class="text-xl md:text-lg lg:text-2xl text-white">
+        A <span class="text-ro-ping"> software developer </span> that loves
+        building good products.
+      </p>
+      <p class="text-xl md:text-lg lg:text-2xl text-white">
+        I currently work with
+        <span class="text-ro-pink">Infosys Finacle</span>, where I help develop
+        foundational software components used across the Finacle Digital Banking
+        Suite.
+      </p>
+      <p class="text-xl md:text-lg lg:text-2xl text-white">
+        In my spare time, I assist young entrepreneurs shape their offerings, in
+        terms of product, business and technology.
+      </p>
+      <p class="text-xl md:text-base lg:text-2xl text-white">
+        <span class="font-bold mr-2 md:mr-0 lg:mr-0">socials: </span>
+        <a
+          class="underline text-ro-pink hover:text-ro-pink-200 focus:text-ro-pink-200 visited:text-ro-pink-500"
+          href="https://x.com/RohanRMallya"
+          >twitter</a
+        >
+        ◦
+        <a
+          class="underline text-ro-pink hover:text-ro-pink-200 focus:text-ro-pink-200 visited:text-ro-pink-500"
+          href="https://www.linkedin.com/in/rohanmallya/"
+          >linkedin</a
+        >
+        ◦
+        <a
+          class="underline text-ro-pink hover:text-ro-pink-200 focus:text-ro-pink-200 visited:text-ro-pink-500"
+          href="https://in.pinterest.com/rohanrmallya/"
+          >pinterest</a
+        >
+      </p>
+      <p class="text-xl md:text-lg lg:text-2xl text-white">
+        <span class="font-bold mr-2 md:mr-0 lg:mr-0">email: </span>
 
-    {%- include foot.html -%}
-
-  </body>
-
-</html>
+        hello [at] rohanmallya.com
+      </p>
+    </div>
+    <div
+      class="hidden lg:w-1/2 md:w-fit md:flex md:justify-center mt-4 md:mt-0"
+    >
+      <img
+        src="{{ site.baseurl }}/assets/imgs/me.png"
+        alt="Picture"
+        class="w-32 h-32 md:w-96 md:h-96 object-cover rounded-full md:rounded-lg"
+      />
+    </div>
+  </div>
+</body>

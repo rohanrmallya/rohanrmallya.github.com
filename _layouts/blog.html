@@ -1,45 +1,33 @@
----
-layout: basic
----
-
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en" }}">
+<html lang="{{ page.lang | default: site.lang | default: " en" }}"> {%- include
+head.html -%} {%- include custom-head.html -%} {%- include nav.html -%}
 
-
-
-<div class="home bg-ro-blue-800 text-white mt-16 min-w-screen min-h-screen ">
+<div
+  class="min-w-screen min-h-screen w-full pt-20 md:pt-16 2xl:px-80 lg:px-10 pr-10 pl-10 bg-ro-blue-800 text-ro-pink items-center justify-center"
+>
   <div class="wrapper">
     {%- if page.title -%}
-    <h1 class="text-white page-heading font-bold">{{ page.title }}</h1>
-    <p class="text-ro-pink">{{page.subtitle}}</p>
-    {%- endif -%}
-
-    {{ content }}
-
-    {% if site.paginate %}
-    {% assign posts = paginator.posts %}
-    {% else %}
-    {% assign posts = site.posts %}
-    {% endif %}
-
-
-    {%- if posts.size > 0 -%}
-    {%- if page.list_title -%}
+    <h1 class="text-white text-3xl">{{ page.title }}</h1>
+    <p class="text-ro-pink text-base">{{page.subtitle}}</p>
+    {%- endif -%} {{ content }} {% if site.paginate %} {% assign posts =
+    paginator.posts %} {% else %} {% assign posts = site.posts %} {% endif %}
+    {%- if posts.size > 0 -%} {%- if page.list_title -%}
     <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
     <ul class="post-list mt-8">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y"
+      -%} {%- for post in posts -%}
       <li>
         <span class="text-gray-500">{{ post.date | date: date_format }}</span>
         <h3>
-          <a class="text-3xl visited:text-white underline hover:text-ro-pink focus:text-ro-pink" href="{{ post.url | relative_url }}">
+          <a
+            class="text-3xl visited:text-white underline hover:text-ro-pink focus:text-ro-pink"
+            href="{{ post.url | relative_url }}"
+          >
             {{ post.title | escape }}
           </a>
         </h3>
-        {%- if site.show_excerpts -%}
-        {{ post.excerpt }}
-        {%- endif -%}
+        {%- if site.show_excerpts -%} {{ post.excerpt }} {%- endif -%}
       </li>
       {%- endfor -%}
     </ul>
@@ -47,22 +35,41 @@ layout: basic
     {% if site.paginate %}
     <div class="pager flex items-center justify-center space-x-4">
       {%- if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">{{ paginator.previous_page }}</a>
+      <a
+        href="{{ paginator.previous_page_path | relative_url }}"
+        class="previous-page"
+        >{{ paginator.previous_page }}</a
+      >
       {%- else %}
-        <div class="pager-edge">•</div>
+      <div class="pager-edge">•</div>
       {%- endif %}
-        <div class="current-page">{{ paginator.page }}</div>
+      <div class="current-page">{{ paginator.page }}</div>
       {%- if paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}" class="next-page">{{ paginator.next_page }}</a>
+      <a href="{{ paginator.next_page_path | relative_url }}" class="next-page"
+        >{{ paginator.next_page }}</a
+      >
       {%- else %}
-        <div class="pager-edge">•</div>
+      <div class="pager-edge">•</div>
       {%- endif %}
-  </div>
-    {%- endif %}
-
+    </div>
+    {%- endif %} {%- else %}
+    <div
+      class="bg-gradient-to-r from-yellow-500 via-orange-700 to-pink-700 p-1 rounded-lg mt-12"
+    >
+      <div
+        class="bg-ro-blue-800 rounded-lg text-center border-8 border-transparent"
+      >
+        <div>
+          <h1
+            class="text-2xl py-4 px-2 bg-gradient-to-r from-yellow-500 via-orange-600 to-pink-700 text-transparent bg-clip-text"
+          >
+            waiting to move posts from drafts, check back later!
+          </h1>
+        </div>
+      </div>
+    </div>
     {%- endif -%}
-
   </div>
 </div>
 
-</html>
+<!-- <h1 class="text-4xl mt-16 bg-gradient-to-r from-pink-500 to-pink-700 text-transparent bg-clip-text -->

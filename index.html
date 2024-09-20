@@ -26,7 +26,7 @@
 />
 <!-- Credits: https://preline.co/docs/navbar.html -->
 <header
-  class="bg-ro-blue-800 fixed top-0 z-50 flex flex-wrap sm:justify-end sm:flex-nowrap w-full text-sm py-4"
+  class="bg-ro-blue-800 fixed top-0 z-50 flex flex-wrap sm:justify-end sm:flex-nowrap w-full text-sm py-4 px-16"
 >
   <nav
     class="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-end md:justify-between"
@@ -36,9 +36,12 @@
     <div class="sm:order-3 flex items-center gap-x-2">
       <button
         type="button"
-        class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-ro-pink bg-ro-pink text-white shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+        data-cal-link="rohanmallya/30min"
+        data-cal-namespace="30min"
+        data-cal-config='{"layout":"month_view","theme":"auto"}'
+        class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-ro-pink bg-ro-pink text-white shadow-sm hover:bg-transparent hover:text-ro-pink disabled:opacity-50 disabled:pointer-events-none"
       >
-        contact me
+        Contact Me
       </button>
       <button
         type="button"
@@ -91,22 +94,22 @@
           class="nav-link text-base font-medium text-white visited:text-white"
           href="/"
           aria-current="page"
-          >home</a
+          >Home</a
         >
         <a
           class="nav-link text-base font-medium text-white visited:text-white hover:text-gray-400 active:text-ro-pink"
           href="/work/tech"
-          >tech</a
+          >Tech</a
         >
         <a
           class="nav-link text-base font-medium text-white visited:text-white hover:text-gray-400 active:text-ro-pink"
           href="/work/product"
-          >product</a
+          >Product</a
         >
         <a
           class="nav-link text-base font-medium text-white visited:text-white hover:text-gray-400 active:text-ro-pink"
           href="/notes"
-          >notes</a
+          >Notes</a
         >
       </div>
     </div>
@@ -146,9 +149,58 @@
     });
   });
 </script>
+
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) {
+    let p = function (a, ar) {
+      a.q.push(ar);
+    };
+    let d = C.document;
+    C.Cal =
+      C.Cal ||
+      function () {
+        let cal = C.Cal;
+        let ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () {
+            p(api, arguments);
+          };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "30min", { origin: "https://cal.com" });
+
+  // Important: Please add the following attributes to the element that should trigger the calendar to open upon clicking.
+  // `data-cal-link="rohanmallya/30min"`
+  // data-cal-namespace="30min"
+  // `data-cal-config='{"layout":"month_view","theme":"auto"}'`
+
+  Cal.ns["30min"]("ui", {
+    styles: { branding: { brandColor: "#DA1881" } },
+    hideEventTypeDetails: false,
+    layout: "month_view",
+  });
+</script>
+<!-- Cal element-click embed code ends -->
 <body class="">
   <div
-    class="min-w-screen min-h-screen w-full pt-16 p-4 md:pt-16 2xl:px-80 lg:px-10 pr-10 pl-10 bg-ro-blue-800 text-ro-pink flex flex-col md:flex-row items-center justify-center"
+    class="min-w-screen min-h-screen w-fullmd:pt-16 2xl:px-80 lg:px-16 pr-10 pl-10 bg-ro-blue-800 text-ro-pink flex flex-col md:flex-row items-center justify-center"
   >
     <div class="md:hidden w-full flex justify-center mt-4 mb-4">
       <img
@@ -159,26 +211,23 @@
     </div>
 
     <div
-      class="w-full lg:w-4/5 md:w-5/7 space-y-4 text-center md:text-left md:mr-8 xl:ml-16"
+      class="w-full lg:w-4/5 md:w-5/7 space-y-4 text-left md:text-left md:mr-8 xl:px-8"
     >
       <p
-        class="mt-5 md:mt-0 lg:mt-0 text-5xl md:text-4xl lg:text-5xl text-white xl:text-4xl"
+        class="mt-5 md:mt-0 lg:mt-0 text-2xl md:text-4xl lg:text-5xl text-white xl:text-4xl"
       >
         Hello! I am <span class="text-ro-pink">Rohan Mallya. </span>
       </p>
-      <p class="text-xl md:text-lg lg:text-2xl text-white">
+      <p class="text-lg md:text-lg lg:text-2xl text-white">
         A <span class="text-ro-ping"> software developer </span> that loves
         building good products.
       </p>
-      <p class="text-xl md:text-lg lg:text-2xl text-white">
+      <p class="text-lg md:text-lg lg:text-2xl text-white">
         I currently work with
         <span class="text-ro-pink">Infosys Finacle</span>, where I help develop
         foundational software components used across the Finacle Digital Banking
-        Suite.
-      </p>
-      <p class="text-xl md:text-lg lg:text-2xl text-white">
-        In my spare time, I assist young entrepreneurs shape their offerings, in
-        terms of product, business and technology.
+        Suite. In my spare time, I assist young entrepreneurs shape their
+        offerings, in terms of product, business and technology.
       </p>
       <p class="text-xl md:text-base lg:text-2xl text-white">
         <span class="font-bold mr-2 md:mr-0 lg:mr-0">socials: </span>

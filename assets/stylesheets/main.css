@@ -12,7 +12,20 @@
               secondary: "#ffab00", */
 
 @theme {
-    --color-primary: oklch(0.59 0.222 17.58);
+    /* --color-primary: oklch(0.59 0.222 17.58); */
+    --color-primary: oklch(59.103% 0.2222 17.732);
+    --color-primary-50: oklch(86.616% 0.0609 4.2829);
+    --color-primary-100: oklch(82.769% 0.08108 5.384);
+    --color-primary-200: oklch(75.462% 0.12302 6.9295);
+    --color-primary-300: oklch(68.584% 0.16442 9.311);
+    --color-primary-400: oklch(63.153% 0.19987 12.733);
+    --color-primary-500: oklch(59.103% 0.2222 17.732);
+    --color-primary-600: oklch(49.686% 0.18681 17.74);
+    --color-primary-700: oklch(39.331% 0.14563 17.063);
+    --color-primary-800: oklch(28.59% 0.10111 15.439);
+    --color-primary-900: oklch(16.513% 0.04972 8.4404);
+    --color-primary-950: oklch(8.9319% 0.02153 3.5604);
+    --color-primary-hover: oklch(0.54 0.2003 16.72);
     --color-background: oklch(0.92 0.081 83.58);
     --color-secondary: oklch(0.8 0.1704 73.79)
 }

@@ -71,7 +71,11 @@ title: Tech Experience
                     id="achievement-{{ forloop.parentloop.index }}-{{ forloop.index }}"
                     class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
                   >
-                    <p>{{ achievement.description }}</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                      {% for item in achievement.description %}
+                      <li>{{ item }}</li>
+                      {% endfor %}
+                    </ul>
                   </div>
                 </div>
                 {% endfor %}

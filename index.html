@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <script src="/assets/js/cal.js"></script>
   </head>
 
   <body class="bg-background text-gray-800 dark:bg-gray-900 dark:text-gray-100">
@@ -26,6 +27,11 @@
           href="/tech"
           class="hover:text-primary dark:hover:text-background transition duration-200"
           >Tech</a
+        >
+        <a
+          href="http://cv.rohanmallya.com"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Résumé</a
         >
         <!-- <a
           href="/blog"
@@ -104,6 +110,11 @@
         class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
         >Tech</a
       >
+      <a
+        href="https://cv.rohanmallya.com"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Résumé</a
+      >
       <!-- <a
         href="/blog"
         class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
@@ -168,17 +179,47 @@
             </p>
           </div>
 
+          <!-- Social Media Links -->
+
+          <div class="mt-6 flex justify-center md:justify-start space-x-4">
+            <a
+              href="https://x.com/notrohanmallya"
+              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
+              >X</a
+            >
+            <span class="text-gray-400">|</span>
+            <a
+              href="https://github.com/rohanrmallya"
+              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
+              >Github</a
+            >
+            <span class="text-gray-400">|</span>
+            <a
+              href="mailto:bangalorerohan@gmail.com"
+              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
+              >Email</a
+            >
+            <span class="text-gray-400">|</span>
+            <a
+              href="https://www.linkedin.com/in/rohanmallya/"
+              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
+              >Linkedin</a
+            >
+          </div>
           <!-- Call to Action -->
           <div class="mt-8 flex justify-center md:justify-start space-x-4">
+            <button
+              data-cal-link="rohanmallya/30min"
+              data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+              class="px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-primary-hover dark:hover:bg-primary-hover transition duration-300"
+            >
+              Schedule a Meeting
+            </button>
+
             <a
               href="/tech"
-              class="px-6 py-3 bg-primary text-white font-medium rounded-md hover:bg-[#c81e43] dark:hover:bg-[#d41f46] transition duration-300"
+              class="px-6 py-3 border border-primary text-primary dark:text-primary font-medium rounded-md hover:bg-background-600 dark:hover:bg-primary dark:hover:text-white transition duration-300"
               >View My Work</a
-            >
-            <a
-              href="/blog"
-              class="px-6 py-3 border border-primary text-primary dark:text-primary font-medium rounded-md hover:bg-[#fff8ee] dark:hover:bg-gray-700 transition duration-300"
-              >Read My Blog</a
             >
           </div>
         </div>

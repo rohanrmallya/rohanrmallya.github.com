@@ -1,0 +1,112 @@
+---
+layout: base
+title: Tech Experience
+---
+
+<div class="bg-background dark:bg-gray-900 min-h-screen py-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1
+        class="text-4xl font-bold text-primary dark:text-primary mb-8 text-center"
+      >
+        Technical Experience
+      </h1>
+
+      <div class="space-y-6">
+        {% for company in site.data.tech_resume %}
+        <div
+          class="bg-background dark:bg-gray-800 rounded-lg overflow-hidden shadow-md"
+        >
+          <!-- Company Header -->
+          <div class="p-6 border-b border-black dark:border-gray-700">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
+              {{ company.name }}
+            </h2>
+          </div>
+
+          <!-- Roles -->
+          <div class="p-6">
+            {% for role in company.roles %}
+            <div class="mb-6 last:mb-0">
+              <div class="flex flex-col md:flex-row justify-between mb-2">
+                <h3
+                  class="text-xl font-semibold text-primary dark:text-primary"
+                >
+                  {{ role.title }}
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >{{ role.duration }}</span
+                >
+              </div>
+
+              <!-- Achievements -->
+              <div class="space-y-3 mt-4">
+                {% for achievement in role.achievements %}
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >{{ achievement.title }}</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-{{ forloop.parentloop.index }}-{{ forloop.index }}"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <p>{{ achievement.description }}</p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".achievement-toggle");
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+        // Toggle aria-expanded
+        this.setAttribute("aria-expanded", !isExpanded);
+
+        // Toggle content visibility
+        if (isExpanded) {
+          content.classList.add("hidden");
+          this.querySelector("svg").classList.remove("rotate-180");
+        } else {
+          content.classList.remove("hidden");
+          this.querySelector("svg").classList.add("rotate-180");
+        }
+      });
+    });
+  });
+</script>

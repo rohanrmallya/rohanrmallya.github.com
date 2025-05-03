@@ -40,6 +40,15 @@
     --color-background-950: oklch(59.186% 0.12582 73.376);
     --color-secondary: oklch(0.8 0.1704 73.79)
 }
+
+pre, code {
+    @apply bg-background-700 text-sm text-black rounded-sm p-1;
+}
+
+.highlight {
+    @apply bg-transparent;
+}
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 @config "../../tailwind.config.js"

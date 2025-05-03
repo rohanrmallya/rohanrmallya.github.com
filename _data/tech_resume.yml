@@ -1,0 +1,94 @@
+- name: Infosys Finacle
+  roles:
+    - title: Product Technical Architect
+      duration: Oct '24 - Present
+      achievements:
+        - title: Developed a Cross-Language SDK for Secure Data Masking
+          description:
+            - Built Finacle Tokenizer SDK that helps encrypt data while preserving format, ensuring no database schema changes are required.
+            - SDKs are available for Java, C/C++, JavaScript, and a WASM module for browser-based applications.
+            - Currently being tested for adoption by 5+ Finacle Modules.
+        - title: Licensing Microservice for Finacle SaaS Deployments
+          description:
+            - Lightweight microservice that introduces slab-based billing for Finacle SaaS deployments.
+            - Can be plugged with any version of Finacle to enable license management and consumption tracking.
+            - Built on Quarkus, with a light memory footprint (~100mb of RAM) and fast startup time (~300ms).
+            - Aims to replace the existing billing module for Finacle SaaS by 2026.
+        - title: Product Engineering Leadership
+          description:
+            - Designed and implemented release trains and automation for bug fixes and feature rollouts.
+            - Setup and managed three development teams to scale Finacle's microservices from beta to production.
+            - Led delivery of 100+ change requests, 5+ features with 95% on-time delivery.
+            - Provided ongoing support to 15+ banks and multiple internal teams in adopting Finacle's microservices.
+        - title: Learning Initiatives & Skill Development
+          description:
+            - Directly responsible for a 7-member team.
+            - Created learning frameworks to improve collaboration, documentation & communication, while upskilling.
+            - Initiatives included pair programming, design audits, code reviews and knowledge sharing sessions.
+    - title: Senior Member of Technical Staff
+      duration: Jan '23 - Oct '24
+      achievements:
+        - title: End-to-End Ownership of Finacle’s Reporting & Auth Services
+          description:
+            - Managed Product Roadmap and Release Planning for Finacle's Reporting and Authentication services.
+            - Collaborated with principals, architects and customers to define and deliver features.
+            - Independently delivered 10+ features across 2 microservices.
+        - title: Built a Silent Upgrade System for Secure & Faster Releases
+          description:
+            - End-to-End automation that silently upgraded all Java & GoLang modules within Finacle on a monthly cycle.
+            - Integrated, automated testing of upgraded components before releasing.
+            - Reduced upgrade time from 2 weeks to 4 days.
+            - Reduced vulnerability from outdated FOSS components by 95%.
+        - title: SCIM Compliance for Finacle
+          description:
+            - Built SCIM compliance into Finacle.
+            - Allowed seamless user onboarding and offboarding from SCIM-Complaint Identity Providers like Entra ID and Sailpoint IQ.
+            - Piloting in 5+ banks, live in 3+ banks.
+        - title: Github Copilot Core Team
+          description:
+            - Part of the core team that drove org-wide adoption of Github Copilot.
+            - Led the development of demos and use cases to promote Copilot's usage within Finacle.
+            - Achieved a 87% daily active usage rate within the team.
+    - title: Member of Technical Staff
+      duration: Apr '21 - Jan '23
+      achievements:
+        - title: Built Finacle's Reporting Microservice
+          description:
+            - Designed and built Finacle's Reporting Microservice using Spring Boot.
+            - Support for Asynchronous Report Generation using RabbitMQ or Kafka.
+            - Ability to use Cloud Object Stores (AWS S3, Azure Blob) as a data source and destination.
+            - Actively used in 4+ large banks, generating 2,000+ daily reports.
+
+        - title: Built Finacle's Authentication Microservice
+          description:
+            - Designed and built Finacle's Authentication Microservice using Spring Boot.
+            - Support for OAuth2.1 and OpenID Connect.
+            - Deployable as a sidecar, compatible with any version of Finacle.
+            - Deployed in 15+ banks.
+        - title: Contributed in building Finacle's Developer License Portal
+          description:
+            - Led a team of 14 engineers to build Finacle's Developer License Portal.
+            - Actively used by 600+ developers to generate 3000+ Finacle Developer Licenses.
+            - Facilitated as part of a cross-learning initiative, "Learn By Doing", where the entire team adopted a new tech stack with no prior experience.
+        - title: Co-created the "Learn By Doing" program
+          description:
+            - A cross-learning initiative to help engineers learn new tech stacks by building real-world applications.
+            - Organized code reviews with architects, conducted design discussions, and hosted knowledge-sharing sessions to drive collaborative learning and best practices.
+    - title: Product Engineer
+      duration: Jul '19 - Apr '21
+      achievements:
+        - title: Owned Finacle's Signature Verification System
+          description:
+            - Managed product development and support for Finacle's Signature Verification System.
+            - Shrunk the defect board by 70%.
+            - Actively supported 5+ banks in production issues.
+        - title: Desktop Application to onboard Signatures onto Finacle
+          description:
+            - Built a Desktop Application to securely onboard Signatures from TWAIN/WIA compliant scanners onto Finacle.
+            - Built using TKinter and Python.
+            - Live in 15+ major Indian banks.
+        - title: Architected fully-containerized CI/CD processes
+          description:
+            - Introduced fully-containerized Gitlab CI Runners.
+            - Designed CI jobs which run within Docker Containers.
+            - Enabled 2-minute, machine-independent runner deployments with 0 setup.

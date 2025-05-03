@@ -1,0 +1,112 @@
+<header class="sticky top-0 z-50 bg-background dark:bg-gray-800 shadow-md">
+  <div class="container mx-auto">
+    <nav class="flex items-center justify-between p-4">
+      <!-- Logo/Brand -->
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a
+          href="/"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Home</a
+        >
+        <a
+          href="/tech"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Tech</a
+        >
+        <!-- <a
+          href="/blog"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Blog</a
+        > -->
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="mobileMenuToggle"
+          class="text-gray-800 dark:text-gray-100 focus:outline-none mr-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dark Mode Toggle -->
+      <button
+        id="darkModeToggle"
+        class="text-gray-800 dark:text-gray-100 focus:outline-none"
+      >
+        <svg
+          id="sunIcon"
+          class="w-6 h-6 hidden dark:block"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"
+          ></path>
+        </svg>
+        <svg
+          id="moonIcon"
+          class="w-6 h-6 dark:hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div
+      id="mobileMenu"
+      class="hidden md:hidden bg-background dark:bg-gray-800 pb-4 px-4"
+    >
+      <a
+        href="/"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Home</a
+      >
+      <a
+        href="/tech"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Tech</a
+      >
+      <!-- <a
+        href="/blog"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Blog</a
+      > -->
+    </div>
+  </div>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    document
+      .getElementById("mobileMenuToggle")
+      .addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+  </script>
+</header>

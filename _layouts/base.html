@@ -26,18 +26,13 @@
   </body>
   <script>
     const darkModeToggle = document.getElementById("darkModeToggle");
-    console.log(darkModeToggle);
     const htmlElement = document.documentElement;
-    console.log(htmlElement.classList);
 
     darkModeToggle.addEventListener("click", () => {
       if (htmlElement.classList.contains("dark")) {
-        console.log("Removing dark mode");
         htmlElement.classList.remove("dark");
         localStorage.setItem("theme", "light");
-        console.log(htmlElement.classList);
       } else {
-        console.log("Adding dark mode");
         htmlElement.classList.add("dark");
         localStorage.setItem("theme", "dark");
       }

@@ -1,0 +1,915 @@
+<!-- /_layouts/base.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Experience</title>
+    <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+  </head>
+
+  <body class="bg-background text-gray-800 dark:bg-gray-900 dark:text-gray-100">
+    <!-- Include the navbar component -->
+    <header class="sticky top-0 z-50 bg-background dark:bg-gray-800 shadow-md">
+  <div class="container mx-auto">
+    <nav class="flex items-center justify-between p-4">
+      <!-- Logo/Brand -->
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a
+          href="/"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Home</a
+        >
+        <a
+          href="/tech"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Tech</a
+        >
+        <!-- <a
+          href="/blog"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Blog</a
+        > -->
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="mobileMenuToggle"
+          class="text-gray-800 dark:text-gray-100 focus:outline-none mr-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dark Mode Toggle -->
+      <button
+        id="darkModeToggle"
+        class="text-gray-800 dark:text-gray-100 focus:outline-none"
+      >
+        <svg
+          id="sunIcon"
+          class="w-6 h-6 hidden dark:block"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"
+          ></path>
+        </svg>
+        <svg
+          id="moonIcon"
+          class="w-6 h-6 dark:hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div
+      id="mobileMenu"
+      class="hidden md:hidden bg-background dark:bg-gray-800 pb-4 px-4"
+    >
+      <a
+        href="/"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Home</a
+      >
+      <a
+        href="/tech"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Tech</a
+      >
+      <!-- <a
+        href="/blog"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Blog</a
+      > -->
+    </div>
+  </div>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    document
+      .getElementById("mobileMenuToggle")
+      .addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+  </script>
+</header>
+
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4"><div class="bg-background dark:bg-gray-900 min-h-screen py-16">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto">
+      <h1
+        class="text-4xl font-bold text-primary dark:text-primary mb-8 text-center"
+      >
+        Technical Experience
+      </h1>
+
+      <div class="space-y-6">
+        
+        <div
+          class="bg-background dark:bg-gray-800 rounded-lg overflow-hidden shadow-md"
+        >
+          <!-- Company Header -->
+          <div class="p-6 border-b border-black dark:border-gray-700">
+            <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
+              Infosys Finacle
+            </h2>
+          </div>
+
+          <!-- Roles -->
+          <div class="p-6">
+            
+            <div class="mb-6 last:mb-0">
+              <div class="flex flex-col md:flex-row justify-between mb-2">
+                <h3
+                  class="text-xl font-semibold text-primary dark:text-primary"
+                >
+                  Product Technical Architect
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Oct '24 - Present</span
+                >
+              </div>
+
+              <!-- Achievements -->
+              <div class="space-y-3 mt-4">
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-1-1"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Developed a Cross-Language SDK for Secure Data Masking</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-1-1"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Built Finacle Tokenizer SDK that helps encrypt data while preserving format, ensuring no database schema changes are required.</li>
+                      
+                      <li>SDKs are available for Java, C/C++, JavaScript, and a WASM module for browser-based applications.</li>
+                      
+                      <li>Currently being tested for adoption by 5+ Finacle Modules.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-1-2"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Licensing Microservice for Finacle SaaS Deployments</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-1-2"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Lightweight microservice that introduces slab-based billing for Finacle SaaS deployments.</li>
+                      
+                      <li>Can be plugged with any version of Finacle to enable license management and consumption tracking.</li>
+                      
+                      <li>Built on Quarkus, with a light memory footprint (~100mb of RAM) and fast startup time (~300ms).</li>
+                      
+                      <li>Aims to replace the existing billing module for Finacle SaaS by 2026.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-1-3"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Product Engineering Leadership</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-1-3"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Designed and implemented release trains and automation for bug fixes and feature rollouts.</li>
+                      
+                      <li>Setup and managed three development teams to scale Finacle's microservices from beta to production.</li>
+                      
+                      <li>Led delivery of 100+ change requests, 5+ features with 95% on-time delivery.</li>
+                      
+                      <li>Provided ongoing support to 15+ banks and multiple internal teams in adopting Finacle's microservices.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-1-4"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Learning Initiatives & Skill Development</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-1-4"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Directly responsible for a 7-member team.</li>
+                      
+                      <li>Created learning frameworks to improve collaboration, documentation & communication, while upskilling.</li>
+                      
+                      <li>Initiatives included pair programming, design audits, code reviews and knowledge sharing sessions.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="mb-6 last:mb-0">
+              <div class="flex flex-col md:flex-row justify-between mb-2">
+                <h3
+                  class="text-xl font-semibold text-primary dark:text-primary"
+                >
+                  Senior Member of Technical Staff
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Jan '23 - Oct '24</span
+                >
+              </div>
+
+              <!-- Achievements -->
+              <div class="space-y-3 mt-4">
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-2-1"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >End-to-End Ownership of Finacle’s Reporting & Auth Services</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-2-1"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Managed Product Roadmap and Release Planning for Finacle's Reporting and Authentication services.</li>
+                      
+                      <li>Collaborated with principals, architects and customers to define and deliver features.</li>
+                      
+                      <li>Independently delivered 10+ features across 2 microservices.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-2-2"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Built a Silent Upgrade System for Secure & Faster Releases</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-2-2"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>End-to-End automation that silently upgraded all Java & GoLang modules within Finacle on a monthly cycle.</li>
+                      
+                      <li>Integrated, automated testing of upgraded components before releasing.</li>
+                      
+                      <li>Reduced upgrade time from 2 weeks to 4 days.</li>
+                      
+                      <li>Reduced vulnerability from outdated FOSS components by 95%.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-2-3"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >SCIM Compliance for Finacle</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-2-3"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Built SCIM compliance into Finacle.</li>
+                      
+                      <li>Allowed seamless user onboarding and offboarding from SCIM-Complaint Identity Providers like Entra ID and Sailpoint IQ.</li>
+                      
+                      <li>Piloting in 5+ banks, live in 3+ banks.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-2-4"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Github Copilot Core Team</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-2-4"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Part of the core team that drove org-wide adoption of Github Copilot.</li>
+                      
+                      <li>Led the development of demos and use cases to promote Copilot's usage within Finacle.</li>
+                      
+                      <li>Achieved a 87% daily active usage rate within the team.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="mb-6 last:mb-0">
+              <div class="flex flex-col md:flex-row justify-between mb-2">
+                <h3
+                  class="text-xl font-semibold text-primary dark:text-primary"
+                >
+                  Member of Technical Staff
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Apr '21 - Jan '23</span
+                >
+              </div>
+
+              <!-- Achievements -->
+              <div class="space-y-3 mt-4">
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-3-1"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Built Finacle's Reporting Microservice</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-3-1"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Designed and built Finacle's Reporting Microservice using Spring Boot.</li>
+                      
+                      <li>Support for Asynchronous Report Generation using RabbitMQ or Kafka.</li>
+                      
+                      <li>Ability to use Cloud Object Stores (AWS S3, Azure Blob) as a data source and destination.</li>
+                      
+                      <li>Actively used in 4+ large banks, generating 2,000+ daily reports.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-3-2"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Built Finacle's Authentication Microservice</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-3-2"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Designed and built Finacle's Authentication Microservice using Spring Boot.</li>
+                      
+                      <li>Support for OAuth2.1 and OpenID Connect.</li>
+                      
+                      <li>Deployable as a sidecar, compatible with any version of Finacle.</li>
+                      
+                      <li>Deployed in 15+ banks.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-3-3"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Contributed in building Finacle's Developer License Portal</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-3-3"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Led a team of 14 engineers to build Finacle's Developer License Portal.</li>
+                      
+                      <li>Actively used by 600+ developers to generate 3000+ Finacle Developer Licenses.</li>
+                      
+                      <li>Facilitated as part of a cross-learning initiative, "Learn By Doing", where the entire team adopted a new tech stack with no prior experience.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-3-4"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Co-created the "Learn By Doing" program</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-3-4"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>A cross-learning initiative to help engineers learn new tech stacks by building real-world applications.</li>
+                      
+                      <li>Organized code reviews with architects, conducted design discussions, and hosted knowledge-sharing sessions to drive collaborative learning and best practices.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div class="mb-6 last:mb-0">
+              <div class="flex flex-col md:flex-row justify-between mb-2">
+                <h3
+                  class="text-xl font-semibold text-primary dark:text-primary"
+                >
+                  Product Engineer
+                </h3>
+                <span class="text-gray-600 dark:text-gray-400"
+                  >Jul '19 - Apr '21</span
+                >
+              </div>
+
+              <!-- Achievements -->
+              <div class="space-y-3 mt-4">
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-4-1"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Owned Finacle's Signature Verification System</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-4-1"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Managed product development and support for Finacle's Signature Verification System.</li>
+                      
+                      <li>Shrunk the defect board by 70%.</li>
+                      
+                      <li>Actively supported 5+ banks in production issues.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-4-2"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Desktop Application to onboard Signatures onto Finacle</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-4-2"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Built a Desktop Application to securely onboard Signatures from TWAIN/WIA compliant scanners onto Finacle.</li>
+                      
+                      <li>Built using TKinter and Python.</li>
+                      
+                      <li>Live in 15+ major Indian banks.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+                <div
+                  class="border border-black dark:border-gray-700 rounded-md"
+                >
+                  <button
+                    class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls="achievement-4-3"
+                  >
+                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                      >Architected fully-containerized CI/CD processes</span
+                    >
+                    <svg
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div
+                    id="achievement-4-3"
+                    class="achievement-content hidden px-4 pb-3 pt-0 text-gray-700 dark:text-gray-300"
+                  >
+                    <ul class="list-disc pl-5 space-y-2">
+                      
+                      <li>Introduced fully-containerized Gitlab CI Runners.</li>
+                      
+                      <li>Designed CI jobs which run within Docker Containers.</li>
+                      
+                      <li>Enabled 2-minute, machine-independent runner deployments with 0 setup.</li>
+                      
+                    </ul>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggles = document.querySelectorAll(".achievement-toggle");
+
+    toggles.forEach((toggle) => {
+      toggle.addEventListener("click", function () {
+        const content = this.nextElementSibling;
+        const isExpanded = this.getAttribute("aria-expanded") === "true";
+
+        // Toggle aria-expanded
+        this.setAttribute("aria-expanded", !isExpanded);
+
+        // Toggle content visibility
+        if (isExpanded) {
+          content.classList.add("hidden");
+          this.querySelector("svg").classList.remove("rotate-180");
+        } else {
+          content.classList.remove("hidden");
+          this.querySelector("svg").classList.add("rotate-180");
+        }
+      });
+    });
+  });
+</script>
+</main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-background dark:bg-gray-800">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        &copy; 2025 Rohan R Mallya. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Dark Mode Toggle Script -->
+  </body>
+  <script>
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Set initial theme based on localStorage or system preference
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  </script>
+</html>

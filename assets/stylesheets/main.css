@@ -1,0 +1,21 @@
+---
+---
+@import "tailwindcss";
+
+
+@layer utilities {
+	
+}
+
+/*  primary: "#e11d48",
+              background: "#ffe1a7",
+              secondary: "#ffab00", */
+
+@theme {
+    --color-primary: oklch(0.59 0.222 17.58);
+    --color-background: oklch(0.92 0.081 83.58);
+    --color-secondary: oklch(0.8 0.1704 73.79)
+}
+@custom-variant dark (&:where(.dark, .dark *));
+
+@config "../../tailwind.config.js"

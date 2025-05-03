@@ -30,11 +30,11 @@ linkedin_username: rohanmallya
 pinterest_username: rohanrmallya
 
 # Build settings
-theme: minima
+# theme: minima
 
 plugins:
   - jekyll-feed
-  - jekyll-postcss
+  - jekyll-postcss-v2
   - jekyll-paginate
 
 postcss:
@@ -43,9 +43,9 @@ postcss:
 paginate: 5
 paginate_path: "/blog/page:num/"
 permalink: /blog/:year/:month/:day/:title/
-
-minima:
-  skin: dark
+future: true
+# minima:
+#   skin: dark
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

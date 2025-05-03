@@ -5,23 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ page.title }}</title>
-    <!-- Updated to Tailwind CSS 4 CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#e11d48",
-              background: "#ffe1a7",
-              secondary: "#ffab00",
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="stylesheet" href="{{'/assets/stylesheets/main.css'}}" />
   </head>
+
   <body class="bg-background text-gray-800 dark:bg-gray-900 dark:text-gray-100">
     <!-- Include the navbar component -->
     {% include navbar.html %}
@@ -37,30 +23,35 @@
     </footer>
 
     <!-- Dark Mode Toggle Script -->
-    <script>
-      const darkModeToggle = document.getElementById("darkModeToggle");
-      const htmlElement = document.documentElement;
-
-      darkModeToggle.addEventListener("click", () => {
-        if (htmlElement.classList.contains("dark")) {
-          htmlElement.classList.remove("dark");
-          localStorage.setItem("theme", "light");
-        } else {
-          htmlElement.classList.add("dark");
-          localStorage.setItem("theme", "dark");
-        }
-      });
-
-      // Set initial theme based on localStorage or system preference
-      if (
-        localStorage.getItem("theme") === "dark" ||
-        (!localStorage.getItem("theme") &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
-        htmlElement.classList.add("dark");
-      } else {
-        htmlElement.classList.remove("dark");
-      }
-    </script>
   </body>
+  <script>
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    console.log(darkModeToggle);
+    const htmlElement = document.documentElement;
+    console.log(htmlElement.classList);
+
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        console.log("Removing dark mode");
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+        console.log(htmlElement.classList);
+      } else {
+        console.log("Adding dark mode");
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Set initial theme based on localStorage or system preference
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  </script>
 </html>

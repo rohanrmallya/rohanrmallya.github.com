@@ -26,6 +26,10 @@ jobs:
         uses: limjh16/jekyll-action-ts@v2
         with:
           enable_cache: true
+      - name: Build site (again)
+        uses: limjh16/jekyll-action-ts@v2
+        with:
+          enable_cache: true
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -7,9 +7,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-blue-300: oklch(80.9% 0.105 251.813);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
+    --color-blue-800: oklch(42.4% 0.199 265.638);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
@@ -606,6 +608,13 @@
       margin-bottom: calc(var(--spacing) * 0);
     }
   }
+  .hover\:border-primary-hover {
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-primary-hover);
+      }
+    }
+  }
   .hover\:bg-primary-hover {
     &:hover {
       @media (hover: hover) {
@@ -613,10 +622,24 @@
       }
     }
   }
+  .hover\:fill-blue-800 {
+    &:hover {
+      @media (hover: hover) {
+        fill: var(--color-blue-800);
+      }
+    }
+  }
   .hover\:text-primary {
     &:hover {
       @media (hover: hover) {
         color: var(--color-primary);
+      }
+    }
+  }
+  .hover\:text-primary-hover {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-primary-hover);
       }
     }
   }
@@ -757,20 +780,20 @@
       }
     }
   }
+  .dark\:hover\:border-blue-400 {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          border-color: var(--color-blue-400);
+        }
+      }
+    }
+  }
   .dark\:hover\:bg-blue-700 {
     &:where(.dark, .dark *) {
       &:hover {
         @media (hover: hover) {
           background-color: var(--color-blue-700);
-        }
-      }
-    }
-  }
-  .dark\:hover\:bg-primary {
-    &:where(.dark, .dark *) {
-      &:hover {
-        @media (hover: hover) {
-          background-color: var(--color-primary);
         }
       }
     }
@@ -784,6 +807,15 @@
       }
     }
   }
+  .dark\:hover\:fill-blue-300 {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          fill: var(--color-blue-300);
+        }
+      }
+    }
+  }
   .dark\:hover\:text-background {
     &:where(.dark, .dark *) {
       &:hover {
@@ -793,20 +825,29 @@
       }
     }
   }
+  .dark\:hover\:text-blue-400 {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-blue-400);
+        }
+      }
+    }
+  }
+  .dark\:hover\:text-primary {
+    &:where(.dark, .dark *) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
   .dark\:hover\:text-primary-hover {
     &:where(.dark, .dark *) {
       &:hover {
         @media (hover: hover) {
           color: var(--color-primary-hover);
-        }
-      }
-    }
-  }
-  .dark\:hover\:text-white {
-    &:where(.dark, .dark *) {
-      &:hover {
-        @media (hover: hover) {
-          color: var(--color-white);
         }
       }
     }

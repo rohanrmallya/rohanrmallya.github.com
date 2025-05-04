@@ -7,7 +7,7 @@ title: Tech Experience
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto">
       <h1
-        class="text-4xl font-bold text-primary dark:text-primary-light mb-8 text-center"
+        class="text-4xl font-bold text-primary dark:text-primary mb-8 text-center"
       >
         Technical Experience
       </h1>
@@ -18,7 +18,7 @@ title: Tech Experience
           class="bg-background dark:bg-background-dark-elevated rounded-lg overflow-hidden shadow-2xl shadow-dark-elevated"
         >
           <!-- Company Header -->
-          <div class="p-6 border-b border-black dark:border-primary-light">
+          <div class="p-6 border-b border-black dark:border-primary">
             <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-100">
               {{ company.name }}
             </h2>
@@ -27,14 +27,12 @@ title: Tech Experience
           <!-- Roles -->
           <div class="p-6">
             {% for role in company.roles %} {% if forloop.first == false %}
-            <hr
-              class="border-t border-gray-800 dark:border-primary-light my-12"
-            />
+            <hr class="border-t border-gray-800 dark:border-primary my-12" />
             {% endif %}
             <div class="mb-6 last:mb-0">
               <div class="flex flex-col md:flex-row justify-between mb-2">
                 <h3
-                  class="text-xl font-semibold text-primary dark:text-primary-light"
+                  class="text-xl font-semibold text-primary dark:text-primary"
                 >
                   {{ role.title }}
                 </h3>
@@ -58,7 +56,7 @@ title: Tech Experience
                       >{{ achievement.title }}</span
                     >
                     <svg
-                      class="w-5 h-5 text-primary dark:text-primary-light transform transition-transform duration-200"
+                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

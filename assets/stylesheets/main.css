@@ -13,19 +13,11 @@
 
 @theme {
     /* --color-primary: oklch(0.59 0.222 17.58); */
-    --color-primary: oklch(59.103% 0.2222 17.732);
-    --color-primary-50: oklch(86.616% 0.0609 4.2829);
-    --color-primary-100: oklch(82.769% 0.08108 5.384);
-    --color-primary-200: oklch(75.462% 0.12302 6.9295);
-    --color-primary-300: oklch(68.584% 0.16442 9.311);
-    --color-primary-400: oklch(63.153% 0.19987 12.733);
-    --color-primary-500: oklch(59.103% 0.2222 17.732);
-    --color-primary-600: oklch(49.686% 0.18681 17.74);
-    --color-primary-700: oklch(39.331% 0.14563 17.063);
-    --color-primary-800: oklch(28.59% 0.10111 15.439);
-    --color-primary-900: oklch(16.513% 0.04972 8.4404);
-    --color-primary-950: oklch(8.9319% 0.02153 3.5604);
-    --color-primary-hover: oklch(0.54 0.2003 16.72);
+    --color-primary: #274ab3;
+    --color-primary-light: #dce1ff;
+   --color-tert-container: #5b3d57;
+   --color-ter-on-container: #5b3d57;
+    --color-primary-hover: oklch(0.38 0.1376 265.81);
     --color-background: oklch(92.105% 0.08101 83.576);
     --color-background-50: oklch(100% 0 none);
     --color-background-100: oklch(100% 0 none);
@@ -38,7 +30,41 @@
     --color-background-800: oklch(79.506% 0.17019 72.058);
     --color-background-900: oklch(66.066% 0.14101 72.6);
     --color-background-950: oklch(59.186% 0.12582 73.376);
-    --color-secondary: oklch(0.8 0.1704 73.79)
+
+    --color-background-dark: #121212;
+    --color-background-dark-elevated: #2A2D3A;
+    --color-secondary: oklch(0.8 0.1704 73.79);
+    --color-navbar-dark: #121212;
+
+    /** Base colors */
+--clr-dark-a0: #000000;
+--clr-light-a0: #ffffff;
+
+/** Theme primary colors */
+--clr-primary-a0: #274ab3;
+--clr-primary-a10: #495cbc;
+--clr-primary-a20: #646ec5;
+--clr-primary-a30: #7c81cd;
+--clr-primary-a40: #9295d6;
+--clr-primary-a50: #a8a9de;
+
+/** Theme surface colors */
+--clr-surface-a0: #121212;
+--clr-surface-a10: #282828;
+--clr-surface-a20: #3f3f3f;
+--clr-surface-a30: #575757;
+--clr-surface-a40: #717171;
+--clr-surface-a50: #8b8b8b;
+
+/** Theme tonal surface colors */
+--clr-surface-tonal-a0: #181820;
+--clr-surface-tonal-a10: #2d2d35;
+--clr-surface-tonal-a20: #44444b;
+--clr-surface-tonal-a30: #5c5b62;
+--clr-surface-tonal-a40: #75747a;
+--clr-surface-tonal-a50: #8f8f93;
+
+
 }
 
 pre, code {

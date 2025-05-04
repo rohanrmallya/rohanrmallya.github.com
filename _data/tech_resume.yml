@@ -3,12 +3,12 @@
     - title: Product Technical Architect
       duration: Oct '24 - Present
       achievements:
-        - title: Developed a Cross-Language SDK for Secure Data Masking
+        - title: Built Cross-Language SDK for Secure Data Masking
           description:
             - Built Finacle Tokenizer SDK that helps encrypt data while preserving format, ensuring no database schema changes are required.
             - SDKs are available for Java, C/C++, JavaScript, and a WASM module for browser-based applications.
             - Currently being tested for adoption by 5+ Finacle Modules.
-        - title: Licensing Microservice for Finacle SaaS Deployments
+        - title: Developed Licensing Service for Finacle SaaS
           description:
             - Lightweight microservice that introduces slab-based billing for Finacle SaaS deployments.
             - Can be plugged with any version of Finacle to enable license management and consumption tracking.
@@ -20,7 +20,7 @@
             - Setup and managed three development teams to scale Finacle's microservices from beta to production.
             - Led delivery of 100+ change requests, 5+ features with 95% on-time delivery.
             - Provided ongoing support to 15+ banks and multiple internal teams in adopting Finacle's microservices.
-        - title: Learning Initiatives & Skill Development
+        - title: Team Management & Mentorship
           description:
             - Directly responsible for a 7-member team.
             - Created learning frameworks to improve collaboration, documentation & communication, while upskilling.
@@ -28,12 +28,12 @@
     - title: Senior Member of Technical Staff
       duration: Jan '23 - Oct '24
       achievements:
-        - title: End-to-End Ownership of Finacle’s Reporting & Auth Services
+        - title: Ownned Finacle’s Reporting & Auth Services
           description:
             - Managed Product Roadmap and Release Planning for Finacle's Reporting and Authentication services.
             - Collaborated with principals, architects and customers to define and deliver features.
             - Independently delivered 10+ features across 2 microservices.
-        - title: Built a Silent Upgrade System for Secure & Faster Releases
+        - title: Architected Silent Upgrade System for Secure & Faster Releases
           description:
             - End-to-End automation that silently upgraded all Java & GoLang modules within Finacle on a monthly cycle.
             - Integrated, automated testing of upgraded components before releasing.
@@ -44,7 +44,7 @@
             - Built SCIM compliance into Finacle.
             - Allowed seamless user onboarding and offboarding from SCIM-Complaint Identity Providers like Entra ID and Sailpoint IQ.
             - Piloting in 5+ banks, live in 3+ banks.
-        - title: Github Copilot Core Team
+        - title: Github Copilot Core Team Member
           description:
             - Part of the core team that drove org-wide adoption of Github Copilot.
             - Led the development of demos and use cases to promote Copilot's usage within Finacle.

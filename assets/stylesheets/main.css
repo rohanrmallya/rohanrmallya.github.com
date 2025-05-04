@@ -7,42 +7,27 @@
 	
 }
 
-/*  primary: "#e11d48",
-              background: "#ffe1a7",
-              secondary: "#ffab00", */
-
 @theme {
-    /* --color-primary: oklch(0.59 0.222 17.58); */
-    --color-primary: oklch(59.103% 0.2222 17.732);
-    --color-primary-50: oklch(86.616% 0.0609 4.2829);
-    --color-primary-100: oklch(82.769% 0.08108 5.384);
-    --color-primary-200: oklch(75.462% 0.12302 6.9295);
-    --color-primary-300: oklch(68.584% 0.16442 9.311);
-    --color-primary-400: oklch(63.153% 0.19987 12.733);
-    --color-primary-500: oklch(59.103% 0.2222 17.732);
-    --color-primary-600: oklch(49.686% 0.18681 17.74);
-    --color-primary-700: oklch(39.331% 0.14563 17.063);
-    --color-primary-800: oklch(28.59% 0.10111 15.439);
-    --color-primary-900: oklch(16.513% 0.04972 8.4404);
-    --color-primary-950: oklch(8.9319% 0.02153 3.5604);
-    --color-primary-hover: oklch(0.54 0.2003 16.72);
-    --color-background: oklch(92.105% 0.08101 83.576);
-    --color-background-50: oklch(100% 0 none);
-    --color-background-100: oklch(100% 0 none);
-    --color-background-200: oklch(100% 0 none);
-    --color-background-300: oklch(99.447% 0.00569 84.566);
-    --color-background-400: oklch(95.69% 0.04404 83.913);
-    --color-background-500: oklch(92.105% 0.08101 83.576);
-    --color-background-600: oklch(87.558% 0.12591 82.368);
-    --color-background-700: oklch(83.446% 0.15759 79.098);
-    --color-background-800: oklch(79.506% 0.17019 72.058);
-    --color-background-900: oklch(66.066% 0.14101 72.6);
-    --color-background-950: oklch(59.186% 0.12582 73.376);
-    --color-secondary: oklch(0.8 0.1704 73.79)
+    --color-primary: #4a65d3;
+    --color-tertiary-container: #5b3d57;
+    --color-tertiary-text: #ffd7f3;
+    --color-primary-hover: #1f3a8a;
+    --color-background: #ffe1a7;
+    --color-background-dark: #121212;
+    --color-background-dark-elevated: #2A2D3A;
+
 }
 
-pre, code {
-    @apply bg-background-700 text-sm text-black rounded-sm p-1;
+pre {
+    @apply bg-tertiary-container text-sm text-tertiary-text rounded-sm p-0.25;
+}
+
+pre > code {
+    @apply bg-tertiary-container text-sm text-tertiary-text rounded-sm p-0.25;
+}
+
+code {
+    @apply text-tertiary-container bg-transparent;
 }
 
 .highlight {

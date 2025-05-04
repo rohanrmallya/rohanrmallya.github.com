@@ -3,34 +3,38 @@ layout: base
 title: Tech Experience
 ---
 
-<div class="bg-background dark:bg-gray-900 min-h-screen py-16">
+<div class="bg-background dark:bg-background-dark min-h-screen py-16">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto">
       <h1
-        class="text-4xl font-bold text-primary dark:text-primary mb-8 text-center"
+        class="text-4xl font-bold text-primary dark:text-primary-light mb-8 text-center"
       >
         Technical Experience
       </h1>
 
-      <div class="space-y-6">
+      <div class="space-y-4">
         {% for company in site.data.tech_resume %}
         <div
-          class="bg-background dark:bg-gray-800 rounded-lg overflow-hidden shadow-md"
+          class="bg-background dark:bg-background-dark-elevated rounded-lg overflow-hidden shadow-2xl shadow-dark-elevated"
         >
           <!-- Company Header -->
-          <div class="p-6 border-b border-black dark:border-gray-700">
-            <h2 class="text-2xl font-bold text-gray-800 dark:text-white">
+          <div class="p-6 border-b border-black dark:border-primary-light">
+            <h2 class="text-2xl font-bold text-gray-700 dark:text-gray-100">
               {{ company.name }}
             </h2>
           </div>
 
           <!-- Roles -->
           <div class="p-6">
-            {% for role in company.roles %}
+            {% for role in company.roles %} {% if forloop.first == false %}
+            <hr
+              class="border-t border-gray-800 dark:border-primary-light my-12"
+            />
+            {% endif %}
             <div class="mb-6 last:mb-0">
               <div class="flex flex-col md:flex-row justify-between mb-2">
                 <h3
-                  class="text-xl font-semibold text-primary dark:text-primary"
+                  class="text-xl font-semibold text-primary dark:text-primary-light"
                 >
                   {{ role.title }}
                 </h3>
@@ -43,18 +47,18 @@ title: Tech Experience
               <div class="space-y-3 mt-4">
                 {% for achievement in role.achievements %}
                 <div
-                  class="border border-black dark:border-gray-700 rounded-md"
+                  class="border-none border-gray-700 dark:border-gray-300 rounded-md"
                 >
                   <button
                     class="achievement-toggle w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
                     aria-expanded="false"
                     aria-controls="achievement-{{ forloop.parentloop.index }}-{{ forloop.index }}"
                   >
-                    <span class="font-medium text-gray-800 dark:text-gray-200"
+                    <span class="font-medium text-gray-700 dark:text-gray-100"
                       >{{ achievement.title }}</span
                     >
                     <svg
-                      class="w-5 h-5 text-primary dark:text-primary transform transition-transform duration-200"
+                      class="w-5 h-5 text-primary dark:text-primary-light transform transition-transform duration-200"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

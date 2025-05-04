@@ -13,10 +13,10 @@
 
 @theme {
     /* --color-primary: oklch(0.59 0.222 17.58); */
-    --color-primary: #274ab3;
-    --color-primary-light: #dce1ff;
-   --color-tert-container: #5b3d57;
-   --color-ter-on-container: #5b3d57;
+    --color-primary: #4a65d3;
+    --color-primary-light: #4a65d3;
+   --color-tertiary-container: #5b3d57;
+   --color-tertiary-text: #ffd7f3;
     --color-primary-hover: oklch(0.38 0.1376 265.81);
     --color-background: oklch(92.105% 0.08101 83.576);
     --color-background-50: oklch(100% 0 none);
@@ -67,8 +67,16 @@
 
 }
 
-pre, code {
-    @apply bg-background-700 text-sm text-black rounded-sm p-1;
+pre {
+    @apply bg-tertiary-container text-sm text-tertiary-text rounded-sm p-0.25;
+}
+
+pre > code {
+    @apply bg-tertiary-container text-sm text-tertiary-text rounded-sm p-0.25;
+}
+
+code {
+    @apply text-tertiary-container bg-transparent;
 }
 
 .highlight {

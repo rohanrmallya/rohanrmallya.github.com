@@ -1,0 +1,507 @@
+<!-- /_layouts/base.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/imgs/favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/imgs/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/imgs/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/imgs/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/imgs/favicon/site.webmanifest" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-W7DQDC36JQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-W7DQDC36JQ");
+    </script>
+
+    <script src="/assets/js/cal.js"></script>
+  </head>
+
+  <body
+    class="bg-background text-gray-800 dark:bg-background-dark dark:text-gray-100"
+  >
+    <!-- Include the navbar component -->
+    <header
+  class="sticky top-0 z-50 bg-background dark:bg-background-dark dark:shadow-grey-900 dark:shadow-md shadow-md"
+>
+  <div class="container mx-auto">
+    <nav class="flex items-center justify-between p-4">
+      <!-- Logo/Brand -->
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a
+          href="/"
+          class="hover:text-primary dark:hover:text-primary transition duration-200"
+          >Home</a
+        >
+        <a
+          href="/tech"
+          class="hover:text-primary dark:hover:text-primary transition duration-200"
+          >Tech</a
+        >
+        <a
+          href="/bookshelf/"
+          class="hover:text-primary dark:hover:text-primary transition duration-200"
+          >Bookshelf</a
+        >
+        <a
+          href="http://cv.rohanmallya.com"
+          class="hover:text-primary dark:hover:text-primary transition duration-200"
+          >Résumé</a
+        >
+        <!-- <a
+          href="/blog"
+          class="hover:text-primary dark:hover:text-background transition duration-200"
+          >Blog</a
+        > -->
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="flex items-center md:hidden">
+        <button
+          id="mobileMenuToggle"
+          class="text-gray-800 dark:text-gray-100 focus:outline-none mr-4"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dark Mode Toggle -->
+      <button
+        id="darkModeToggle"
+        class="text-gray-800 dark:text-gray-100 focus:outline-none"
+      >
+        <svg
+          id="sunIcon"
+          class="w-6 h-6 hidden dark:block"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"
+          ></path>
+        </svg>
+        <svg
+          id="moonIcon"
+          class="w-6 h-6 dark:hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Navigation Menu (Hidden by default) -->
+    <div
+      id="mobileMenu"
+      class="hidden md:hidden bg-background dark:bg-background-dark pb-4 px-4"
+    >
+      <a
+        href="/"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Home</a
+      >
+      <a
+        href="/tech"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Tech</a
+      >
+      <a
+        href="/bookshelf/"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Bookshelf</a
+      >
+      <a
+        href="https://cv.rohanmallya.com"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Résumé</a
+      >
+      <!-- <a
+        href="/blog"
+        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
+        >Blog</a
+      > -->
+    </div>
+  </div>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    document
+      .getElementById("mobileMenuToggle")
+      .addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileMenu.classList.toggle("hidden");
+      });
+  </script>
+</header>
+
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4"><!-- Main Content -->
+<main class="container mx-auto px-4 py-8">
+  <!-- Header Section -->
+  <header class="mb-8">
+    <h1
+      class="text-4xl font-bold text-primary dark:text-primary mb-4 text-center md:text-left"
+    >
+      Bookshelf
+    </h1>
+    <p
+      class="text-lg text-gray-600 dark:text-gray-400 text-center md:text-left max-w-2xl"
+    >
+      My collection of books I've read, organized by category and reading date. Discover recommendations across design, programming, business, and more.
+    </p>
+  </header>
+
+  <!-- Controls Section -->
+  <section class="mb-8 space-y-4">
+    <!-- Search Bar -->
+    <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex-1">
+        <label for="searchInput" class="sr-only"
+          >Search books by title or author</label
+        >
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by title or author..."
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
+          aria-label="Search books by title or author"
+        />
+      </div>
+
+      <!-- Sort Dropdown -->
+      <div class="w-full md:w-48">
+        <label for="sortSelect" class="sr-only">Sort books</label>
+        <select
+          id="sortSelect"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
+          aria-label="Sort books"
+        >
+          <option value="newest">Newest → Oldest</option>
+          <option value="oldest">Oldest → Newest</option>
+          <option value="title">Title A → Z</option>
+          <option value="author">Author A → Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="space-y-2">
+      <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <label
+          for="categorySelect"
+          class="text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Filter by Category:
+        </label>
+        <select
+          id="categorySelect"
+          class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100 w-full md:w-48"
+        >
+          <option value="">All Categories</option>
+        </select>
+      </div>
+
+      <!-- Category Chips -->
+      <div
+        id="categoryChips"
+        class="flex flex-wrap gap-2"
+        role="group"
+        aria-label="Quick category filters"
+      >
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section>
+    <!-- Results Count -->
+    <div class="mb-4">
+      <p
+        id="resultsCount"
+        class="text-sm text-gray-600 dark:text-gray-400"
+        aria-live="polite"
+      >
+        <!-- Dynamically updated -->
+      </p>
+    </div>
+
+    <!-- Books Grid -->
+    <div
+      id="booksGrid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      role="region"
+      aria-live="polite"
+      aria-label="Books list"
+    >
+      <!-- Dynamically populated -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-12">
+      <div class="max-w-md mx-auto">
+        <svg
+          class="mx-auto h-12 w-12 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
+        </svg>
+        <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+          No books found
+        </h3>
+        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          Try adjusting your search or filter criteria.
+        </p>
+        <button
+          id="clearFiltersBtn"
+          class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary bg-primary/10 hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+        >
+          Clear all filters
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Embedded Book Data -->
+<script>
+  // Serialize Jekyll data to JavaScript
+  window.BOOKS_DATA = [
+    
+    {
+      title: "Bihar Dairies",
+      subtitle: null,
+      author: "Amit Lodha",
+      link: "https://amzn.to/4haNgCW",
+      category: "True Crime",
+      date_finished: "2024-03-15"
+    },
+    
+    {
+      title: "Calling Sehmat",
+      subtitle: null,
+      author: "Harinder S. Sikka",
+      link: "https://amzn.to/4mWsgRx",
+      category: "Espionage Thriller",
+      date_finished: "2024-01-22"
+    },
+    
+    {
+      title: "Telgi: A Reporter's Diary",
+      subtitle: null,
+      author: "Sanjay Singh",
+      link: "https://amzn.to/48rY5OC",
+      category: "True Crime",
+      date_finished: "2024-01-22"
+    },
+    
+    {
+      title: "How to Talk to Anyone",
+      subtitle: null,
+      author: "Leil Lowndes",
+      link: "https://amzn.to/4nFsLRa",
+      category: "Self-Help",
+      date_finished: "2024-11-22"
+    },
+    
+    {
+      title: "Sapiens",
+      subtitle: null,
+      author: "Yuval Noah Harari",
+      link: "https://amzn.to/4odJRW9",
+      category: "History",
+      date_finished: "2024-01-21"
+    },
+    
+    {
+      title: "King of Bollywood",
+      subtitle: null,
+      author: "Anupama Chopra",
+      link: "https://amzn.to/48V5ndW",
+      category: "Biography",
+      date_finished: "2024-02-21"
+    },
+    
+    {
+      title: "Surrounded by Idiots",
+      subtitle: null,
+      author: "Thomas Erikson",
+      link: "https://amzn.to/4qdDQuD",
+      category: "Self-Help",
+      date_finished: "2024-06-16"
+    },
+    
+    {
+      title: "Conquerors",
+      subtitle: null,
+      author: "Roger Crowley",
+      link: "https://amzn.to/4q74CVk",
+      category: "History",
+      date_finished: "2024-01-28"
+    },
+    
+    {
+      title: "The Psychology of Money",
+      subtitle: null,
+      author: "Morgan Housel",
+      link: "https://amzn.to/4q7GHVQ",
+      category: "Finance",
+      date_finished: "2024-01-28"
+    },
+    
+    {
+      title: "Tiny Experiments",
+      subtitle: null,
+      author: "Anne-Laure Le Cunff",
+      link: "https://amzn.to/48ZFcCR",
+      category: "Self-Help",
+      date_finished: "2025-03-08"
+    },
+    
+    {
+      title: "Accounting Made Simple",
+      subtitle: null,
+      author: "Mike Piper",
+      link: "https://amzn.to/46O8TFI",
+      category: "Finance",
+      date_finished: "2025-08-21"
+    },
+    
+    {
+      title: "Storyworthy",
+      subtitle: null,
+      author: "Matthew Dicks",
+      link: "https://amzn.to/46Y166R",
+      category: "Self-Help",
+      date_finished: "2025-09-10"
+    },
+    
+    {
+      title: "The 10 Rules of Successful Nations",
+      subtitle: null,
+      author: "Ruchir Sharma",
+      link: "https://amzn.to/4nUno0Q",
+      category: "Economics",
+      date_finished: "2025-10-02"
+    }
+    
+  ];
+</script>
+
+<!-- Bookshelf JavaScript -->
+<script src="/assets/js/bookshelf.js"></script>
+
+<!-- Dark Mode Toggle Script (matching existing site functionality) -->
+<script>
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const htmlElement = document.documentElement;
+
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  }
+</script>
+</main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-background dark:bg-background-dark">
+      <p class="text-sm text-gray-600 dark:text-gray-400">
+        &copy; 2025 Rohan R Mallya. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Dark Mode Toggle Script -->
+  </body>
+  <script>
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Set initial theme based on localStorage or system preference
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  </script>
+</html>

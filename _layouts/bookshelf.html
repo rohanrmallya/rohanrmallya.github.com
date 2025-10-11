@@ -1,0 +1,177 @@
+---
+layout: base
+---
+
+<!-- Main Content -->
+<main class="container mx-auto px-4 py-8">
+  <!-- Header Section -->
+  <header class="mb-8">
+    <h1
+      class="text-4xl font-bold text-primary dark:text-primary mb-4 text-center md:text-left"
+    >
+      {{ page.title }}
+    </h1>
+    <p
+      class="text-lg text-gray-600 dark:text-gray-400 text-center md:text-left max-w-2xl"
+    >
+      {{ page.description | default: "My collection of books I've read,
+      organized by category and reading date. Discover recommendations across
+      various topics." }}
+    </p>
+  </header>
+
+  <!-- Controls Section -->
+  <section class="mb-8 space-y-4">
+    <!-- Search Bar -->
+    <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex-1">
+        <label for="searchInput" class="sr-only"
+          >Search books by title or author</label
+        >
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by title or author..."
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
+          aria-label="Search books by title or author"
+        />
+      </div>
+
+      <!-- Sort Dropdown -->
+      <div class="w-full md:w-48">
+        <label for="sortSelect" class="sr-only">Sort books</label>
+        <select
+          id="sortSelect"
+          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
+          aria-label="Sort books"
+        >
+          <option value="newest">Newest → Oldest</option>
+          <option value="oldest">Oldest → Newest</option>
+          <option value="title">Title A → Z</option>
+          <option value="author">Author A → Z</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Category Filter -->
+    <div class="space-y-2">
+      <div class="flex flex-col md:flex-row md:items-center gap-4">
+        <label
+          for="categorySelect"
+          class="text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Filter by Category:
+        </label>
+        <select
+          id="categorySelect"
+          class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100 w-full md:w-48"
+        >
+          <option value="">All Categories</option>
+        </select>
+      </div>
+
+      <!-- Category Chips -->
+      <div
+        id="categoryChips"
+        class="flex flex-wrap gap-2"
+        role="group"
+        aria-label="Quick category filters"
+      >
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section>
+    <!-- Results Count -->
+    <div class="mb-4">
+      <p
+        id="resultsCount"
+        class="text-sm text-gray-600 dark:text-gray-400"
+        aria-live="polite"
+      >
+        <!-- Dynamically updated -->
+      </p>
+    </div>
+
+    <!-- Books Grid -->
+    <div
+      id="booksGrid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      role="region"
+      aria-live="polite"
+      aria-label="Books list"
+    >
+      <!-- Dynamically populated -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-12">
+      <div class="max-w-md mx-auto">
+        <svg
+          class="mx-auto h-12 w-12 text-gray-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+          />
+        </svg>
+        <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+          No books found
+        </h3>
+        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          Try adjusting your search or filter criteria.
+        </p>
+        <button
+          id="clearFiltersBtn"
+          class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary bg-primary/10 hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+        >
+          Clear all filters
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Embedded Book Data -->
+<script>
+  // Serialize Jekyll data to JavaScript
+  window.BOOKS_DATA = [
+    {% for book in site.data.book %}
+    {
+      title: {{ book.title | jsonify }},
+      author: {{ book.author | jsonify }},
+      link: {{ book.link | jsonify }},
+      category: {{ book.category | jsonify }},
+      date_finished: {{ book.date_finished | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+
+<!-- Bookshelf JavaScript -->
+<script src="/assets/js/bookshelf.js"></script>
+
+<!-- Dark Mode Toggle Script (matching existing site functionality) -->
+<script>
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const htmlElement = document.documentElement;
+
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  }
+</script>

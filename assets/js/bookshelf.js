@@ -200,6 +200,11 @@
                     </h3>`
                       : `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">${book.title}</h3>`
                   }
+                  ${
+                    book.subtitle
+                      ? `<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">${book.subtitle}</p>`
+                      : ""
+                  }
                   <p class="text-gray-600 dark:text-gray-400 text-sm">by ${
                     book.author
                   }</p>

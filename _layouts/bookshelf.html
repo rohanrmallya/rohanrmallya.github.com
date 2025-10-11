@@ -146,6 +146,7 @@ layout: base
     {% for book in site.data.book %}
     {
       title: {{ book.title | jsonify }},
+      subtitle: {{ book.subtitle | jsonify }},
       author: {{ book.author | jsonify }},
       link: {{ book.link | jsonify }},
       category: {{ book.category | jsonify }},

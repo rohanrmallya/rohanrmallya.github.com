@@ -189,42 +189,35 @@
     booksGrid.innerHTML = filteredBooks
       .map(
         (book) => `
-            <article class="bg-white dark:bg-background-dark-elevated rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6 border border-gray-100 dark:border-gray-700">
-              <div class="space-y-3">
-                <div>
-                  ${
-                    book.link
-                      ? `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors">
-                      <a href="${book.link}" target="_blank" rel="noopener noreferrer" class="focus:outline-none focus:underline">
-                        ${book.title}
-                      </a>
-                    </h3>`
-                      : `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">${book.title}</h3>`
-                  }
-                  ${
-                    book.subtitle
-                      ? `<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">${book.subtitle}</p>`
-                      : ""
-                  }
-                  <p class="text-gray-600 dark:text-gray-400 text-sm">by ${
-                    book.author
-                  }</p>
-                </div>
-                
-                <div class="flex items-center justify-between">
-                  ${
-                    book.category
-                      ? `<span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary">
-                      ${book.category}
-                    </span>`
-                      : "<div></div>"
-                  }
-                  <time class="text-xs text-gray-500 dark:text-gray-400" datetime="${
-                    book.date_finished || ""
-                  }">
-                    ${formatDate(book.date_finished)}
-                  </time>
-                </div>
+            <article class="bg-white dark:bg-background-dark-elevated rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6 border border-gray-100 dark:border-gray-700 flex flex-col justify-between h-full">
+              <div>
+                ${
+                  book.link
+                    ? `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors">
+                        <a href="${book.link}" target="_blank" rel="noopener noreferrer" class="focus:outline-none focus:underline">
+                          ${book.title}
+                        </a>
+                      </h3>`
+                    : `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">${book.title}</h3>`
+                }
+                ${
+                  book.subtitle
+                    ? `<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">${book.subtitle}</p>`
+                    : ""
+                }
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">by ${
+                  book.author
+                }</p>
+              </div>
+              <div class="flex items-center justify-between mt-4 pt-2 border-t border-gray-100 dark:border-gray-700">
+                ${
+                  book.category
+                    ? `<span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary">${book.category}</span>`
+                    : ""
+                }
+                <time class="text-xs text-gray-500 dark:text-gray-400" datetime="${
+                  book.date_finished || ""
+                }">${formatDate(book.date_finished)}</time>
               </div>
             </article>
           `

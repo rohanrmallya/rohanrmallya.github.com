@@ -93,6 +93,7 @@
         chip.classList.add("bg-primary", "text-white");
         chip.classList.remove(
           "text-primary",
+          "dark:text-primary",
           "hover:bg-primary",
           "hover:text-white"
         );

@@ -131,9 +131,9 @@
     filteredBooks.sort((a, b) => {
       switch (sortBy) {
         case "newest":
-          return compareDates(b.date_finished, a.date_finished);
+          return compareDates(a.date_finished, b.date_finished); // newest first
         case "oldest":
-          return compareDates(a.date_finished, b.date_finished);
+          return compareDates(b.date_finished, a.date_finished); // oldest first
         case "title":
           return a.title.localeCompare(b.title);
         case "author":
@@ -258,7 +258,7 @@
     }
 
     if (categorySelect.value) {
-      params.set("category", categorySelect.value);
+      categorySelect.value = params.get("category");
     }
 
     if (sortSelect.value !== "newest") {

@@ -448,6 +448,19 @@
   ];
 </script>
 
+<!-- Initialize theme based on localStorage -->
+<script>
+  (function () {
+    const htmlElement = document.documentElement;
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  })();
+</script>
+
 <!-- Bookshelf JavaScript -->
 <script src="/assets/js/bookshelf.js"></script>
 

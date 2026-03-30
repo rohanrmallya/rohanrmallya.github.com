@@ -1,0 +1,25 @@
+---
+layout: base
+---
+<article class="pt-32 min-h-screen px-4 md:px-12 pb-24 max-w-3xl mx-auto">
+  <div class="mb-12">
+    <a href="/til/" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-[#44474e] dark:text-[#c2c6d4] hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors mb-8">
+      <span class="material-symbols-outlined mr-2">arrow_back</span>
+      Back to TIL
+    </a>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+      {% if page.category %}
+        <span class="bg-[#0056b3]/10 dark:bg-[#acc7ff]/10 text-[#0056b3] dark:text-[#acc7ff] px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-[#0056b3]/20 dark:border-[#acc7ff]/20">{{ page.category }}</span>
+      {% endif %}
+      <span class="text-[#44474e] dark:text-[#c2c6d4] text-xs flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">schedule</span> {{ page.read_time | default: 5 }} min read
+      </span>
+      <span class="text-[#44474e] dark:text-[#c2c6d4] text-xs font-medium">{{ page.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-[#1c1b1c] dark:text-[#e5e2e3] leading-tight mb-8">{{ page.title }}</h1>
+  </div>
+  
+  <div class="prose prose-lg dark:prose-invert max-w-none text-[#1c1b1c] dark:text-[#e5e2e3]">
+    {{ content }}
+  </div>
+</article>

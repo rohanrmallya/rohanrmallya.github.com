@@ -1,7 +1,7 @@
 --- 
 --- 
 @import "tailwindcss";
-
+@plugin "@tailwindcss/typography";
 
 @layer utilities {}
 
@@ -95,21 +95,7 @@ html:not(.dark) .liquid-glass {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-pre {
-    @apply bg-tertiary-container text-sm text-tertiary-text rounded-sm p-0.25;
-}
 
-pre>code {
-    @apply bg-tertiary-container text-sm text-tertiary-text rounded-sm p-0.25;
-}
-
-code {
-    @apply text-tertiary-container bg-transparent;
-}
-
-.highlight {
-    @apply bg-transparent;
-}
 
 @custom-variant dark (&:where(.dark, .dark *));
 

@@ -29,6 +29,11 @@ github_username: rohanrmallya
 linkedin_username: rohanmallya
 pinterest_username: rohanrmallya
 
+collections:
+  til:
+    output: true
+    permalink: /til/:title/
+
 # Build settings
 # theme: minima
 

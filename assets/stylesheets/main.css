@@ -15,7 +15,7 @@
     --color-background-dark: #121212;
     --color-background-dark-elevated: #2A2D3A;
 
-    /* v2 "Architectural Fluidity" – Dark */
+    /* v2 "Architectural Fluidity" – Dark (Default) */
     --color-surface: #131314;
     --color-surface-bright: #3a393a;
     --color-surface-container-lowest: #0e0e0f;
@@ -36,6 +36,31 @@
     --color-secondary: #b3c7f1;
     --color-secondary-container: #36496d;
     --color-on-secondary-container: #a5b9e2;
+}
+
+/* ── Light Mode Overrides ── */
+@layer base {
+    :root:not(.dark) {
+        --color-surface: #f9f9fb;
+        --color-surface-bright: #ffffff;
+        --color-surface-container-lowest: #ffffff;
+        --color-surface-container-low: #f7f6f7;
+        --color-surface-container: #f0f0f2;
+        --color-surface-container-high: #eceaeb;
+        --color-surface-container-highest: #e6e2e3;
+        --color-surface-variant: #e6e2e3;
+        --color-on-surface: #1c1b1c;
+        --color-on-surface-variant: #44474e;
+        --color-outline: #74777f;
+        --color-outline-variant: #c4c6d0;
+        --color-v2-primary: #0056b3;
+        --color-v2-primary-container: #d7e2ff;
+        --color-on-primary: #ffffff;
+        --color-on-primary-container: #001a40;
+        --color-secondary: #535f71;
+        --color-secondary-container: #d7e2ff;
+        --color-on-secondary-container: #101c2b;
+    }
 }
 
 /* ── Material Symbols rendering ── */

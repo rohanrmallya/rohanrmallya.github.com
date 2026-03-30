@@ -3,50 +3,49 @@ layout: base
 ---
 
 <!-- Main Content -->
-<main class="container mx-auto px-4 py-8">
+<main class="max-w-7xl mx-auto px-8 pt-32 pb-12 relative">
+  <!-- Visual Texture Element (Glow) -->
+  <div class="absolute -top-24 -left-20 w-80 h-80 bg-v2-primary/5 dark:bg-v2-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+  
   <!-- Header Section -->
-  <header class="mb-8">
-    <h1
-      class="text-4xl font-bold text-primary dark:text-primary mb-4 text-center md:text-left"
-    >
+  <header class="mb-12">
+    <h1 class="text-[3.5rem] font-bold tracking-[-0.04em] text-on-surface mb-4">
       {{ page.title }}
     </h1>
-    <p
-      class="text-lg text-gray-600 dark:text-gray-400 text-center md:text-left max-w-2xl"
-    >
-      {{ page.description | default: "My collection of books I've read,
-      organized by category and reading date. Discover recommendations across
-      various topics." }}
+    <p class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light">
+      {{ page.description | default: "A curated collection of thoughts, frameworks, and narratives that have shaped my perspective on architecture, building products, and leadership." }}
     </p>
   </header>
 
   <!-- Controls Section -->
-  <section class="mb-8 space-y-4">
-    <!-- Search Bar -->
-    <div class="flex flex-col md:flex-row gap-4">
-      <div class="flex-1">
-        <label for="searchInput" class="sr-only"
-          >Search books by title or author</label
-        >
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by title or author..."
-          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
-          aria-label="Search books by title or author"
-        />
+  <section class="mb-10 space-y-6">
+    <!-- Search and Sort -->
+    <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
+      <!-- Search Bar -->
+      <div class="w-full md:max-w-md">
+        <label for="searchInput" class="sr-only">Search books by title or author</label>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title or author..."
+            class="w-full pl-12 pr-4 py-3 rounded-md bg-surface-container-highest border border-transparent focus:border-v2-primary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 transition-all outline-none"
+            aria-label="Search books by title or author"
+          />
+        </div>
       </div>
 
       <!-- Sort Dropdown -->
-      <div class="w-full md:w-48">
-        <label for="sortSelect" class="sr-only">Sort books</label>
+      <div class="flex items-center gap-2 text-on-surface-variant">
+        <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Sort:</span>
         <select
           id="sortSelect"
-          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
+          class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0"
           aria-label="Sort books"
         >
-          <option value="newest">Newest → Oldest</option>
-          <option value="oldest">Oldest → Newest</option>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
           <option value="title">Title A → Z</option>
           <option value="author">Author A → Z</option>
         </select>
@@ -54,22 +53,15 @@ layout: base
     </div>
 
     <!-- Category Filter -->
-    <div class="space-y-2">
-      <div class="flex flex-col md:flex-row md:items-center gap-4">
-        <label
-          for="categorySelect"
-          class="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Filter by Category:
-        </label>
-        <select
-          id="categorySelect"
-          class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100 w-full md:w-48"
-        >
-          <option value="">All Categories</option>
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-[0.7rem] font-semibold uppercase tracking-widest text-on-surface-variant">Categories</h2>
+        <!-- Hidden select for legacy support/accessibility if needed, but we'll use chips -->
+        <select id="categorySelect" class="hidden">
+           <option value="">All Categories</option>
         </select>
       </div>
-
+      
       <!-- Category Chips -->
       <div
         id="categoryChips"
@@ -77,7 +69,7 @@ layout: base
         role="group"
         aria-label="Quick category filters"
       >
-        <!-- Dynamically populated -->
+        <!-- Dynamically populated by JS -->
       </div>
     </div>
   </section>
@@ -85,10 +77,10 @@ layout: base
   <!-- Results Section -->
   <section>
     <!-- Results Count -->
-    <div class="mb-4">
+    <div class="mb-6">
       <p
         id="resultsCount"
-        class="text-sm text-gray-600 dark:text-gray-400"
+        class="text-sm text-on-surface-variant font-medium uppercase tracking-wider"
         aria-live="polite"
       >
         <!-- Dynamically updated -->
@@ -98,7 +90,7 @@ layout: base
     <!-- Books Grid -->
     <div
       id="booksGrid"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4"
       role="region"
       aria-live="polite"
       aria-label="Books list"
@@ -107,32 +99,20 @@ layout: base
     </div>
 
     <!-- Empty State -->
-    <div id="emptyState" class="hidden text-center py-12">
+    <div id="emptyState" class="hidden text-center py-20 bg-surface-container-low rounded-lg border border-outline-variant/10">
       <div class="max-w-md mx-auto">
-        <svg
-          class="mx-auto h-12 w-12 text-gray-400"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-          />
-        </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-          No books found
+        <span class="material-symbols-outlined text-outline text-5xl mb-4">auto_stories</span>
+        <h3 class="text-xl font-bold text-on-surface mb-2">
+          No books discovered
         </h3>
-        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-          Try adjusting your search or filter criteria.
+        <p class="text-on-surface-variant mb-6">
+          Try adjusting your search or category filters to find what you're looking for.
         </p>
         <button
           id="clearFiltersBtn"
-          class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary bg-primary/10 hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          class="px-6 py-2 rounded-md bg-v2-primary-container text-on-primary-container font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg"
         >
-          Clear all filters
+          Reset all filters
         </button>
       </div>
     </div>

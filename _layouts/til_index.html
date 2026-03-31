@@ -37,7 +37,7 @@ layout: base
   <!-- Feed Content -->
   <section>
     <div class="space-y-24">
-      {% assign tils_by_date = site.til | sort: 'date' | reverse | group_by_exp: "til", "til.date | date: '%B %d, %Y'" %}
+      {% assign tils_by_date = paginator.posts | group_by_exp: "til", "til.date | date: '%B %d, %Y'" %}
       {% for grouped_til in tils_by_date %}
       <article class="space-y-12">
         <header class="flex items-center gap-4">
@@ -78,5 +78,63 @@ layout: base
       </article>
       {% endfor %}
     </div>
+
+    <!-- Pagination UI -->
+    {% if paginator.total_pages > 1 %}
+    <div class="flex justify-center items-center mt-16 gap-3 text-sm font-medium">
+      <!-- Previous Button -->
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="px-4 py-2 bg-surface-container rounded hover:bg-surface-container-high transition-colors text-on-surface border border-outline-variant/20 shadow-sm flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">chevron_left</span> Prev
+        </a>
+      {% endif %}
+
+      {% assign current = paginator.page %}
+      {% assign total = paginator.total_pages %}
+      {% assign current_minus_2 = current | minus: 2 %}
+      {% assign current_plus_2 = current | plus: 2 %}
+      {% assign total_minus_2 = total | minus: 2 %}
+      {% assign total_minus_3 = total | minus: 3 %}
+
+      <!-- First Page -->
+      {% if current > 3 %}
+        <a href="{{ site.baseurl }}/til/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">1</a>
+        {% if current > 4 %}
+          <span class="px-1 text-on-surface-variant/50">...</span>
+        {% endif %}
+      {% endif %}
+
+      <!-- Previous 2, Current, Next 2 -->
+      {% for page in (1..total) %}
+        {% if page >= current_minus_2 and page < current %}
+          {% if page == 1 %}
+            <a href="{{ site.baseurl }}/til/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.baseurl }}/til/page{{ page }}/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ page }}</a>
+          {% endif %}
+        {% elsif page == current %}
+          <span class="w-10 h-10 flex items-center justify-center rounded bg-v2-primary text-on-primary font-bold shadow-md shadow-v2-primary/20">{{ page }}</span>
+        {% elsif page > current and page <= current_plus_2 %}
+          <a href="{{ site.baseurl }}/til/page{{ page }}/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <!-- Last Page -->
+      {% if current < total_minus_2 %}
+        {% if current < total_minus_3 %}
+          <span class="px-1 text-on-surface-variant/50">...</span>
+        {% endif %}
+        <a href="{{ site.baseurl }}/til/page{{ total }}/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ total }}</a>
+      {% endif %}
+
+      <!-- Next Button -->
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="px-4 py-2 bg-surface-container rounded hover:bg-surface-container-high transition-colors text-on-surface border border-outline-variant/20 shadow-sm flex items-center gap-1">
+          Next <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </a>
+      {% endif %}
+    </div>
+    {% endif %}
+
   </section>
 </main>

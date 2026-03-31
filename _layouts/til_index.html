@@ -24,11 +24,10 @@ layout: base
         <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Category:</span>
         <select class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none">
           <option>All Categories</option>
-          <option>Architecture</option>
-          <option>Security</option>
-          <option>Cloud</option>
-          <option>Backend</option>
-          <option>Infrastructure</option>
+          {% assign til_categories = site.til | map: "category" | compact | uniq | sort %}
+          {% for category in til_categories %}
+          <option>{{ category }}</option>
+          {% endfor %}
         </select>
       </div>
     </div>

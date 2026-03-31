@@ -36,6 +36,20 @@
     --color-secondary: #b3c7f1;
     --color-secondary-container: #36496d;
     --color-on-secondary-container: #a5b9e2;
+
+    /* Inverse Tokens */
+    --color-inverse-surface: #e5e2e3;
+    --color-inverse-on-surface: #313031;
+    --color-inverse-primary: #115cb9;
+
+    /* Typography */
+    --font-sans: "Inter", "system-ui", "sans-serif";
+    --font-headline: "Inter", "system-ui", "sans-serif";
+
+    /* Border Radii */
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
 }
 
 /* ── Light Mode Overrides ── */
@@ -98,5 +112,3 @@ html:not(.dark) .liquid-glass {
 
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-@config "../../tailwind.config.js"

@@ -2,22 +2,10 @@
 
 An architectural, minimalist, and performance-oriented personal website built with **Jekyll 4** and **Tailwind CSS v4**.
 
-## 🚀 Quick Start (Docker)
-
-The project is containerized for easy development. To build and serve the site locally:
-
-```bash
-# Build the image and start the container
-./run.sh
-```
-
-The site will be available at [http://localhost:4000](http://localhost:4000).
-
 ---
 
-## 🛠 Manual Setup
+## Setup
 
-If you prefer to run the project natively on your machine:
 
 ### Prerequisites
 - **Ruby 3.x** & **Bundler**
@@ -60,6 +48,32 @@ For Tailwind to compile, `assets/stylesheets/main.css` **must** start with YAML 
 ```
 
 This empty block tells Jekyll to process the file through the PostCSS/Tailwind pipeline rather than treating it as a static asset. If removed, the UI will break as the browser won't understand the raw Tailwind imports.
+
+---
+
+## 🛠 Maintenance & Updates
+
+To keep the project secure and up-to-date with the latest features, follow these steps:
+
+### Updating Bundler & Ruby Gems
+If you see a warning about lockfile versions or want to update Jekyll/plugins:
+```bash
+# Update the Bundler version in Gemfile.lock
+bundle update --bundler
+
+# Update Jekyll and all other gems to their latest allowed versions
+bundle update
+```
+
+### Updating NPM Packages
+To update Tailwind, PostCSS, and other Node-based tools:
+```bash
+# Check for outdated packages and update them
+npm update
+
+# Or update a specific package to the latest version
+npm install tailwindcss@latest
+```
 
 ---
 

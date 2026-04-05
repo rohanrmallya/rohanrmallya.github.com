@@ -1,0 +1,152 @@
+---
+layout: base
+---
+<main class="max-w-7xl mx-auto px-8 pt-32 pb-12 relative min-h-screen">
+  <!-- Visual Texture Element (Glow) -->
+  <div class="absolute -top-24 -left-20 w-80 h-80 bg-v2-primary/10 dark:bg-v2-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+  <div class="absolute top-10 left-32 w-64 h-64 bg-v2-primary-container/30 dark:bg-v2-primary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
+  <!-- Header Section -->
+  <header class="mb-12">
+    <h1 class="text-[3.5rem] font-bold tracking-[-0.04em] text-on-surface mb-4">
+      Today I Learned
+    </h1>
+    <p class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light">
+      Weekly insights from the architectural frontier
+    </p>
+  </header>
+
+  <!-- Controls Section -->
+  <section class="mb-10 space-y-6">
+    <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
+      <div class="w-full md:max-w-md hidden">
+      </div>
+      <div class="flex items-center gap-2 text-on-surface-variant">
+        <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Category:</span>
+        <select class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none">
+          <option>All Categories</option>
+          {% assign til_categories = site.til | map: "category" | compact | uniq | sort %}
+          {% for category in til_categories %}
+          <option>{{ category }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feed Content -->
+  <section>
+    <div class="space-y-24">
+      {% if paginator.posts.size > 0 %}
+        {% assign tils_by_date = paginator.posts | group_by_exp: "til", "til.date | date: '%B %d, %Y'" %}
+        {% for grouped_til in tils_by_date %}
+        <article class="space-y-12">
+          <header class="flex items-center gap-4">
+            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+            <span class="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant whitespace-nowrap">{{ grouped_til.name }}</span>
+            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
+          </header>
+
+          <div class="grid gap-12">
+            {% for til in grouped_til.items %}
+            <div class="group relative bg-surface-container-low rounded-lg p-8 border border-outline-variant/20 hover:border-v2-primary/40 transition-all duration-500">
+              <div class="flex flex-wrap items-center gap-4 mb-6">
+                {% if til.category %}
+                  <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">{{ til.category }}</span>
+                {% endif %}
+                <span class="text-on-surface-variant text-xs flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">schedule</span> {{ til.read_time | default: 5 }} min read
+                </span>
+              </div>
+
+              <h3 class="text-2xl md:text-3xl font-semibold mb-6 tracking-tight leading-snug group-hover:text-v2-primary transition-colors">
+                <a href="{{ til.url }}">{{ til.title }}</a>
+              </h3>
+
+              <div class="space-y-4 text-on-surface-variant leading-relaxed text-lg line-clamp-3">
+                {{ til.content | strip_html | truncatewords: 40 }}
+              </div>
+
+              <div class="mt-8 pt-6 border-t border-outline-variant/20 flex justify-between items-center">
+                <a href="{{ til.url }}" class="text-v2-primary text-sm font-bold uppercase tracking-widest hover:underline decoration-2 underline-offset-8">Read More</a>
+                <div class="flex gap-2">
+                  <span class="material-symbols-outlined text-on-surface-variant hover:text-v2-primary cursor-pointer transition-colors" title="Bookmark">bookmark</span>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endfor %}
+      {% else %}
+        <div class="relative bg-surface-container-low rounded-xl p-12 border border-outline-variant/20 text-center flex flex-col items-center justify-center">
+          <div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mb-6">
+            <span class="material-symbols-outlined text-3xl text-v2-primary/70">edit_document</span>
+          </div>
+          <h3 class="text-2xl font-semibold mb-3 text-on-surface">Nothing here just yet</h3>
+          <p class="text-on-surface-variant max-w-md font-light leading-relaxed text-lg">
+            I'm currently refining a few drafts behind the scenes. They'll find their home here soon, check back in a bit!
+          </p>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Pagination UI -->
+    {% if paginator.total_pages > 1 %}
+    <div class="flex justify-center items-center mt-16 gap-3 text-sm font-medium">
+      <!-- Previous Button -->
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="px-4 py-2 bg-surface-container rounded hover:bg-surface-container-high transition-colors text-on-surface border border-outline-variant/20 shadow-sm flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">chevron_left</span> Prev
+        </a>
+      {% endif %}
+
+      {% assign current = paginator.page %}
+      {% assign total = paginator.total_pages %}
+      {% assign current_minus_2 = current | minus: 2 %}
+      {% assign current_plus_2 = current | plus: 2 %}
+      {% assign total_minus_2 = total | minus: 2 %}
+      {% assign total_minus_3 = total | minus: 3 %}
+
+      <!-- First Page -->
+      {% if current > 3 %}
+        <a href="{{ site.baseurl }}/til/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">1</a>
+        {% if current > 4 %}
+          <span class="px-1 text-on-surface-variant/50">...</span>
+        {% endif %}
+      {% endif %}
+
+      <!-- Previous 2, Current, Next 2 -->
+      {% for page in (1..total) %}
+        {% if page >= current_minus_2 and page < current %}
+          {% if page == 1 %}
+            <a href="{{ site.baseurl }}/til/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ page }}</a>
+          {% else %}
+            <a href="{{ site.baseurl }}/til/page{{ page }}/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ page }}</a>
+          {% endif %}
+        {% elsif page == current %}
+          <span class="w-10 h-10 flex items-center justify-center rounded bg-v2-primary text-on-primary font-bold shadow-md shadow-v2-primary/20">{{ page }}</span>
+        {% elsif page > current and page <= current_plus_2 %}
+          <a href="{{ site.baseurl }}/til/page{{ page }}/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      <!-- Last Page -->
+      {% if current < total_minus_2 %}
+        {% if current < total_minus_3 %}
+          <span class="px-1 text-on-surface-variant/50">...</span>
+        {% endif %}
+        <a href="{{ site.baseurl }}/til/page{{ total }}/" class="w-10 h-10 flex items-center justify-center rounded hover:bg-v2-primary/10 text-on-surface hover:text-v2-primary transition-colors border border-transparent hover:border-v2-primary/20 bg-surface-container-low">{{ total }}</a>
+      {% endif %}
+
+      <!-- Next Button -->
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}" class="px-4 py-2 bg-surface-container rounded hover:bg-surface-container-high transition-colors text-on-surface border border-outline-variant/20 shadow-sm flex items-center gap-1">
+          Next <span class="material-symbols-outlined text-sm">chevron_right</span>
+        </a>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </section>
+</main>

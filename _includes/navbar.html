@@ -1,134 +1,62 @@
-<header
-  class="sticky top-0 z-50 bg-background dark:bg-background-dark dark:shadow-grey-900 dark:shadow-md shadow-md"
->
-  <div class="container mx-auto">
-    <nav class="flex items-center justify-between p-4">
-      <!-- Logo/Brand -->
+<!-- v2 Navbar: Architectural Fluidity -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#131314]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a href="/" class="text-xl font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-6">
-        <a
-          href="/"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Home</a
-        >
-        <a
-          href="/tech"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Tech</a
-        >
-        <a
-          href="/bookshelf/"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Bookshelf</a
-        >
-        <a
-          href="http://cv.rohanmallya.com"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Resume</a
-        >
-        <!-- <a
-          href="/blog"
-          class="hover:text-primary dark:hover:text-background transition duration-200"
-          >Blog</a
-        > -->
-      </div>
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-sm {% if page.url == '/' or page.url == '/index.html' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff]{% endif %} transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm {% if page.url contains '/bookshelf' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff]{% endif %} transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm {% if page.url contains '/til' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff]{% endif %} transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm {% if page.url contains '/blog' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff]{% endif %} transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm {% if page.url contains '/cv' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff]{% endif %} transition-colors duration-300">Resume</a>
 
-      <!-- Mobile Menu Button -->
-      <div class="flex items-center md:hidden">
-        <button
-          id="mobileMenuToggle"
-          class="text-gray-800 dark:text-gray-100 focus:outline-none mr-4"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-      </div>
+    </div>
 
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
       <!-- Dark Mode Toggle -->
-      <button
-        id="darkModeToggle"
-        class="text-gray-800 dark:text-gray-100 focus:outline-none"
-      >
-        <svg
-          id="sunIcon"
-          class="w-6 h-6 hidden dark:block"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"
-          ></path>
+      <button id="darkModeToggle" class="text-[#1c1b1c]/60 dark:text-[#e5e2e3]/60 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
         </svg>
-        <svg
-          id="moonIcon"
-          class="w-6 h-6 dark:hidden"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
         </svg>
       </button>
-    </nav>
 
-    <!-- Mobile Navigation Menu (Hidden by default) -->
-    <div
-      id="mobileMenu"
-      class="hidden md:hidden bg-background dark:bg-background-dark pb-4 px-4"
-    >
+      <!-- Consulting CTA -->
       <a
-        href="/"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Home</a
-      >
-      <a
-        href="/tech"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Tech</a
-      >
-      <a
-        href="/bookshelf/"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Bookshelf</a
-      >
-      <a
-        href="https://cv.rohanmallya.com"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Résumé</a
-      >
-      <!-- <a
-        href="/blog"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Blog</a
-      > -->
+        href="#consulting"
+        data-cal-link="rohanmallya/30min"
+        data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+        class="bg-[#0056b3] dark:bg-[#acc7ff] text-white dark:text-[#001a40] px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-[#0056b3]/20"
+      >Consulting</a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuToggle" class="md:hidden text-[#1c1b1c] dark:text-[#e5e2e3] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
     </div>
   </div>
 
-  <!-- Mobile Menu Toggle Script -->
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-[#1c1b1c]/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm {% if page.url == '/' or page.url == '/index.html' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors{% endif %}">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm {% if page.url contains '/bookshelf' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors{% endif %}">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm {% if page.url contains '/til' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors{% endif %}">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm {% if page.url contains '/blog' %}font-semibold text-[#0056b3] dark:text-[#acc7ff]{% else %}text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors{% endif %}">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Resume</a>
+  </div>
+
   <script>
-    document
-      .getElementById("mobileMenuToggle")
-      .addEventListener("click", () => {
-        const mobileMenu = document.getElementById("mobileMenu");
-        mobileMenu.classList.toggle("hidden");
-      });
+    document.getElementById("mobileMenuToggle").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
   </script>
-</header>
+</nav>

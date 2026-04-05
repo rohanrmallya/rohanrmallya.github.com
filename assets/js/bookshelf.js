@@ -53,11 +53,16 @@
     allCategories.forEach((category) => {
       const chip = document.createElement("button");
       chip.className =
-        "px-3 py-1 text-sm rounded-full border border-primary text-primary hover:bg-primary hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2";
+        "px-4 py-1.5 rounded-lg text-[0.7rem] font-semibold uppercase tracking-[0.05em] bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all active:scale-95 focus:outline-none focus:ring-2 focus:ring-v2-primary focus:ring-offset-2";
       chip.textContent = category;
       chip.setAttribute("data-category", category);
       chip.addEventListener("click", () => {
-        categorySelect.value = category;
+        const currentCategory = categorySelect.value;
+        if (currentCategory === category) {
+          categorySelect.value = ""; // Toggle off if already selected
+        } else {
+          categorySelect.value = category;
+        }
         updateFiltersAndRender();
       });
       categoryChips.appendChild(chip);
@@ -90,19 +95,18 @@
     categoryChips.querySelectorAll("button").forEach((chip) => {
       const chipCategory = chip.getAttribute("data-category");
       if (chipCategory === selectedCategory) {
-        chip.classList.add("bg-primary", "text-white");
+        chip.classList.add("bg-v2-primary-container", "text-on-primary-container");
         chip.classList.remove(
-          "text-primary",
-          "dark:text-primary",
-          "hover:bg-primary",
-          "hover:text-white"
+          "bg-surface-container-highest",
+          "text-on-surface-variant",
+          "hover:text-on-surface"
         );
       } else {
-        chip.classList.remove("bg-primary", "text-white");
+        chip.classList.remove("bg-v2-primary-container", "text-on-primary-container");
         chip.classList.add(
-          "text-primary",
-          "hover:bg-primary",
-          "hover:text-white"
+          "bg-surface-container-highest",
+          "text-on-surface-variant",
+          "hover:text-on-surface"
         );
       }
     });
@@ -189,35 +193,32 @@
     booksGrid.innerHTML = filteredBooks
       .map(
         (book) => `
-            <article class="bg-white dark:bg-background-dark-elevated rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 p-6 border border-gray-100 dark:border-gray-700 flex flex-col justify-between h-full">
-              <div>
-                ${
-                  book.link
-                    ? `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-primary dark:hover:text-primary transition-colors">
-                        <a href="${book.link}" target="_blank" rel="noopener noreferrer" class="focus:outline-none focus:underline">
-                          ${book.title}
-                        </a>
-                      </h3>`
-                    : `<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">${book.title}</h3>`
-                }
-                ${
-                  book.subtitle
-                    ? `<p class="text-sm font-medium text-gray-700 dark:text-gray-300 mt-1">${book.subtitle}</p>`
-                    : ""
-                }
-                <p class="text-gray-600 dark:text-gray-400 text-sm mt-2">by ${
-                  book.author
-                }</p>
-              </div>
-              <div class="flex items-center justify-between mt-4 pt-2 border-t border-gray-100 dark:border-gray-700">
+            <article class="group bg-surface-container-low hover:bg-surface-container p-5 rounded-lg transition-all duration-300 flex flex-col h-[220px] relative border border-outline-variant/10">
+              <div class="mb-3">
                 ${
                   book.category
-                    ? `<span class="inline-block px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary">${book.category}</span>`
+                    ? `<span class="text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded">${book.category}</span>`
                     : ""
                 }
-                <time class="text-xs text-gray-500 dark:text-gray-400" datetime="${
+              </div>
+              
+              ${
+                book.link
+                  ? `<h3 class="text-[1.1rem] font-semibold tracking-tight leading-tight mb-1 group-hover:text-v2-primary transition-colors line-clamp-2">
+                      <a href="${book.link}" target="_blank" rel="noopener noreferrer" class="focus:outline-none after:absolute after:inset-0">
+                        ${book.title}
+                      </a>
+                    </h3>`
+                  : `<h3 class="text-[1.1rem] font-semibold tracking-tight leading-tight mb-1 group-hover:text-v2-primary transition-colors line-clamp-2">${book.title}</h3>`
+              }
+              
+              <p class="text-on-surface-variant text-xs mb-4">${book.author}</p>
+              
+              <div class="mt-auto pt-3 border-t border-outline-variant/20 flex justify-between items-center">
+                <time class="text-[0.6rem] font-medium text-outline uppercase" datetime="${
                   book.date_finished || ""
                 }">${formatDate(book.date_finished)}</time>
+                <span class="material-symbols-outlined text-outline group-hover:text-v2-primary transition-colors text-base">auto_stories</span>
               </div>
             </article>
           `

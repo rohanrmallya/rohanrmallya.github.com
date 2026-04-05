@@ -1,24 +1,190 @@
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
+<!-- /_layouts/base.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/imgs/favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/imgs/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/imgs/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/imgs/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/imgs/favicon/site.webmanifest" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-W7DQDC36JQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+      gtag("config", "G-W7DQDC36JQ");
+    </script>
 
-<div class="container">
-  <h1>404</h1>
+    <script src="/assets/js/cal.js"></script>
+  </head>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-  <p><a href="javascript:history.go(-1)">Click to go back to the last page you were in!</a></p>
-  <p> or </p>
-  <p> <a href="/">Go to the homepage! </a></p>
-</div>
+  <body
+    class="bg-[#f9f9fb] text-[#1c1b1c] dark:bg-[#131314] dark:text-[#e5e2e3] font-sans antialiased"
+  >
+    <!-- Include the navbar component -->
+    <!-- v2 Navbar: Architectural Fluidity -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#131314]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a href="/" class="text-xl font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Resume</a>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
+      <!-- Dark Mode Toggle -->
+      <button id="darkModeToggle" class="text-[#1c1b1c]/60 dark:text-[#e5e2e3]/60 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Consulting CTA -->
+      <a
+        href="#consulting"
+        data-cal-link="rohanmallya/30min"
+        data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+        class="bg-[#0056b3] dark:bg-[#acc7ff] text-white dark:text-[#001a40] px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-[#0056b3]/20"
+      >Consulting</a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuToggle" class="md:hidden text-[#1c1b1c] dark:text-[#e5e2e3] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-[#1c1b1c]/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Resume</a>
+  </div>
+
+  <script>
+    document.getElementById("mobileMenuToggle").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
+  </script>
+</nav>
+
+
+    <!-- Main Content -->
+    <main><main class="max-w-7xl mx-auto px-8 py-32 relative min-h-[80vh] flex flex-col items-center justify-center text-center">
+  <!-- Visual Texture Element (Glow) -->
+  <div class="absolute top-1/4 left-1/4 w-80 h-80 bg-v2-primary/10 dark:bg-v2-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-v2-primary-container/30 dark:bg-v2-primary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+
+  <div class="w-24 h-24 bg-surface-container-high rounded-full flex items-center justify-center mb-8 mx-auto shadow-lg shadow-v2-primary/5 border border-outline-variant/20">
+    <span class="material-symbols-outlined text-5xl text-v2-primary/70">explore_off</span>
+  </div>
+
+  <h1 class="text-[5rem] md:text-[6rem] font-bold tracking-[-0.04em] leading-none mb-4 text-on-surface">
+    404
+  </h1>
+  <p class="text-2xl md:text-3xl font-semibold mb-4 text-on-surface">Looks like you're lost.</p>
+  <p class="text-on-surface-variant max-w-md mx-auto font-light leading-relaxed text-lg mb-10">
+    The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+  </p>
+
+  <div class="flex gap-4 items-center justify-center">
+    <a href="javascript:history.go(-1)" class="inline-flex items-center gap-2 bg-surface-container-low text-on-surface border border-outline-variant/30 hover:border-v2-primary/50 px-6 py-3 rounded-lg text-sm font-semibold hover:bg-surface-container-high transition-all">
+      <span class="material-symbols-outlined text-sm">arrow_back</span>
+      Go Back
+    </a>
+    <a href="/" class="inline-flex items-center gap-2 bg-[#0056b3] dark:bg-[#acc7ff] text-white dark:text-[#001a40] px-6 py-3 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-[#0056b3]/20">
+      <span class="material-symbols-outlined text-sm">home</span>
+      Return Home
+    </a>
+  </div>
+</main></main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-[#131314]">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+        <a href="/" class="text-sm font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+        <div class="flex space-x-12">
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
+        </div>
+        <div class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40">&copy; 2026 Rohan Mallya</div>
+      </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Script -->
+  </body>
+  <script>
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Set initial theme based on localStorage or system preference
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  </script>
+</html>

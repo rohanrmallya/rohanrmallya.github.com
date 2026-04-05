@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bookshelf</title>
     <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <link
       rel="icon"
       type="image/x-icon"
@@ -48,189 +50,119 @@
   </head>
 
   <body
-    class="bg-background text-gray-800 dark:bg-background-dark dark:text-gray-100"
+    class="bg-[#f9f9fb] text-[#1c1b1c] dark:bg-[#131314] dark:text-[#e5e2e3] font-sans antialiased"
   >
     <!-- Include the navbar component -->
-    <header
-  class="sticky top-0 z-50 bg-background dark:bg-background-dark dark:shadow-grey-900 dark:shadow-md shadow-md"
->
-  <div class="container mx-auto">
-    <nav class="flex items-center justify-between p-4">
-      <!-- Logo/Brand -->
+    <!-- v2 Navbar: Architectural Fluidity -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#131314]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a href="/" class="text-xl font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-6">
-        <a
-          href="/"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Home</a
-        >
-        <a
-          href="/tech"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Tech</a
-        >
-        <a
-          href="/bookshelf/"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Bookshelf</a
-        >
-        <a
-          href="http://cv.rohanmallya.com"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Resume</a
-        >
-        <!-- <a
-          href="/blog"
-          class="hover:text-primary dark:hover:text-background transition duration-200"
-          >Blog</a
-        > -->
-      </div>
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm font-semibold text-[#0056b3] dark:text-[#acc7ff] transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Resume</a>
 
-      <!-- Mobile Menu Button -->
-      <div class="flex items-center md:hidden">
-        <button
-          id="mobileMenuToggle"
-          class="text-gray-800 dark:text-gray-100 focus:outline-none mr-4"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-      </div>
+    </div>
 
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
       <!-- Dark Mode Toggle -->
-      <button
-        id="darkModeToggle"
-        class="text-gray-800 dark:text-gray-100 focus:outline-none"
-      >
-        <svg
-          id="sunIcon"
-          class="w-6 h-6 hidden dark:block"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"
-          ></path>
+      <button id="darkModeToggle" class="text-[#1c1b1c]/60 dark:text-[#e5e2e3]/60 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
         </svg>
-        <svg
-          id="moonIcon"
-          class="w-6 h-6 dark:hidden"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
         </svg>
       </button>
-    </nav>
 
-    <!-- Mobile Navigation Menu (Hidden by default) -->
-    <div
-      id="mobileMenu"
-      class="hidden md:hidden bg-background dark:bg-background-dark pb-4 px-4"
-    >
+      <!-- Consulting CTA -->
       <a
-        href="/"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Home</a
-      >
-      <a
-        href="/tech"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Tech</a
-      >
-      <a
-        href="/bookshelf/"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Bookshelf</a
-      >
-      <a
-        href="https://cv.rohanmallya.com"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Résumé</a
-      >
-      <!-- <a
-        href="/blog"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Blog</a
-      > -->
+        href="#consulting"
+        data-cal-link="rohanmallya/30min"
+        data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+        class="bg-[#0056b3] dark:bg-[#acc7ff] text-white dark:text-[#001a40] px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-[#0056b3]/20"
+      >Consulting</a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuToggle" class="md:hidden text-[#1c1b1c] dark:text-[#e5e2e3] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
     </div>
   </div>
 
-  <!-- Mobile Menu Toggle Script -->
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-[#1c1b1c]/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm font-semibold text-[#0056b3] dark:text-[#acc7ff]">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Resume</a>
+  </div>
+
   <script>
-    document
-      .getElementById("mobileMenuToggle")
-      .addEventListener("click", () => {
-        const mobileMenu = document.getElementById("mobileMenu");
-        mobileMenu.classList.toggle("hidden");
-      });
+    document.getElementById("mobileMenuToggle").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
   </script>
-</header>
+</nav>
 
 
     <!-- Main Content -->
-    <main class="container mx-auto p-4"><!-- Main Content -->
-<main class="container mx-auto px-4 py-8">
+    <main><!-- Main Content -->
+<main class="max-w-7xl mx-auto px-8 pt-32 pb-12 relative">
+  <!-- Visual Texture Element (Glow) -->
+  <div class="absolute -top-24 -left-20 w-80 h-80 bg-v2-primary/10 dark:bg-v2-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+  <div class="absolute top-10 left-32 w-64 h-64 bg-v2-primary-container/30 dark:bg-v2-primary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+  
   <!-- Header Section -->
-  <header class="mb-8">
-    <h1
-      class="text-4xl font-bold text-primary dark:text-primary mb-4 text-center md:text-left"
-    >
+  <header class="mb-12">
+    <h1 class="text-[3.5rem] font-bold tracking-[-0.04em] text-on-surface mb-4">
       Bookshelf
     </h1>
-    <p
-      class="text-lg text-gray-600 dark:text-gray-400 text-center md:text-left max-w-2xl"
-    >
+    <p class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light">
       My collection of books I've read, organized by category and reading date. Discover recommendations across design, programming, business, and more.
     </p>
   </header>
 
   <!-- Controls Section -->
-  <section class="mb-8 space-y-4">
-    <!-- Search Bar -->
-    <div class="flex flex-col md:flex-row gap-4">
-      <div class="flex-1">
-        <label for="searchInput" class="sr-only"
-          >Search books by title or author</label
-        >
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by title or author..."
-          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
-          aria-label="Search books by title or author"
-        />
+  <section class="mb-10 space-y-6">
+    <!-- Search and Sort -->
+    <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
+      <!-- Search Bar -->
+      <div class="w-full md:max-w-md">
+        <label for="searchInput" class="sr-only">Search books by title or author</label>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title or author..."
+            class="w-full pl-12 pr-4 py-3 rounded-md bg-surface-container-highest border border-transparent focus:border-v2-primary focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 transition-all outline-none"
+            aria-label="Search books by title or author"
+          />
+        </div>
       </div>
 
       <!-- Sort Dropdown -->
-      <div class="w-full md:w-48">
-        <label for="sortSelect" class="sr-only">Sort books</label>
+      <div class="flex items-center gap-2 text-on-surface-variant">
+        <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Sort:</span>
         <select
           id="sortSelect"
-          class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100"
+          class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0"
           aria-label="Sort books"
         >
-          <option value="newest">Newest → Oldest</option>
-          <option value="oldest">Oldest → Newest</option>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
           <option value="title">Title A → Z</option>
           <option value="author">Author A → Z</option>
         </select>
@@ -238,22 +170,15 @@
     </div>
 
     <!-- Category Filter -->
-    <div class="space-y-2">
-      <div class="flex flex-col md:flex-row md:items-center gap-4">
-        <label
-          for="categorySelect"
-          class="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Filter by Category:
-        </label>
-        <select
-          id="categorySelect"
-          class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-background-dark-elevated text-gray-900 dark:text-gray-100 w-full md:w-48"
-        >
-          <option value="">All Categories</option>
+    <div class="space-y-3">
+      <div class="flex items-center justify-between">
+        <h2 class="text-[0.7rem] font-semibold uppercase tracking-widest text-on-surface-variant">Categories</h2>
+        <!-- Hidden select for legacy support/accessibility if needed, but we'll use chips -->
+        <select id="categorySelect" class="hidden">
+           <option value="">All Categories</option>
         </select>
       </div>
-
+      
       <!-- Category Chips -->
       <div
         id="categoryChips"
@@ -261,7 +186,7 @@
         role="group"
         aria-label="Quick category filters"
       >
-        <!-- Dynamically populated -->
+        <!-- Dynamically populated by JS -->
       </div>
     </div>
   </section>
@@ -269,10 +194,10 @@
   <!-- Results Section -->
   <section>
     <!-- Results Count -->
-    <div class="mb-4">
+    <div class="mb-6">
       <p
         id="resultsCount"
-        class="text-sm text-gray-600 dark:text-gray-400"
+        class="text-sm text-on-surface-variant font-medium uppercase tracking-wider"
         aria-live="polite"
       >
         <!-- Dynamically updated -->
@@ -282,7 +207,7 @@
     <!-- Books Grid -->
     <div
       id="booksGrid"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4"
       role="region"
       aria-live="polite"
       aria-label="Books list"
@@ -291,32 +216,20 @@
     </div>
 
     <!-- Empty State -->
-    <div id="emptyState" class="hidden text-center py-12">
+    <div id="emptyState" class="hidden text-center py-20 bg-surface-container-low rounded-lg border border-outline-variant/10">
       <div class="max-w-md mx-auto">
-        <svg
-          class="mx-auto h-12 w-12 text-gray-400"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-          />
-        </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
-          No books found
+        <span class="material-symbols-outlined text-outline text-5xl mb-4">auto_stories</span>
+        <h3 class="text-xl font-bold text-on-surface mb-2">
+          No books discovered
         </h3>
-        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-          Try adjusting your search or filter criteria.
+        <p class="text-on-surface-variant mb-6">
+          Try adjusting your search or category filters to find what you're looking for.
         </p>
         <button
           id="clearFiltersBtn"
-          class="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-primary bg-primary/10 hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          class="px-6 py-2 rounded-md bg-v2-primary-container text-on-primary-container font-bold text-sm hover:scale-105 active:scale-95 transition-all shadow-lg"
         >
-          Clear all filters
+          Reset all filters
         </button>
       </div>
     </div>
@@ -493,10 +406,16 @@
 </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4 bg-background dark:bg-background-dark">
-      <p class="text-sm text-gray-600 dark:text-gray-400">
-        &copy; 2026 Rohan R Mallya. All rights reserved.
-      </p>
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-[#131314]">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+        <a href="/" class="text-sm font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+        <div class="flex space-x-12">
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
+        </div>
+        <div class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40">&copy; 2026 Rohan Mallya</div>
+      </div>
     </footer>
 
     <!-- Dark Mode Toggle Script -->

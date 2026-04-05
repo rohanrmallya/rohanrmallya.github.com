@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
     <link
       rel="icon"
       type="image/x-icon"
@@ -48,298 +50,268 @@
   </head>
 
   <body
-    class="bg-background text-gray-800 dark:bg-background-dark dark:text-gray-100"
+    class="bg-[#f9f9fb] text-[#1c1b1c] dark:bg-[#131314] dark:text-[#e5e2e3] font-sans antialiased"
   >
     <!-- Include the navbar component -->
-    <header
-  class="sticky top-0 z-50 bg-background dark:bg-background-dark dark:shadow-grey-900 dark:shadow-md shadow-md"
->
-  <div class="container mx-auto">
-    <nav class="flex items-center justify-between p-4">
-      <!-- Logo/Brand -->
+    <!-- v2 Navbar: Architectural Fluidity -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#131314]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a href="/" class="text-xl font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
 
-      <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-6">
-        <a
-          href="/"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Home</a
-        >
-        <a
-          href="/tech"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Tech</a
-        >
-        <a
-          href="/bookshelf/"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Bookshelf</a
-        >
-        <a
-          href="http://cv.rohanmallya.com"
-          class="hover:text-primary dark:hover:text-primary transition duration-200"
-          >Resume</a
-        >
-        <!-- <a
-          href="/blog"
-          class="hover:text-primary dark:hover:text-background transition duration-200"
-          >Blog</a
-        > -->
-      </div>
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-sm font-semibold text-[#0056b3] dark:text-[#acc7ff] transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Resume</a>
 
-      <!-- Mobile Menu Button -->
-      <div class="flex items-center md:hidden">
-        <button
-          id="mobileMenuToggle"
-          class="text-gray-800 dark:text-gray-100 focus:outline-none mr-4"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
-        </button>
-      </div>
+    </div>
 
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
       <!-- Dark Mode Toggle -->
-      <button
-        id="darkModeToggle"
-        class="text-gray-800 dark:text-gray-100 focus:outline-none"
-      >
-        <svg
-          id="sunIcon"
-          class="w-6 h-6 hidden dark:block"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"
-          ></path>
+      <button id="darkModeToggle" class="text-[#1c1b1c]/60 dark:text-[#e5e2e3]/60 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
         </svg>
-        <svg
-          id="moonIcon"
-          class="w-6 h-6 dark:hidden"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
         </svg>
       </button>
-    </nav>
 
-    <!-- Mobile Navigation Menu (Hidden by default) -->
-    <div
-      id="mobileMenu"
-      class="hidden md:hidden bg-background dark:bg-background-dark pb-4 px-4"
-    >
+      <!-- Consulting CTA -->
       <a
-        href="/"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Home</a
-      >
-      <a
-        href="/tech"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Tech</a
-      >
-      <a
-        href="/bookshelf/"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Bookshelf</a
-      >
-      <a
-        href="https://cv.rohanmallya.com"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Résumé</a
-      >
-      <!-- <a
-        href="/blog"
-        class="block py-2 hover:text-primary dark:hover:text-background transition duration-200"
-        >Blog</a
-      > -->
+        href="#consulting"
+        data-cal-link="rohanmallya/30min"
+        data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+        class="bg-[#0056b3] dark:bg-[#acc7ff] text-white dark:text-[#001a40] px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-[#0056b3]/20"
+      >Consulting</a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuToggle" class="md:hidden text-[#1c1b1c] dark:text-[#e5e2e3] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
     </div>
   </div>
 
-  <!-- Mobile Menu Toggle Script -->
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-[#1c1b1c]/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm font-semibold text-[#0056b3] dark:text-[#acc7ff]">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Resume</a>
+  </div>
+
   <script>
-    document
-      .getElementById("mobileMenuToggle")
-      .addEventListener("click", () => {
-        const mobileMenu = document.getElementById("mobileMenu");
-        mobileMenu.classList.toggle("hidden");
-      });
+    document.getElementById("mobileMenuToggle").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
   </script>
-</header>
+</nav>
 
 
     <!-- Main Content -->
-    <main class="container mx-auto p-4"><div class="bg-background dark:bg-background-dark min-h-screen py-16">
-  <div class="container mx-auto px-4">
-    <div
-      class="max-w-3xl mx-auto bg-white dark:bg-background-dark rounded-xl overflow-hidden shadow-lg dark:shadow-gray-900"
-    >
-      <div class="bg-background dark:bg-background-dark-elevated md:flex">
-        <div class="p-8 text-center md:text-center">
-          <!-- Profile Section -->
-          <div class="flex flex-col items-center mb-4">
-            <!-- Profile Photo -->
-            <div
-              class="w-40 h-40 rounded-full overflow-hidden mb-6 border-6 border-primary dark:border-primary shadow-lg"
-            >
-              <img
-                src="/assets/imgs/me.png"
-                alt="Profile Photo"
-                class="w-full h-full object-cover"
-              />
-            </div>
+    <main><style>
+  /* Material Symbols rendering */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
 
-            <!-- Heading -->
-            <h1 class="text-4xl font-bold text-primary dark:text-primary mb-4">
-              Hello, I'm Rohan Mallya
-            </h1>
-          </div>
+  /* Liquid Glass effect — dark */
+  .liquid-glass {
+    background: rgba(58, 57, 58, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(140, 144, 158, 0.15);
+  }
 
-          <!-- Bio Section -->
-          <div class="prose prose-lg max-w-none dark:prose-invert">
-            <p
-              class="text-lg text-grey-800 leading-relaxed mb-6 dark:text-gray-200"
-            >
-              I love building products, and being a software developer gives me
-              the tools to bring ideas to life. I'm known for being able to
-              spend hours discussing scattered product ideas, refining and
-              aligning pieces into a clear actionable plan and executing this
-              plan.
-            </p>
+  /* Liquid Glass effect — light */
+  html:not(.dark) .liquid-glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+  }
 
-            <p
-              class="text-lg text-grey-800 leading-relaxed mb-6 dark:text-gray-200"
-            >
-              I'm currently a Technical Architect at Infosys Finacle, where I
-              work on software that powers some of the largest banks in the
-              world.
-            </p>
-          </div>
+  /* Smooth transitions */
+  * {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  a, button {
+    transition: all 0.2s ease;
+  }
+</style>
 
-          <!-- Call to Action -->
-          <div class="mt-8 flex flex-col justify-center space-y-4">
-            <div class="flex justify-center md:w-1/2 md:mx-auto">
-              <button
-                data-cal-link="rohanmallya/30min"
-                data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
-                class="px-6 py-3 w-full bg-primary text-white font-medium rounded-md hover:bg-primary-hover dark:hover:bg-primary-hover transition duration-300 w-auto"
-              >
-                Schedule a Meeting
-              </button>
-            </div>
+<!-- Page wrapper: top padding accounts for fixed navbar -->
+<div class="pt-24 pb-20 px-6 max-w-7xl mx-auto">
 
-            <div class="flex justify-center md:w-1/2 md:mx-auto">
-              <a
-                href="/tech"
-                class="px-6 py-3 w-full border border-primary text-primary dark:text-primary font-medium rounded-md hover:border-primary-hover hover:text-primary-hover dark:hover:border-blue-400 dark:hover:text-blue-400 transition duration-300 w-auto text-center"
-                >View My Work</a
-              >
-            </div>
-          </div>
+  <!-- Bento Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 
-          <!-- Social Media Links -->
+    <!-- ── Row 1: Hero + Photo ── -->
+    <div class="md:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
 
-          <div class="mt-8 flex justify-center space-x-6">
-            <a
-              href="https://x.com/rohanrmallya"
-              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
-            >
-              <svg
-                role="img"
-                class="w-5 h-5 fill-primary dark:hover:fill-blue-300 hover:fill-blue-800"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>X</title>
-                <path
-                  d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
-                />
-              </svg>
-            </a>
-            <!-- <span class="text-gray-400">|</span> -->
-            <a
-              href="https://github.com/rohanrmallya"
-              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
-            >
-              <svg
-                role="img"
-                viewBox="0 0 24 24"
-                class="w-5 h-5 fill-primary dark:hover:fill-blue-300 hover:fill-blue-800"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>GitHub</title>
-                <path
-                  d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                />
-              </svg>
-            </a>
-            <!-- <span class="text-gray-400">|</span> -->
-            <a
-              href="mailto:hello@rohanmallya.com"
-              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
-            >
-              <svg
-                role="img"
-                viewBox="0 0 24 24"
-                class="w-5 h-5 fill-primary dark:hover:fill-blue-300 hover:fill-blue-800"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <title>Gmail</title>
-                <path
-                  d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
-                />
-              </svg>
-            </a>
-            <!-- <span class="text-gray-400">|</span> -->
-            <a
-              href="https://www.linkedin.com/in/rohanmallya/"
-              class="text-primary hover:text-primary-700 dark:hover:text-primary-hover transition duration-300"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="w-5 h-5 fill-primary dark:hover:fill-blue-300 hover:fill-blue-800"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"
-                />
-              </svg>
-            </a>
-          </div>
+      <!-- Hero Introduction Box -->
+      <div class="md:col-span-8 bg-[#f7f6f7] dark:bg-[#1c1b1c] rounded-lg p-8 md:p-12 flex flex-col justify-center relative overflow-hidden shadow-sm dark:shadow-none">
+        <div class="relative z-10">
+          <h1 class="text-5xl md:text-6xl font-bold tracking-[-0.04em] mb-4 text-[#1c1b1c] dark:text-[#e5e2e3] leading-tight">
+            Rohan Mallya
+          </h1>
+          <p class="text-xl md:text-2xl font-medium text-[#44474e] dark:text-[#c2c6d4] max-w-xl leading-snug">
+            Software Engineer<span class="text-[#0056b3] dark:text-[#acc7ff]">.</span> Product Enthusiast<span class="text-[#0056b3] dark:text-[#acc7ff]">.</span> Startups<span class="text-[#0056b3] dark:text-[#acc7ff]">.</span>
+
+          </p>
+          <p class="mt-5 text-base text-[#44474e]/80 dark:text-[#c2c6d4]/70 max-w-lg leading-relaxed">
+            Currently, a <span class="text-[#0056b3] dark:text-[#acc7ff]">Technical Architect at Infosys Finacle</span>, building software that powers some of the world's largest banks.
+          </p>
         </div>
+        <!-- Ambient glow -->
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#0056b3]/5 dark:bg-[#0056b3]/10 blur-[100px] rounded-full pointer-events-none"></div>
       </div>
+
+      <!-- Profile Photo Box -->
+      <div class="md:col-span-4 bg-[#f7f6f7] dark:bg-[#1c1b1c] rounded-lg overflow-hidden group shadow-sm dark:shadow-none" style="min-height: 300px;">
+        <img
+          src="/assets/imgs/me.png"
+          alt="Portrait of Rohan Mallya"
+          class="w-full h-full object-cover transition-all duration-700 ease-in-out scale-105 group-hover:scale-100"
+          style="min-height: 300px; object-position: top center;"
+        />
+      </div>
+
     </div>
+
+    <!-- ── Row 2: Bento Action Grid ── -->
+    <div class="md:col-span-12 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+
+      <!-- Full Resume — spans 2 cols & 2 rows -->
+      <a
+        href="http://cv.rohanmallya.com"
+        class="col-span-2 row-span-2 bg-[#0056b3]/5 dark:bg-[#acc7ff]/5 border border-[#0056b3]/15 dark:border-[#acc7ff]/15 rounded-lg p-10 flex flex-col items-center justify-center text-center group transition-all duration-300 hover:bg-[#0056b3]/10 dark:hover:bg-[#acc7ff]/10"
+        target="_blank" rel="noopener"
+      >
+        <div class="w-20 h-20 rounded-2xl bg-[#0056b3] dark:bg-[#0056b3] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-[#0056b3]/20">
+          <span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 48">description</span>
+        </div>
+        <span class="text-2xl font-bold text-[#1c1b1c] dark:text-[#e5e2e3]">Resumé</span>
+        <p class="text-sm text-[#44474e] dark:text-[#c2c6d4] mt-3 opacity-80 max-w-[200px]">Experience Snapshot &amp; Professional Journey</p>
+      </a>
+
+      <!-- Blog -->
+      <a href="/blog" class="liquid-glass rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl bg-[#0056b3]/10 dark:bg-[#acc7ff]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[#0056b3] dark:text-[#acc7ff] text-2xl">article</span>
+        </div>
+        <span class="text-sm font-semibold text-[#1c1b1c] dark:text-[#e5e2e3]">Blog</span>
+        <span class="text-[10px] text-[#44474e] dark:text-[#c2c6d4] mt-1 opacity-60 uppercase tracking-widest">Thoughts</span>
+      </a>
+
+      <!-- TIL -->
+      <a href="/til" class="liquid-glass rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl bg-[#0056b3]/10 dark:bg-[#acc7ff]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[#0056b3] dark:text-[#acc7ff] text-2xl">lightbulb</span>
+        </div>
+        <span class="text-sm font-semibold text-[#1c1b1c] dark:text-[#e5e2e3]">TIL</span>
+        <span class="text-[10px] text-[#44474e] dark:text-[#c2c6d4] mt-1 opacity-60 uppercase tracking-widest">Learnings</span>
+      </a>
+
+      <!-- Bookshelf -->
+      <a href="/bookshelf/" class="liquid-glass rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300">
+        <div class="w-12 h-12 rounded-xl bg-[#0056b3]/10 dark:bg-[#acc7ff]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+          <span class="material-symbols-outlined text-[#0056b3] dark:text-[#acc7ff] text-2xl">auto_stories</span>
+        </div>
+        <span class="text-sm font-semibold text-[#1c1b1c] dark:text-[#e5e2e3]">Bookshelf</span>
+        <span class="text-[10px] text-[#44474e] dark:text-[#c2c6d4] mt-1 opacity-60 uppercase tracking-widest">Library</span>
+      </a>
+
+      <!-- Decorative architectural pattern (hidden on small screens) -->
+      <div class="hidden lg:flex liquid-glass rounded-lg p-6 flex-col items-center justify-center relative overflow-hidden group">
+        <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity" style="background-image: radial-gradient(circle at 10px 10px, currentColor 1px, transparent 0); background-size: 20px 20px;"></div>
+        <span class="material-symbols-outlined text-[#0056b3]/40 dark:text-[#acc7ff]/40 text-3xl" style="font-variation-settings:'FILL' 0,'wght' 200,'GRAD' 0,'opsz' 48">architecture</span>
+      </div>
+
+      <!-- Twitter / X -->
+      <a href="https://x.com/rohanrmallya" class="liquid-glass rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300" target="_blank" rel="noopener">
+        <div class="w-10 h-10 rounded-full bg-[#44474e]/10 dark:bg-[#c2c6d4]/10 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+          <svg class="w-5 h-5 fill-[#44474e] dark:fill-[#c2c6d4] group-hover:fill-[#0056b3] dark:group-hover:fill-[#acc7ff] transition-colors" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </div>
+        <span class="text-xs font-medium text-[#1c1b1c] dark:text-[#e5e2e3]">Twitter</span>
+      </a>
+
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/rohanmallya/" class="liquid-glass rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300" target="_blank" rel="noopener">
+        <div class="w-10 h-10 rounded-full bg-[#44474e]/10 dark:bg-[#c2c6d4]/10 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+          <svg class="w-5 h-5 fill-[#44474e] dark:fill-[#c2c6d4] group-hover:fill-[#0056b3] dark:group-hover:fill-[#acc7ff] transition-colors" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+          </svg>
+        </div>
+        <span class="text-xs font-medium text-[#1c1b1c] dark:text-[#e5e2e3]">LinkedIn</span>
+      </a>
+
+      <!-- GitHub -->
+      <a href="https://github.com/rohanrmallya" class="liquid-glass rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300" target="_blank" rel="noopener">
+        <div class="w-10 h-10 rounded-full bg-[#44474e]/10 dark:bg-[#c2c6d4]/10 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+          <svg class="w-5 h-5 fill-[#44474e] dark:fill-[#c2c6d4] group-hover:fill-[#0056b3] dark:group-hover:fill-[#acc7ff] transition-colors" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </div>
+        <span class="text-xs font-medium text-[#1c1b1c] dark:text-[#e5e2e3]">GitHub</span>
+      </a>
+
+      <!-- Email Me -->
+      <a href="mailto:hello@rohanmallya.com" class="bg-[#eceaeb] dark:bg-[#353436] rounded-lg p-6 flex flex-col items-center justify-center text-center group transition-all duration-300 hover:bg-[#0056b3]/5 dark:hover:bg-[#acc7ff]/5 border border-transparent hover:border-[#0056b3]/15 dark:hover:border-[#acc7ff]/15">
+        <div class="w-10 h-10 rounded-full bg-[#0056b3] dark:bg-[#0056b3] flex items-center justify-center mb-2 group-hover:rotate-12 transition-transform">
+          <span class="material-symbols-outlined text-white text-xl">mail</span>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-tight text-[#0056b3] dark:text-[#acc7ff]">Email Me</span>
+      </a>
+
+    </div>
+
+    <!-- ── Row 3: Consulting CTA ── -->
+    <div id="consulting" class="md:col-span-12 bg-gradient-to-br from-[#0056b3] to-[#004491] dark:from-[#0056b3] dark:to-[#36496d] rounded-lg p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden mt-2 shadow-xl shadow-[#0056b3]/20">
+      <div class="relative z-10 text-center md:text-left">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Want to collab?</h2>
+        <p class="text-white/80 text-sm md:text-base font-medium max-w-xl">I work with early stage startups to design product strategy, development, engineering team setup and execution to turn ideas into reality.</p>
+      </div>
+      <div class="relative z-10">
+        <button
+          data-cal-link="rohanmallya/30min"
+          data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+          class="bg-white text-[#0056b3] px-10 py-4 rounded-lg font-bold text-base hover:scale-105 active:scale-95 transition-all shadow-lg cursor-pointer"
+        >
+          Book An Intro Call
+        </button>
+      </div>
+      <!-- Dot pattern overlay -->
+      <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+    </div>
+
   </div>
 </div>
 </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4 bg-background dark:bg-background-dark">
-      <p class="text-sm text-gray-600 dark:text-gray-400">
-        &copy; 2026 Rohan R Mallya. All rights reserved.
-      </p>
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-[#131314]">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+        <a href="/" class="text-sm font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+        <div class="flex space-x-12">
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
+        </div>
+        <div class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40">&copy; 2026 Rohan Mallya</div>
+      </div>
     </footer>
 
     <!-- Dark Mode Toggle Script -->

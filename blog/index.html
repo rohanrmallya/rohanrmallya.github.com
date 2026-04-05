@@ -22,23 +22,53 @@ pagination:
     </div>
   </header>
 
+  <!-- Controls Section -->
+  <section class="mb-10 space-y-6">
+    <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
+      <div class="w-full md:max-w-md hidden">
+      </div>
+      <div class="flex items-center gap-2 text-on-surface-variant">
+        <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Category:</span>
+        <select class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none">
+          <option>All Categories</option>
+          {% assign blog_categories = site.posts | map: "category" | compact | uniq | sort %}
+          {% for category in blog_categories %}
+          <option>{{ category }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </section>
+
   <!-- Blog List -->
   <section class="flex flex-col gap-0">
-    {% assign posts_by_year = paginator.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-    {% for year_group in posts_by_year %}
-    <div class="{% if forloop.first %}mb-12{% else %}mt-12{% endif %}">
-      <span class="text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-outline mb-8 block">{{ year_group.name }}</span>
-      {% for post in year_group.items %}
-      <a class="group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl" href="{{ post.url | relative_url }}">
-        <span class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0">{{ post.date | date: "%b %d" | upcase }}</span>
-        <span class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-v2-primary/70 dark:text-v2-primary/50 mb-4 md:mb-0 group-hover:text-v2-primary transition-colors">{{ post.category | default: "Blog" }}</span>
-        <h2 class="flex-1 text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-v2-primary transition-colors">
-          {{ post.title }}
-        </h2>
-      </a>
+    {% if paginator.posts.size > 0 %}
+      {% assign posts_by_year = paginator.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+      {% for year_group in posts_by_year %}
+      <div class="{% if forloop.first %}mb-12{% else %}mt-12{% endif %}">
+        <span class="text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-outline mb-8 block">{{ year_group.name }}</span>
+        {% for post in year_group.items %}
+        <a class="group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl" href="{{ post.url | relative_url }}">
+          <span class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0">{{ post.date | date: "%b %d" | upcase }}</span>
+          <span class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-v2-primary/70 dark:text-v2-primary/50 mb-4 md:mb-0 group-hover:text-v2-primary transition-colors">{{ post.category | default: "Blog" }}</span>
+          <h2 class="flex-1 text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-v2-primary transition-colors">
+            {{ post.title }}
+          </h2>
+        </a>
+        {% endfor %}
+      </div>
       {% endfor %}
-    </div>
-    {% endfor %}
+    {% else %}
+      <div class="mt-8 relative bg-surface-container-low rounded-xl p-12 border border-outline-variant/20 text-center flex flex-col items-center justify-center">
+        <div class="w-16 h-16 bg-surface-container-high rounded-full flex items-center justify-center mb-6">
+          <span class="material-symbols-outlined text-3xl text-v2-primary/70">edit_document</span>
+        </div>
+        <h3 class="text-2xl font-semibold mb-3 text-on-surface">Nothing here just yet</h3>
+        <p class="text-on-surface-variant max-w-md font-light leading-relaxed text-lg">
+          I'm currently refining a few drafts behind the scenes. They'll find their home here soon—check back in a bit!
+        </p>
+      </div>
+    {% endif %}
   </section>
 
   <!-- Pagination UI -->

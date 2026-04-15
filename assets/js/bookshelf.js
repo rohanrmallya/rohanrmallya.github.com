@@ -8,7 +8,6 @@
   const searchInput = document.getElementById("searchInput");
   const sortSelect = document.getElementById("sortSelect");
   const categorySelect = document.getElementById("categorySelect");
-  const categoryChips = document.getElementById("categoryChips");
   const booksGrid = document.getElementById("booksGrid");
   const emptyState = document.getElementById("emptyState");
   const resultsCount = document.getElementById("resultsCount");
@@ -37,7 +36,7 @@
     populateCategoryControls();
   }
 
-  // Populate category dropdown and chips
+  // Populate category dropdown
   function populateCategoryControls() {
     // Populate dropdown
     categorySelect.innerHTML = '<option value="">All Categories</option>';
@@ -46,26 +45,6 @@
       option.value = category;
       option.textContent = category;
       categorySelect.appendChild(option);
-    });
-
-    // Populate chips
-    categoryChips.innerHTML = "";
-    allCategories.forEach((category) => {
-      const chip = document.createElement("button");
-      chip.className =
-        "px-4 py-1.5 rounded-lg text-[0.7rem] font-semibold uppercase tracking-[0.05em] bg-surface-container-highest text-on-surface-variant hover:text-on-surface transition-all active:scale-95 focus:outline-none focus:ring-2 focus:ring-v2-primary focus:ring-offset-2";
-      chip.textContent = category;
-      chip.setAttribute("data-category", category);
-      chip.addEventListener("click", () => {
-        const currentCategory = categorySelect.value;
-        if (currentCategory === category) {
-          categorySelect.value = ""; // Toggle off if already selected
-        } else {
-          categorySelect.value = category;
-        }
-        updateFiltersAndRender();
-      });
-      categoryChips.appendChild(chip);
     });
   }
 
@@ -83,32 +62,6 @@
     [searchInput, sortSelect, categorySelect].forEach((element) => {
       element.addEventListener("change", updateURL);
       element.addEventListener("input", debounce(updateURL, 500));
-    });
-
-    // Update active chip state
-    categorySelect.addEventListener("change", updateChipStates);
-  }
-
-  // Update active state of category chips
-  function updateChipStates() {
-    const selectedCategory = categorySelect.value;
-    categoryChips.querySelectorAll("button").forEach((chip) => {
-      const chipCategory = chip.getAttribute("data-category");
-      if (chipCategory === selectedCategory) {
-        chip.classList.add("bg-v2-primary-container", "text-on-primary-container");
-        chip.classList.remove(
-          "bg-surface-container-highest",
-          "text-on-surface-variant",
-          "hover:text-on-surface"
-        );
-      } else {
-        chip.classList.remove("bg-v2-primary-container", "text-on-primary-container");
-        chip.classList.add(
-          "bg-surface-container-highest",
-          "text-on-surface-variant",
-          "hover:text-on-surface"
-        );
-      }
     });
   }
 
@@ -224,9 +177,6 @@
           `
       )
       .join("");
-
-    // Update chip states
-    updateChipStates();
   }
 
   // Update filters and re-render
@@ -252,7 +202,7 @@
     }
 
     if (categorySelect.value) {
-      categorySelect.value = params.get("category");
+      params.set("category", categorySelect.value);
     }
 
     if (sortSelect.value !== "newest") {

@@ -37,40 +37,29 @@ layout: base
         </div>
       </div>
 
-      <!-- Sort Dropdown -->
-      <div class="flex items-center gap-2 text-on-surface-variant">
-        <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Sort:</span>
-        <select
-          id="sortSelect"
-          class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0"
-          aria-label="Sort books"
-        >
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-          <option value="title">Title A → Z</option>
-          <option value="author">Author A → Z</option>
-        </select>
-      </div>
-    </div>
+      <div class="flex flex-col sm:flex-row items-end sm:items-center gap-4 sm:gap-6">
+        <!-- Category Dropdown -->
+        <div class="flex items-center gap-2 text-on-surface-variant">
+          <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Category:</span>
+          <select id="categorySelect" class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none">
+            <option value="">All Categories</option>
+          </select>
+        </div>
 
-    <!-- Category Filter -->
-    <div class="space-y-3">
-      <div class="flex items-center justify-between">
-        <h2 class="text-[0.7rem] font-semibold uppercase tracking-widest text-on-surface-variant">Categories</h2>
-        <!-- Hidden select for legacy support/accessibility if needed, but we'll use chips -->
-        <select id="categorySelect" class="hidden">
-           <option value="">All Categories</option>
-        </select>
-      </div>
-      
-      <!-- Category Chips -->
-      <div
-        id="categoryChips"
-        class="flex flex-wrap gap-2"
-        role="group"
-        aria-label="Quick category filters"
-      >
-        <!-- Dynamically populated by JS -->
+        <!-- Sort Dropdown -->
+        <div class="flex items-center gap-2 text-on-surface-variant">
+          <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Sort:</span>
+          <select
+            id="sortSelect"
+            class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none"
+            aria-label="Sort books"
+          >
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="title">Title A → Z</option>
+            <option value="author">Author A → Z</option>
+          </select>
+        </div>
       </div>
     </div>
   </section>

@@ -953,6 +953,9 @@
   .mt-auto {
     margin-top: auto;
   }
+  .mr-1 {
+    margin-right: calc(var(--spacing) * 1);
+  }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
   }
@@ -1644,6 +1647,9 @@
   .text-\[\#44474e\] {
     color: #44474e;
   }
+  .text-\[\#44474e\]\/50 {
+    color: color-mix(in oklab, #44474e 50%, transparent);
+  }
   .text-\[\#44474e\]\/80 {
     color: color-mix(in oklab, #44474e 80%, transparent);
   }
@@ -1659,6 +1665,12 @@
   .text-on-surface-variant {
     color: var(--color-on-surface-variant);
   }
+  .text-on-surface-variant\/40 {
+    color: color-mix(in srgb, #c2c6d4 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-on-surface-variant) 40%, transparent);
+    }
+  }
   .text-on-surface-variant\/50 {
     color: color-mix(in srgb, #c2c6d4 50%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -1670,6 +1682,12 @@
   }
   .text-v2-primary {
     color: var(--color-v2-primary);
+  }
+  .text-v2-primary\/40 {
+    color: color-mix(in srgb, #acc7ff 40%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-v2-primary) 40%, transparent);
+    }
   }
   .text-v2-primary\/70 {
     color: color-mix(in srgb, #acc7ff 70%, transparent);
@@ -2333,6 +2351,11 @@
   .dark\:text-\[\#c2c6d4\] {
     &:where(.dark, .dark *) {
       color: #c2c6d4;
+    }
+  }
+  .dark\:text-\[\#c2c6d4\]\/50 {
+    &:where(.dark, .dark *) {
+      color: color-mix(in oklab, #c2c6d4 50%, transparent);
     }
   }
   .dark\:text-\[\#c2c6d4\]\/70 {

@@ -48,9 +48,17 @@ layout: base
           </header>
 
           <div class="grid gap-12">
+            {% assign sorted_til = site.til | sort: "date" %}
             {% for til in grouped_til.items %}
+            {% for t in sorted_til %}
+              {% if t.url == til.url %}
+                {% assign post_num = forloop.index %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
             <div class="group relative bg-surface-container-low rounded-lg p-8 border border-outline-variant/20 hover:border-v2-primary/40 transition-all duration-500">
               <div class="flex flex-wrap items-center gap-4 mb-6">
+                <span class="text-on-surface-variant/40 text-[10px] font-bold">#{% if post_num < 10 %}0{% endif %}{{ post_num }}</span>
                 {% if til.category %}
                   <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">{{ til.category }}</span>
                 {% endif %}

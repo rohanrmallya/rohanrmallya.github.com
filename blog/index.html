@@ -44,13 +44,23 @@ pagination:
   <!-- Blog List -->
   <section class="flex flex-col gap-0">
     {% if paginator.posts.size > 0 %}
+      {% assign sorted_blog = site.blog | sort: "date" %}
       {% assign posts_by_year = paginator.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
       {% for year_group in posts_by_year %}
       <div class="{% if forloop.first %}mb-12{% else %}mt-12{% endif %}">
         <span class="text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-outline mb-8 block">{{ year_group.name }}</span>
         {% for post in year_group.items %}
+        {% for b in sorted_blog %}
+          {% if b.url == post.url %}
+            {% assign post_num = forloop.index %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
         <a class="group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl" href="{{ post.url | relative_url }}">
-          <span class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0">{{ post.date | date: "%b %d" | upcase }}</span>
+          <span class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0">
+            <span class="text-v2-primary/40 mr-1">#{% if post_num < 10 %}0{% endif %}{{ post_num }}</span>
+            {{ post.date | date: "%b %d" | upcase }}
+          </span>
           <span class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-v2-primary/70 dark:text-v2-primary/50 mb-4 md:mb-0 group-hover:text-v2-primary transition-colors">{{ post.category | default: "Blog" }}</span>
           <h2 class="flex-1 text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-v2-primary transition-colors">
             {{ post.title }}

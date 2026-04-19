@@ -8,6 +8,14 @@ layout: base
       Back to TIL
     </a>
     <div class="flex flex-wrap items-center gap-4 mb-6">
+      {% assign sorted_til = site.til | sort: "date" %}
+      {% for t in sorted_til %}
+        {% if t.url == page.url %}
+          {% assign post_num = forloop.index %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      <span class="text-[#44474e]/50 dark:text-[#c2c6d4]/50 text-xs font-bold">#{% if post_num < 10 %}0{% endif %}{{ post_num }}</span>
       {% if page.category %}
         <span class="bg-[#0056b3]/10 dark:bg-[#acc7ff]/10 text-[#0056b3] dark:text-[#acc7ff] px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-[#0056b3]/20 dark:border-[#acc7ff]/20">{{ page.category }}</span>
       {% endif %}

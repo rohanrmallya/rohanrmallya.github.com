@@ -30,6 +30,9 @@ linkedin_username: rohanmallya
 pinterest_username: rohanrmallya
 
 collections:
+  blog:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
   til:
     output: true
     permalink: /til/:title/

@@ -3,6 +3,7 @@ layout: base
 title: Blog
 pagination:
   enabled: true
+  collection: blog
 ---
 
 <main class="max-w-7xl mx-auto px-8 pt-32 pb-12 relative min-h-screen">
@@ -31,7 +32,7 @@ pagination:
         <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Category:</span>
         <select class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none">
           <option>All Categories</option>
-          {% assign blog_categories = site.posts | map: "category" | compact | uniq | sort %}
+          {% assign blog_categories = site.blog | map: "category" | compact | uniq | sort %}
           {% for category in blog_categories %}
           <option>{{ category }}</option>
           {% endfor %}

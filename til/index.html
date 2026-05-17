@@ -50,29 +50,29 @@
   </head>
 
   <body
-    class="bg-[#f9f9fb] text-[#1c1b1c] dark:bg-[#131314] dark:text-[#e5e2e3] font-sans antialiased"
+    class="bg-surface text-on-surface font-sans antialiased"
   >
     <!-- Include the navbar component -->
     <!-- v2 Navbar: Architectural Fluidity -->
-<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-[#131314]/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
   <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
     <!-- Brand -->
-    <a href="/" class="text-xl font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+    <a href="/" class="text-xl font-bold tracking-tighter text-on-surface hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
 
     <!-- Desktop Nav Links -->
     <div class="hidden md:flex items-center space-x-8">
-      <a href="/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Home</a>
-      <a href="/bookshelf/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Bookshelf</a>
-      <a href="/til/" class="text-sm font-semibold text-[#0056b3] dark:text-[#acc7ff] transition-colors duration-300">TIL</a>
-      <a href="/blog/" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Blogs</a>
-      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300">Resume</a>
+      <a href="/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm font-semibold text-v2-primary transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Resume</a>
 
     </div>
 
     <!-- Actions -->
     <div class="flex items-center space-x-4">
       <!-- Dark Mode Toggle -->
-      <button id="darkModeToggle" class="text-[#1c1b1c]/60 dark:text-[#e5e2e3]/60 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+      <button id="darkModeToggle" class="text-on-surface/60 hover:text-v2-primary transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
         <!-- Sun icon (shown in dark mode) -->
         <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
           <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
@@ -88,11 +88,11 @@
         href="#consulting"
         data-cal-link="rohanmallya/30min"
         data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
-        class="bg-[#0056b3] dark:bg-[#acc7ff] text-white dark:text-[#001a40] px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-[#0056b3]/20"
+        class="bg-v2-primary text-on-primary px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-v2-primary/20"
       >Consulting</a>
 
       <!-- Mobile hamburger -->
-      <button id="mobileMenuToggle" class="md:hidden text-[#1c1b1c] dark:text-[#e5e2e3] focus:outline-none">
+      <button id="mobileMenuToggle" class="md:hidden text-on-surface focus:outline-none">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -101,12 +101,12 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-[#1c1b1c]/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
-    <a href="/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Home</a>
-    <a href="/bookshelf/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Bookshelf</a>
-    <a href="/til/" class="block py-3 text-sm font-semibold text-[#0056b3] dark:text-[#acc7ff]">TIL</a>
-    <a href="/blog/" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Blogs</a>
-    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-[#1c1b1c]/70 dark:text-[#e5e2e3]/70 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors">Resume</a>
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-surface-container-low/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm font-semibold text-v2-primary">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Resume</a>
   </div>
 
   <script>
@@ -212,15 +212,15 @@
 </main>
 
     <!-- Footer -->
-    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-[#131314]">
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-surface">
       <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
-        <a href="/" class="text-sm font-bold tracking-tighter text-[#1c1b1c] dark:text-[#e5e2e3] hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+        <a href="/" class="text-sm font-bold tracking-tighter text-on-surface hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
         <div class="flex space-x-12">
-          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
-          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
-          <a class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40 hover:text-[#0056b3] dark:hover:text-[#acc7ff] transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
         </div>
-        <div class="text-xs uppercase tracking-widest font-semibold text-[#1c1b1c]/40 dark:text-[#e5e2e3]/40">&copy; 2026 Rohan Mallya</div>
+        <div class="text-xs uppercase tracking-widest font-semibold text-on-surface/40">&copy; 2026 Rohan Mallya</div>
       </div>
     </footer>
 

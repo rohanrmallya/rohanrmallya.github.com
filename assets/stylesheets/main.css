@@ -6,15 +6,6 @@
 @layer utilities {}
 
 @theme {
-    /* Legacy tokens (kept for backward compat) */
-    --color-primary: #4a65d3;
-    --color-tertiary-container: #5b3d57;
-    --color-tertiary-text: #ffd7f3;
-    --color-primary-hover: #1f3a8a;
-    --color-background: #fffaf0;
-    --color-background-dark: #121212;
-    --color-background-dark-elevated: #2A2D3A;
-
     /* v2 "Architectural Fluidity" – Dark (Default) */
     --color-surface: #131314;
     --color-surface-bright: #3a393a;
@@ -50,6 +41,10 @@
     --radius-md: 12px;
     --radius-lg: 16px;
     --radius-xl: 24px;
+
+    /* Consulting Gradient Variables */
+    --color-consulting-from: #0056b3;
+    --color-consulting-to: #36496d;
 }
 
 /* ── Light Mode Overrides ── */
@@ -74,6 +69,10 @@
         --color-secondary: #535f71;
         --color-secondary-container: #d7e2ff;
         --color-on-secondary-container: #101c2b;
+
+        /* Consulting Gradient Override */
+        --color-consulting-from: #0056b3;
+        --color-consulting-to: #004491;
     }
 }
 

@@ -22,9 +22,14 @@ An architectural, minimalist, and performance-oriented personal website built wi
    ```
 
 ### Development
-Start the Jekyll server:
+Start the standard Jekyll server:
 ```bash
 bundle exec jekyll serve
+```
+
+To run a local development server with Docker that includes drafts, unpublished posts, and future posts:
+```bash
+./run.sh
 ```
 
 ---
@@ -79,7 +84,7 @@ npm install tailwindcss@latest
 
 ## 📂 Project Structure
 - `_til/`: Markdown entries for the "Today I Learned" section.
-- `_posts/`: Blog essays and deep-dives.
+- `_blog/`: Blog essays and deep-dives.
 - `_data/book/`: Data source for the Bookshelf section.
 - `_layouts/`: Base HTML templates and layouts.
 - `assets/stylesheets/main.css`: The "Source of Truth" for all styling and design tokens.

@@ -3,6 +3,8 @@
   let currentBooks = [];
   let filteredBooks = [];
   let allCategories = [];
+  let currentPage = 1;
+  const ITEMS_PER_PAGE = 20;
 
   // DOM elements
   const searchInput = document.getElementById("searchInput");
@@ -12,6 +14,7 @@
   const emptyState = document.getElementById("emptyState");
   const resultsCount = document.getElementById("resultsCount");
   const clearFiltersBtn = document.getElementById("clearFiltersBtn");
+  const pagination = document.getElementById("pagination");
 
   // Initialize the application
   function init() {
@@ -52,7 +55,7 @@
   function setupEventListeners() {
     searchInput.addEventListener(
       "input",
-      debounce(updateFiltersAndRender, 300)
+      debounce(updateFiltersAndRender, 300),
     );
     sortSelect.addEventListener("change", updateFiltersAndRender);
     categorySelect.addEventListener("change", updateFiltersAndRender);
@@ -63,6 +66,17 @@
       element.addEventListener("change", updateURL);
       element.addEventListener("input", debounce(updateURL, 500));
     });
+
+    // Pagination navigation using event delegation
+    if (pagination) {
+      pagination.addEventListener("click", (e) => {
+        const button = e.target.closest("button");
+        if (button && button.hasAttribute("data-page") && !button.disabled) {
+          const page = parseInt(button.getAttribute("data-page"), 10);
+          goToPage(page);
+        }
+      });
+    }
   }
 
   // Filter and sort books
@@ -124,35 +138,63 @@
     }
   }
 
-  // Render books grid
+  // Render books grid with pagination
   function renderBooks() {
     filterAndSortBooks();
 
-    // Update results count
     const count = filteredBooks.length;
-    resultsCount.textContent = `Showing ${count} book${count !== 1 ? "s" : ""}`;
 
     // Show/hide empty state
-    if (filteredBooks.length === 0) {
+    if (count === 0) {
       booksGrid.classList.add("hidden");
+      if (pagination) {
+        pagination.classList.add("hidden");
+      }
       emptyState.classList.remove("hidden");
+      resultsCount.textContent = "Showing 0 books";
       return;
     }
 
     booksGrid.classList.remove("hidden");
+    if (pagination) {
+      pagination.classList.remove("hidden");
+    }
     emptyState.classList.add("hidden");
 
+    // Pagination calculations
+    const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+    if (currentPage < 1) {
+      currentPage = 1;
+    }
+
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = Math.min(startIndex + ITEMS_PER_PAGE, count);
+    const paginatedBooks = filteredBooks.slice(startIndex, endIndex);
+
+    // Update results count
+    if (count > ITEMS_PER_PAGE) {
+      resultsCount.textContent = `Showing ${startIndex + 1}–${endIndex} of ${count} books`;
+    } else {
+      resultsCount.textContent = `Showing ${count} book${count !== 1 ? "s" : ""}`;
+    }
+
     // Render book cards
-    booksGrid.innerHTML = filteredBooks
+    booksGrid.innerHTML = paginatedBooks
       .map(
-        (book) => `
+        (book, idx) => {
+          const absoluteIndex = startIndex + idx + 1;
+          return `
             <article class="group bg-surface-container-low hover:bg-surface-container p-5 rounded-lg transition-all duration-300 flex flex-col h-full min-h-[140px] relative border border-outline-variant/10">
-              <div class="mb-2">
+              <div class="flex items-center justify-between gap-2 mb-2 w-full">
                 ${
                   book.category
                     ? `<span class="text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded">${book.category}</span>`
-                    : ""
+                    : "<span></span>"
                 }
+                <span class="text-[0.7rem] font-bold text-on-surface-variant/40 select-none font-mono">#${absoluteIndex}</span>
               </div>
               
               ${
@@ -178,13 +220,125 @@
                   : ""
               }
             </article>
-          `
+          `;
+        },
       )
       .join("");
+
+    renderPagination(totalPages);
+  }
+
+  // Render pagination controls
+  function renderPagination(totalPages) {
+    if (!pagination) return;
+
+    if (totalPages <= 1) {
+      pagination.innerHTML = "";
+      pagination.classList.add("hidden");
+      return;
+    }
+
+    pagination.classList.remove("hidden");
+    let html = "";
+
+    // Previous button
+    if (currentPage > 1) {
+      html += `
+        <button data-page="${currentPage - 1}" class="px-3 py-2 rounded-md bg-surface-container-low hover:bg-surface-container border border-outline-variant/10 text-on-surface text-sm font-medium hover:scale-105 active:scale-95 transition-all flex items-center gap-1 cursor-pointer" aria-label="Previous Page">
+          <span class="material-symbols-outlined text-base">chevron_left</span>
+          Prev
+        </button>
+      `;
+    } else {
+      html += `
+        <button class="px-3 py-2 rounded-md bg-surface-container-low/50 border border-outline-variant/5 text-on-surface-variant/40 text-sm font-medium flex items-center gap-1 cursor-not-allowed opacity-50" disabled aria-label="Previous Page">
+          <span class="material-symbols-outlined text-base">chevron_left</span>
+          Prev
+        </button>
+      `;
+    }
+
+    const range = (start, end) =>
+      Array.from({ length: end - start + 1 }, (_, i) => start + i);
+    let pages = [];
+    const delta = 1;
+
+    if (totalPages <= 5) {
+      pages = range(1, totalPages);
+    } else {
+      const leftLimit = currentPage - delta;
+      const rightLimit = currentPage + delta;
+
+      pages.push(1);
+
+      if (leftLimit > 2) {
+        pages.push("...");
+      }
+
+      const start = Math.max(2, leftLimit);
+      const end = Math.min(totalPages - 1, rightLimit);
+      for (let i = start; i <= end; i++) {
+        pages.push(i);
+      }
+
+      if (rightLimit < totalPages - 1) {
+        pages.push("...");
+      }
+
+      pages.push(totalPages);
+    }
+
+    pages.forEach((page) => {
+      if (page === "...") {
+        html += `<span class="w-9 h-9 flex items-center justify-center text-on-surface-variant/60 text-sm font-medium">...</span>`;
+      } else if (page === currentPage) {
+        html += `
+          <button class="w-9 h-9 rounded-md bg-v2-primary text-on-primary font-bold text-sm flex items-center justify-center shadow-md transition-all cursor-default" aria-current="page" disabled>
+            ${page}
+          </button>
+        `;
+      } else {
+        html += `
+          <button data-page="${page}" class="w-9 h-9 rounded-md bg-surface-container-low hover:bg-surface-container border border-outline-variant/10 text-on-surface font-semibold text-sm flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer">
+            ${page}
+          </button>
+        `;
+      }
+    });
+
+    // Next button
+    if (currentPage < totalPages) {
+      html += `
+        <button data-page="${currentPage + 1}" class="px-3 py-2 rounded-md bg-surface-container-low hover:bg-surface-container border border-outline-variant/10 text-on-surface text-sm font-medium hover:scale-105 active:scale-95 transition-all flex items-center gap-1 cursor-pointer" aria-label="Next Page">
+          Next
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+        </button>
+      `;
+    } else {
+      html += `
+        <button class="px-3 py-2 rounded-md bg-surface-container-low/50 border border-outline-variant/5 text-on-surface-variant/40 text-sm font-medium flex items-center gap-1 cursor-not-allowed opacity-50" disabled aria-label="Next Page">
+          Next
+          <span class="material-symbols-outlined text-base">chevron_right</span>
+        </button>
+      `;
+    }
+
+    pagination.innerHTML = html;
+  }
+
+  // Navigate to specific page
+  function goToPage(page) {
+    currentPage = page;
+    renderBooks();
+    updateURL();
+    if (searchInput) {
+      searchInput.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   }
 
   // Update filters and re-render
   function updateFiltersAndRender() {
+    currentPage = 1;
     renderBooks();
   }
 
@@ -193,8 +347,9 @@
     searchInput.value = "";
     categorySelect.value = "";
     sortSelect.value = "newest";
-    updateURL();
+    currentPage = 1;
     renderBooks();
+    updateURL();
   }
 
   // URL parameter management
@@ -213,12 +368,17 @@
       params.set("sort", sortSelect.value);
     }
 
+    if (currentPage > 1) {
+      params.set("page", currentPage);
+    }
+
     const newURL =
       window.location.pathname +
       (params.toString() ? "?" + params.toString() : "");
     window.history.replaceState({}, "", newURL);
   }
 
+  // Load state from URL
   function loadStateFromURL() {
     const params = new URLSearchParams(window.location.search);
 
@@ -232,6 +392,12 @@
 
     if (params.has("sort")) {
       sortSelect.value = params.get("sort");
+    }
+
+    if (params.has("page")) {
+      currentPage = parseInt(params.get("page"), 10) || 1;
+    } else {
+      currentPage = 1;
     }
   }
 

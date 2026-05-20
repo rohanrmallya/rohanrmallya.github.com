@@ -36,6 +36,10 @@ collections:
   til:
     output: true
     permalink: /til/:title/
+  notes:
+    output: true
+    permalink: /bookshelf/notes/:title/
+
 
 # Build settings
 # theme: minima

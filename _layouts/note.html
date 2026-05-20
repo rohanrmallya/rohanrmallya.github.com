@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<article class="pt-32 min-h-screen px-4 md:px-12 pb-24 max-w-3xl mx-auto">
+  <div class="mb-12">
+    <a href="/bookshelf/" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors mb-8">
+      <span class="material-symbols-outlined mr-2">arrow_back</span>
+      Back to Bookshelf
+    </a>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+      {% assign sorted_notes = site.notes | sort: "date" %}
+      {% for n in sorted_notes %}
+        {% if n.url == page.url %}
+          {% assign note_num = forloop.index %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      {% if note_num %}
+        <span class="text-on-surface-variant/50 text-xs font-bold">#{% if note_num < 10 %}0{% endif %}{{ note_num }}</span>
+      {% endif %}
+      {% if page.category %}
+        <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">{{ page.category }}</span>
+      {% elsif page.tags and page.tags.size > 0 %}
+        {% for tag in page.tags limit:3 %}
+        <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+      <span class="text-on-surface-variant text-xs flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">schedule</span> {{ page.read_time | default: 5 }} min read
+      </span>
+      <span class="text-on-surface-variant text-xs font-medium">{{ page.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface leading-tight mb-8">{{ page.title }}</h1>
+  </div>
+  
+  <div class="post-content e-content prose prose-lg dark:prose-invert max-w-none text-on-surface" itemprop="articleBody">
+    {{ content }}
+  </div>
+</article>

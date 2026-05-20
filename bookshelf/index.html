@@ -393,39 +393,8 @@
   ];
 </script>
 
-<!-- Initialize theme based on localStorage -->
-<script>
-  (function () {
-    const htmlElement = document.documentElement;
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      htmlElement.classList.add("dark");
-    } else {
-      htmlElement.classList.remove("dark");
-    }
-  })();
-</script>
-
 <!-- Bookshelf JavaScript -->
 <script src="/assets/js/bookshelf.js"></script>
-
-<!-- Dark Mode Toggle Script (matching existing site functionality) -->
-<script>
-  const darkModeToggle = document.getElementById("darkModeToggle");
-  const htmlElement = document.documentElement;
-
-  if (darkModeToggle) {
-    darkModeToggle.addEventListener("click", () => {
-      if (htmlElement.classList.contains("dark")) {
-        htmlElement.classList.remove("dark");
-        localStorage.setItem("theme", "light");
-      } else {
-        htmlElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-      }
-    });
-  }
-</script>
 </main>
 
     <!-- Footer -->

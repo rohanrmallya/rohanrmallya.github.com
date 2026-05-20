@@ -24,19 +24,44 @@ An architectural, minimalist, and performance-oriented personal website built wi
 
 ### Development
 
-Start the standard Jekyll server:
+You can run the development server in different modes depending on whether you want to preview drafts, unpublished, or future-dated content.
 
-```bash
-bundle exec jekyll serve
-```
+#### Option A: Running with local Jekyll (Recommended)
 
-To run a local development server with Docker that includes drafts, unpublished posts, and future posts:
+- **Production Preview (No drafts, unpublished, or future posts):**
+  ```bash
+  bundle exec jekyll serve
+  ```
+- **Development Preview (Includes drafts, unpublished, and future posts):**
+  ```bash
+  bundle exec jekyll serve --drafts --unpublished --future
+  ```
 
-```bash
-./run.sh
-```
+#### Option B: Running with Docker
+
+- **Development Preview (Includes drafts, unpublished, and future posts):**
+  ```bash
+  ./run.sh
+  ```
 
 ---
+
+## 📝 Drafts Support
+
+Drafts are supported for both **Blog** and **TIL** sections.
+
+### Draft Locations:
+
+- **Blog Drafts:** Placed under `_blog/drafts/` (e.g. `_blog/drafts/my-draft-post.md`).
+- **TIL Drafts:** Placed under `_til/drafts/` (e.g. `_til/drafts/my-draft-til.md`).
+
+### Draft Front Matter:
+
+For a file to be treated as a draft or unpublished, set `published: false` in the front matter:
+
+```yaml
+published: false
+```
 
 ## 🎨 Tailwind CSS v4 + Jekyll Integration
 

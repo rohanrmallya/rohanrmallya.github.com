@@ -146,8 +146,8 @@
     booksGrid.innerHTML = filteredBooks
       .map(
         (book) => `
-            <article class="group bg-surface-container-low hover:bg-surface-container p-5 rounded-lg transition-all duration-300 flex flex-col h-[220px] relative border border-outline-variant/10">
-              <div class="mb-3">
+            <article class="group bg-surface-container-low hover:bg-surface-container p-5 rounded-lg transition-all duration-300 flex flex-col h-full min-h-[140px] relative border border-outline-variant/10">
+              <div class="mb-2">
                 ${
                   book.category
                     ? `<span class="text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded">${book.category}</span>`
@@ -157,32 +157,26 @@
               
               ${
                 book.link
-                  ? `<h3 class="text-[1.1rem] font-semibold tracking-tight leading-tight mb-1 group-hover:text-v2-primary transition-colors line-clamp-2">
+                  ? `<h3 class="text-[1rem] font-semibold tracking-tight leading-tight mb-1 group-hover:text-v2-primary transition-colors line-clamp-2">
                       <a href="${book.link}" target="_blank" rel="noopener noreferrer" class="focus:outline-none after:absolute after:inset-0">
                         ${book.title}
                       </a>
                     </h3>`
-                  : `<h3 class="text-[1.1rem] font-semibold tracking-tight leading-tight mb-1 group-hover:text-v2-primary transition-colors line-clamp-2">${book.title}</h3>`
+                  : `<h3 class="text-[1rem] font-semibold tracking-tight leading-tight mb-1 group-hover:text-v2-primary transition-colors line-clamp-2">${book.title}</h3>`
               }
               
-              <p class="text-on-surface-variant text-xs mb-4">${book.author}</p>
+              <p class="text-on-surface-variant text-xs mb-3">${book.author}</p>
               
-              <div class="mt-auto pt-3 border-t border-outline-variant/20 flex justify-between items-center">
-                <time class="text-[0.6rem] font-medium text-outline uppercase" datetime="${
-                  book.date_finished || ""
-                }">${formatDate(book.date_finished)}</time>
-                <div class="flex items-center gap-2">
-                  ${
-                    book.notes_url
-                      ? `<a href="${book.notes_url}" class="relative z-10 flex items-center gap-1 text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded border border-v2-primary/20 hover:bg-v2-primary/20 transition-colors">
-                          <span class="material-symbols-outlined text-[14px]">edit_document</span>
-                          Notes
-                        </a>`
-                      : ""
-                  }
-                  <span class="material-symbols-outlined text-outline group-hover:text-v2-primary transition-colors text-base">auto_stories</span>
-                </div>
-              </div>
+              ${
+                book.notes_url
+                  ? `<div class="mt-auto pt-2">
+                      <a href="${book.notes_url}" class="relative z-10 flex items-center gap-1 text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded border border-v2-primary/20 hover:bg-v2-primary/20 transition-colors w-fit">
+                        <span class="material-symbols-outlined text-[14px]">edit_document</span>
+                        Notes
+                      </a>
+                    </div>`
+                  : ""
+              }
             </article>
           `
       )

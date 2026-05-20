@@ -1046,14 +1046,14 @@
   .h-\[1px\] {
     height: 1px;
   }
-  .h-\[220px\] {
-    height: 220px;
-  }
   .h-full {
     height: 100%;
   }
   .min-h-\[80vh\] {
     min-height: 80vh;
+  }
+  .min-h-\[140px\] {
+    min-height: 140px;
   }
   .min-h-screen {
     min-height: 100vh;
@@ -1084,6 +1084,9 @@
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
+  }
+  .w-fit {
+    width: fit-content;
   }
   .w-full {
     width: 100%;
@@ -1463,8 +1466,8 @@
   .py-32 {
     padding-block: calc(var(--spacing) * 32);
   }
-  .pt-3 {
-    padding-top: calc(var(--spacing) * 3);
+  .pt-2 {
+    padding-top: calc(var(--spacing) * 2);
   }
   .pt-6 {
     padding-top: calc(var(--spacing) * 6);
@@ -1544,11 +1547,11 @@
   .text-\[0\.75rem\] {
     font-size: 0.75rem;
   }
-  .text-\[1\.1rem\] {
-    font-size: 1.1rem;
-  }
   .text-\[1\.125rem\] {
     font-size: 1.125rem;
+  }
+  .text-\[1rem\] {
+    font-size: 1rem;
   }
   .text-\[3\.5rem\] {
     font-size: 3.5rem;

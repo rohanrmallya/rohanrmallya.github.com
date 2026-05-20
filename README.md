@@ -24,19 +24,44 @@ An architectural, minimalist, and performance-oriented personal website built wi
 
 ### Development
 
-Start the standard Jekyll server:
+You can run the development server in different modes depending on whether you want to preview drafts, unpublished, or future-dated content.
 
-```bash
-bundle exec jekyll serve
-```
+#### Option A: Running with local Jekyll (Recommended)
 
-To run a local development server with Docker that includes drafts, unpublished posts, and future posts:
+- **Production Preview (No drafts, unpublished, or future posts):**
+  ```bash
+  bundle exec jekyll serve
+  ```
+- **Development Preview (Includes drafts, unpublished, and future posts):**
+  ```bash
+  bundle exec jekyll serve --drafts --unpublished --future
+  ```
 
-```bash
-./run.sh
-```
+#### Option B: Running with Docker
+
+- **Development Preview (Includes drafts, unpublished, and future posts):**
+  ```bash
+  ./run.sh
+  ```
 
 ---
+
+## 📝 Drafts Support
+
+Drafts are supported for both **Blog** and **TIL** sections.
+
+### Draft Locations:
+
+- **Blog Drafts:** Placed under `_blog/drafts/` (e.g. `_blog/drafts/my-draft-post.md`).
+- **TIL Drafts:** Placed under `_til/drafts/` (e.g. `_til/drafts/my-draft-til.md`).
+
+### Draft Front Matter:
+
+For a file to be treated as a draft or unpublished, set `published: false` in the front matter:
+
+```yaml
+published: false
+```
 
 ## 🎨 Tailwind CSS v4 + Jekyll Integration
 
@@ -97,19 +122,22 @@ npm install tailwindcss@latest
 
 - `_til/`: Markdown entries for the "Today I Learned" section.
 - `_blog/`: Blog essays and deep-dives.
-- `_data/book/`: Data source for the Bookshelf section.
+- `_notes/`: Markdown entries for Book Notes.
+- `_data/book.yml`: Data source for the Bookshelf section.
 - `_layouts/`: Base HTML templates and layouts.
 - `assets/stylesheets/main.css`: The "Source of Truth" for all styling and design tokens.
 
 ---
 
-## 📝 Content Creation Template
+## 📝 Content Creation & Management
 
-When creating a new Blog post or TIL (Today I Learned) entry, include the following YAML front matter at the top of your Markdown file:
+### 1. Blog & TIL (Today I Learned) Entries
+
+When creating a new Blog post or TIL entry, create a markdown file under `_blog/` or `_til/` respectively. Include the following YAML front matter at the top of your file:
 
 ```yaml
 ---
-layout: post # use til_single for TIL
+layout: post # Use til_single for TIL
 title: "Your Post Title"
 date: YYYY-MM-DD
 category: YourCategory
@@ -117,6 +145,57 @@ published: true # Set to false to keep as a draft
 read_time: 2 # Default: 5 minutes
 ---
 ```
+
+### 2. Bookshelf
+
+To add a book to the bookshelf page, append a new entry to `_data/book.yml`:
+
+```yaml
+- title: "Book Title"
+  author: "Author Name"
+  link: "https://example.com/amazon-link" # Optional: link to buy/detail page
+  category: "CategoryName" # Optional: for filtering
+  date_finished: "YYYY-MM-DD" # Optional: ISO date string
+  notes_url: "/bookshelf/notes/your-note-slug/" # Optional: link to note page
+```
+
+### 3. Book Notes
+
+If a book has notes, you can write them as a note page that looks like a post but redirects back to the bookshelf:
+
+1. **Create a markdown file** under `_notes/` (e.g. `_notes/your-note-slug.md`).
+2. **Add the note layout front matter**:
+   ```yaml
+   ---
+   layout: note
+   title: "Notes on: Book Title"
+   date: YYYY-MM-DD
+   category: "CategoryName" # Match the book's category
+   read_time: 5 # Estimated reading time in minutes
+   ---
+   ```
+3. **Write your notes** in markdown below the front matter.
+4. **Link the book**: Make sure the `notes_url` property of the book in `_data/book.yml` points to `/bookshelf/notes/your-note-slug/` so the badge is rendered on the book card.
+
+### 4. Adding Images and GIFs
+
+To display images or GIFs in your Blog posts, TIL entries, or Book Notes:
+
+1. **Place the file** inside the central assets directory: `assets/imgs/` (e.g. `assets/imgs/my-image.gif`).
+2. **Reference the file** in markdown using an absolute path relative to the site root:
+   ```markdown
+   ![Alt Text](/assets/imgs/my-image.gif)
+   ```
+3. **Resizing & Centering (Optional):** Since Jekyll uses Kramdown, you can append sizing and Tailwind centering classes (`.mx-auto .block`) directly after your markdown image tag:
+   ```markdown
+   ![Alt Text](/assets/imgs/my-image.gif){: .mx-auto .block width="350" }
+   ```
+   *Alternatively, you can write inline HTML directly:*
+   ```html
+   <img src="/assets/imgs/my-image.gif" alt="Alt Text" width="350" class="mx-auto block rounded-lg" />
+   ```
+
+*Note: Avoid using relative paths (like `./images/`) or placing images inside folders starting with `_` (like `_notes/` or `_blog/`), as Jekyll will not process or copy them to the compiled site correctly.*
 
 ---
 

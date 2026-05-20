@@ -1,0 +1,288 @@
+<!-- /_layouts/base.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiny Experiments</title>
+    <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/imgs/favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/imgs/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/imgs/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/imgs/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/imgs/favicon/site.webmanifest" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-W7DQDC36JQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-W7DQDC36JQ");
+    </script>
+
+    <script src="/assets/js/cal.js"></script>
+  </head>
+
+  <body
+    class="bg-surface text-on-surface font-sans antialiased"
+  >
+    <!-- Include the navbar component -->
+    <!-- v2 Navbar: Architectural Fluidity -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a href="/" class="text-xl font-bold tracking-tighter text-on-surface hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm font-semibold text-v2-primary transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Resume</a>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
+      <!-- Dark Mode Toggle -->
+      <button id="darkModeToggle" class="text-on-surface/60 hover:text-v2-primary transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Consulting CTA -->
+      <a
+        href="#consulting"
+        data-cal-link="rohanmallya/30min"
+        data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+        class="bg-v2-primary text-on-primary px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-v2-primary/20"
+      >Consulting</a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuToggle" class="md:hidden text-on-surface focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-surface-container-low/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm font-semibold text-v2-primary">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Resume</a>
+  </div>
+
+  <script>
+    document.getElementById("mobileMenuToggle").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
+  </script>
+</nav>
+
+
+    <!-- Main Content -->
+    <main><article class="pt-32 min-h-screen px-4 md:px-12 pb-24 max-w-3xl mx-auto">
+  <div class="mb-12">
+    <a href="/bookshelf/" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors mb-8">
+      <span class="material-symbols-outlined mr-2">arrow_back</span>
+      Back to Bookshelf
+    </a>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+      
+      
+        
+          
+          
+      
+        <span class="text-on-surface-variant/50 text-xs font-bold">#01</span>
+      
+      
+        
+        <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">self-help</span>
+        
+      
+      <span class="text-on-surface-variant text-xs flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">schedule</span> 5 min read
+      </span>
+      <span class="text-on-surface-variant text-xs font-medium">May 21, 2026</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface leading-tight mb-8">Tiny Experiments</h1>
+  </div>
+  
+  <div class="post-content e-content prose prose-lg dark:prose-invert max-w-none text-on-surface" itemprop="articleBody">
+    <h2 id="why-the-book">Why the book?</h2>
+
+<p>I was recommended the book by a detailed post on X that talks about how we often set unrealistically large goals and constantly strive to achieve the goals. The post spoke about how larger goals at an individual level are often counterproductive and are the reason why a lot of folks are stuck in the “rat race”. It recommended Tiny Experiements to influence a change in perspective.</p>
+
+<h2 id="linear-goals">Linear Goals</h2>
+
+<p>For the longest time, I had a problem with reducing attention span. The only thing I could sit and do for hours was write code. I could not binge watch a TV show like I used to, sit through a movie unless I was locked in a theatre and reading a book was a far, far dream.</p>
+
+<p>A “large goal” was set every Thursday to spend the next weekend waking up early, picking a book, leaving the phone aside for the entire day and just read. The weekend never came. Maybe the next one? While it might sound simple, staying away from doomscrolling the dozen of apps that vie for our attention every second is no easy feat.</p>
+
+<h2 id="goal-data-collection">Goal: Data Collection</h2>
+
+<p>Learning from Tiny Experiements, I started collecting life data, observing my daily behavior and identifying patterns. I tried to capture how I felt and how I perceived the world around me and mostly, about how I utilize my time. My field notes were not detailed as I did not have the attention-span required to spend that 10-15 minutes to write them down.</p>
+
+<p>Sample from what I found in field notes:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Observation</th>
+      <th>Question</th>
+      <th>Hypothesis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>I am adding at least 5 articles and 1 book to the “Read Later” pile</td>
+      <td>Why am I not able to clear the backlog of articles that I have to read?</td>
+      <td>Building a structured, priority-based plan to reduce the “Read Later” pile might help</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="goal-build-the-experiement">Goal: Build the Experiement</h2>
+
+<p>At this stage, I had data-backed (well, somewhat) insights into my behavior. I design my first tiny experiment. I wanted to <strong>read 30 pages or emails</strong> everyday for <strong>15 days</strong>. I kept the duration short to verify if the hypothesis was correct or not.</p>
+
+<h2 id="goal-understanding-time">Goal: Understanding time</h2>
+
+<p>Tiny Experiemtns speaks about two different <em>kind</em> of time. One is what the clock measures and another is what we feel and experience. The Greeks had two different words to show time: <code class="language-plaintext highlighter-rouge">Chrono</code> to represent the quantitative time that you can measure with a clock, and <code class="language-plaintext highlighter-rouge">Kairos</code> to represent the qualitative time that you experience.</p>
+
+<p>Identifying the <code class="language-plaintext highlighter-rouge">Kairos</code> helps in making the tiny experiment successful. From my personal field notes, I could see that I do almost nothing from 8:00AM to 9:00AM everyday. I would either be preparing for the day ahead (something I could do in 10-15 minutes) or aimlessly finding things to do or be on my phone. The second time-slot which I would be free is between 11PM - 12AM, where I am mostly on my phone.</p>
+
+<p>I blocked that time-slot for reading. I did not focus on reading anything outside that time slot.</p>
+
+<h2 id="goal-building-growth-loops">Goal: Building Growth Loops</h2>
+
+<p>While I ran the tiny experiment, I maintained a <a href="https://nesslabs.com/plus-minus-next">Plus-Minus-Next</a> log. The experiment ran well initially, but I could look at the Minus pile up somewhere in the 7-day mark.</p>
+
+<h3 id="what-went-well">What went well?</h3>
+
+<ul>
+  <li>Dedicated time to read</li>
+  <li>Increased focus</li>
+  <li>“Read Later” backlog started reducing</li>
+</ul>
+
+<h3 id="what-could-be-better">What could be better?</h3>
+
+<ul>
+  <li>Having 2 time-slots meant procrastination. Morning slot would become evening, evening slot would become next morning.</li>
+  <li>Content Retention was de-prioritized. Pace of reading was prioritized over depth of understanding.</li>
+</ul>
+
+<h3 id="changes-to-the-experiement">Changes to the experiement</h3>
+
+<ul>
+  <li>Move to a single time slot.</li>
+  <li>Reduce the time spent reading to prioritize depth, over pace.</li>
+  <li>Re-read, annotate, revise before moving ahead</li>
+</ul>
+
+<h2 id="goal-evaluate">Goal: Evaluate</h2>
+
+<p>After 15 days, I had read <em>something</em> for at least 10 days. That is 10 extra days from my previous plan, but 5 days less from what I had designed for in the experiement.</p>
+
+<p>Tiny Experiements recommends evaluating the experiement to decide if it is good to continue, if it must be puased or modified. I realized that <strong>just</strong> reading for the sake of it is probably not my thing. I want the content to be interesting, I need to retain what I have read and be okay with dropping off if I don’t like the book.</p>
+
+<p>I changed the experiement to accomodate quality of content and pivoted to a slightly different tiny experiement!</p>
+
+<h2 id="closing-notes">Closing Notes</h2>
+
+<p>Overall, the framework was super-interesting and has been useful in helping take baby steps towards larger goals. I’m not using the framework prescribed to create other tiny experiments and focus on growth loops!</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://www.goodreads.com/book/show/214268997-tiny-experiments">Tiny Experiements (Book)</a></li>
+  <li><a href="https://amzn.to/48ZFcCR">Amazon</a></li>
+  <li><a href="https://www.audible.in/pd/Tiny-Experiments-Audiobook/B0DGJ67HM1">Audible</a></li>
+  <li><a href="https://nesslabs.com/toolkit">Tiny Experiments: Experimentalist Toolkit</a></li>
+  <li>Author: <a href="https://nesslabs.com/">Anne-Laure Le Cunff</a></li>
+</ul>
+
+  </div>
+</article>
+</main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-surface">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+        <a href="/" class="text-sm font-bold tracking-tighter text-on-surface hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+        <div class="flex space-x-12">
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
+        </div>
+        <div class="text-xs uppercase tracking-widest font-semibold text-on-surface/40">&copy; 2026 Rohan Mallya</div>
+      </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Script -->
+  </body>
+  <script>
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Set initial theme based on localStorage or system preference
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  </script>
+</html>

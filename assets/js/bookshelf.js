@@ -171,7 +171,17 @@
                 <time class="text-[0.6rem] font-medium text-outline uppercase" datetime="${
                   book.date_finished || ""
                 }">${formatDate(book.date_finished)}</time>
-                <span class="material-symbols-outlined text-outline group-hover:text-v2-primary transition-colors text-base">auto_stories</span>
+                <div class="flex items-center gap-2">
+                  ${
+                    book.notes_url
+                      ? `<a href="${book.notes_url}" class="relative z-10 flex items-center gap-1 text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded border border-v2-primary/20 hover:bg-v2-primary/20 transition-colors">
+                          <span class="material-symbols-outlined text-[14px]">edit_document</span>
+                          Notes
+                        </a>`
+                      : ""
+                  }
+                  <span class="material-symbols-outlined text-outline group-hover:text-v2-primary transition-colors text-base">auto_stories</span>
+                </div>
               </div>
             </article>
           `

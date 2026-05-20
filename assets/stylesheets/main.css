@@ -1010,6 +1010,9 @@
   .hidden {
     display: none;
   }
+  .inline {
+    display: inline;
+  }
   .inline-flex {
     display: inline-flex;
   }
@@ -1556,6 +1559,9 @@
   .text-\[10px\] {
     font-size: 10px;
   }
+  .text-\[14px\] {
+    font-size: 14px;
+  }
   .leading-none {
     --tw-leading: 1;
     line-height: 1;
@@ -1977,6 +1983,16 @@
         background-color: color-mix(in srgb, #acc7ff 10%, transparent);
         @supports (color: color-mix(in lab, red, red)) {
           background-color: color-mix(in oklab, var(--color-v2-primary) 10%, transparent);
+        }
+      }
+    }
+  }
+  .hover\:bg-v2-primary\/20 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, #acc7ff 20%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-v2-primary) 20%, transparent);
         }
       }
     }

@@ -184,14 +184,17 @@
     // Render book cards
     booksGrid.innerHTML = paginatedBooks
       .map(
-        (book) => `
+        (book, idx) => {
+          const absoluteIndex = startIndex + idx + 1;
+          return `
             <article class="group bg-surface-container-low hover:bg-surface-container p-5 rounded-lg transition-all duration-300 flex flex-col h-full min-h-[140px] relative border border-outline-variant/10">
-              <div class="mb-2">
+              <div class="flex items-center justify-between gap-2 mb-2 w-full">
                 ${
                   book.category
                     ? `<span class="text-[0.6rem] font-bold uppercase tracking-[0.05em] text-v2-primary px-1.5 py-0.5 bg-v2-primary/10 rounded">${book.category}</span>`
-                    : ""
+                    : "<span></span>"
                 }
+                <span class="text-[0.7rem] font-bold text-on-surface-variant/40 select-none font-mono">#${absoluteIndex}</span>
               </div>
               
               ${
@@ -217,7 +220,8 @@
                   : ""
               }
             </article>
-          `,
+          `;
+        },
       )
       .join("");
 

@@ -177,6 +177,26 @@ If a book has notes, you can write them as a note page that looks like a post bu
 3. **Write your notes** in markdown below the front matter.
 4. **Link the book**: Make sure the `notes_url` property of the book in `_data/book.yml` points to `/bookshelf/notes/your-note-slug/` so the badge is rendered on the book card.
 
+### 4. Adding Images and GIFs
+
+To display images or GIFs in your Blog posts, TIL entries, or Book Notes:
+
+1. **Place the file** inside the central assets directory: `assets/imgs/` (e.g. `assets/imgs/my-image.gif`).
+2. **Reference the file** in markdown using an absolute path relative to the site root:
+   ```markdown
+   ![Alt Text](/assets/imgs/my-image.gif)
+   ```
+3. **Resizing & Centering (Optional):** Since Jekyll uses Kramdown, you can append sizing and Tailwind centering classes (`.mx-auto .block`) directly after your markdown image tag:
+   ```markdown
+   ![Alt Text](/assets/imgs/my-image.gif){: .mx-auto .block width="350" }
+   ```
+   *Alternatively, you can write inline HTML directly:*
+   ```html
+   <img src="/assets/imgs/my-image.gif" alt="Alt Text" width="350" class="mx-auto block rounded-lg" />
+   ```
+
+*Note: Avoid using relative paths (like `./images/`) or placing images inside folders starting with `_` (like `_notes/` or `_blog/`), as Jekyll will not process or copy them to the compiled site correctly.*
+
 ---
 
 ## 📄 License

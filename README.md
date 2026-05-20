@@ -97,19 +97,22 @@ npm install tailwindcss@latest
 
 - `_til/`: Markdown entries for the "Today I Learned" section.
 - `_blog/`: Blog essays and deep-dives.
-- `_data/book/`: Data source for the Bookshelf section.
+- `_notes/`: Markdown entries for Book Notes.
+- `_data/book.yml`: Data source for the Bookshelf section.
 - `_layouts/`: Base HTML templates and layouts.
 - `assets/stylesheets/main.css`: The "Source of Truth" for all styling and design tokens.
 
 ---
 
-## 📝 Content Creation Template
+## 📝 Content Creation & Management
 
-When creating a new Blog post or TIL (Today I Learned) entry, include the following YAML front matter at the top of your Markdown file:
+### 1. Blog & TIL (Today I Learned) Entries
+
+When creating a new Blog post or TIL entry, create a markdown file under `_blog/` or `_til/` respectively. Include the following YAML front matter at the top of your file:
 
 ```yaml
 ---
-layout: post # use til_single for TIL
+layout: post # Use til_single for TIL
 title: "Your Post Title"
 date: YYYY-MM-DD
 category: YourCategory
@@ -117,6 +120,37 @@ published: true # Set to false to keep as a draft
 read_time: 2 # Default: 5 minutes
 ---
 ```
+
+### 2. Bookshelf
+
+To add a book to the bookshelf page, append a new entry to `_data/book.yml`:
+
+```yaml
+- title: "Book Title"
+  author: "Author Name"
+  link: "https://example.com/amazon-link" # Optional: link to buy/detail page
+  category: "CategoryName" # Optional: for filtering
+  date_finished: "YYYY-MM-DD" # Optional: ISO date string
+  notes_url: "/bookshelf/notes/your-note-slug/" # Optional: link to note page
+```
+
+### 3. Book Notes
+
+If a book has notes, you can write them as a note page that looks like a post but redirects back to the bookshelf:
+
+1. **Create a markdown file** under `_notes/` (e.g. `_notes/your-note-slug.md`).
+2. **Add the note layout front matter**:
+   ```yaml
+   ---
+   layout: note
+   title: "Notes on: Book Title"
+   date: YYYY-MM-DD
+   category: "CategoryName" # Match the book's category
+   read_time: 5 # Estimated reading time in minutes
+   ---
+   ```
+3. **Write your notes** in markdown below the front matter.
+4. **Link the book**: Make sure the `notes_url` property of the book in `_data/book.yml` points to `/bookshelf/notes/your-note-slug/` so the badge is rendered on the book card.
 
 ---
 

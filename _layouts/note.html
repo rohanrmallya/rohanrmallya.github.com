@@ -3,7 +3,7 @@ layout: base
 ---
 <article class="pt-32 min-h-screen px-4 md:px-12 pb-24 max-w-3xl mx-auto">
   <div class="mb-12">
-    <a href="/bookshelf/" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors mb-8">
+    <a id="back-button" href="/bookshelf/" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors mb-8">
       <span class="material-symbols-outlined mr-2">arrow_back</span>
       Back to Bookshelf
     </a>
@@ -37,3 +37,31 @@ layout: base
     {{ content }}
   </div>
 </article>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const backBtn = document.getElementById("back-button");
+    if (backBtn) {
+      const referrer = document.referrer;
+      const urlParams = new URLSearchParams(window.location.search);
+      const fromBlog = urlParams.get('from') === 'blog';
+      
+      if (fromBlog || (referrer && referrer.includes('/blog'))) {
+        if (referrer && referrer.includes('/blog')) {
+          backBtn.href = referrer;
+        } else {
+          backBtn.href = '/blog/';
+        }
+        
+        const textNode = Array.from(backBtn.childNodes).find(
+          node => node.nodeType === Node.TEXT_NODE && node.textContent.trim().includes('Back to Bookshelf')
+        );
+        if (textNode) {
+          textNode.textContent = textNode.textContent.replace('Back to Bookshelf', 'Back to Blog');
+        } else {
+          backBtn.innerHTML = '<span class="material-symbols-outlined mr-2">arrow_back</span> Back to Blog';
+        }
+      }
+    }
+  });
+</script>

@@ -6,6 +6,10 @@
     --font-sans: "Inter", "system-ui", "sans-serif";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-amber-300: oklch(87.9% 0.169 91.605);
+    --color-amber-400: oklch(82.8% 0.189 84.429);
+    --color-amber-500: oklch(76.9% 0.188 70.08);
+    --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -1182,6 +1186,9 @@
   .gap-1 {
     gap: calc(var(--spacing) * 1);
   }
+  .gap-1\.5 {
+    gap: calc(var(--spacing) * 1.5);
+  }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
@@ -1659,6 +1666,12 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
+  .text-amber-600\/80 {
+    color: color-mix(in srgb, oklch(66.6% 0.179 58.318) 80%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      color: color-mix(in oklab, var(--color-amber-600) 80%, transparent);
+    }
+  }
   .text-consulting-from {
     color: var(--color-consulting-from);
   }
@@ -1902,6 +1915,20 @@
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         fill: var(--color-v2-primary);
+      }
+    }
+  }
+  .group-hover\:text-amber-500 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-amber-500);
+      }
+    }
+  }
+  .group-hover\:text-amber-600 {
+    &:is(:where(.group):hover *) {
+      @media (hover: hover) {
+        color: var(--color-amber-600);
       }
     }
   }
@@ -2325,6 +2352,22 @@
       }
     }
   }
+  .dark\:text-amber-400\/60 {
+    &:where(.dark, .dark *) {
+      color: color-mix(in srgb, oklch(82.8% 0.189 84.429) 60%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, var(--color-amber-400) 60%, transparent);
+      }
+    }
+  }
+  .dark\:text-amber-400\/80 {
+    &:where(.dark, .dark *) {
+      color: color-mix(in srgb, oklch(82.8% 0.189 84.429) 80%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, var(--color-amber-400) 80%, transparent);
+      }
+    }
+  }
   .dark\:text-v2-primary\/50 {
     &:where(.dark, .dark *) {
       color: color-mix(in srgb, #acc7ff 50%, transparent);
@@ -2359,6 +2402,15 @@
       --tw-prose-pre-bg: var(--tw-prose-invert-pre-bg);
       --tw-prose-th-borders: var(--tw-prose-invert-th-borders);
       --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
+    }
+  }
+  .dark\:group-hover\:text-amber-300 {
+    &:where(.dark, .dark *) {
+      &:is(:where(.group):hover *) {
+        @media (hover: hover) {
+          color: var(--color-amber-300);
+        }
+      }
     }
   }
 }

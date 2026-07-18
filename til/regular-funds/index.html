@@ -1,0 +1,288 @@
+<!-- /_layouts/base.html -->
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Regular Funds</title>
+    <link rel="stylesheet" href="/assets/stylesheets/main.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=architecture,arrow_back,article,auto_stories,bookmark,chevron_left,chevron_right,description,edit_document,explore_off,home,lightbulb,mail,schedule,search&display=block" rel="stylesheet" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/assets/imgs/favicon/favicon.ico"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/imgs/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/imgs/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/imgs/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/imgs/favicon/site.webmanifest" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-W7DQDC36JQ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-W7DQDC36JQ");
+    </script>
+
+    <script src="/assets/js/cal.js"></script>
+  </head>
+
+  <body
+    class="bg-surface text-on-surface font-sans antialiased"
+  >
+    <!-- Include the navbar component -->
+    <!-- v2 Navbar: Architectural Fluidity -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-surface/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shadow-sm">
+  <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+    <!-- Brand -->
+    <a href="/" class="text-xl font-bold tracking-tighter text-on-surface hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+
+    <!-- Desktop Nav Links -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Home</a>
+      <a href="/bookshelf/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Bookshelf</a>
+      <a href="/til/" class="text-sm font-semibold text-v2-primary transition-colors duration-300">TIL</a>
+      <a href="/blog/" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Blogs</a>
+      <a href="http://cv.rohanmallya.com" class="text-sm font-medium text-on-surface/70 hover:text-v2-primary transition-colors duration-300">Resume</a>
+
+    </div>
+
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
+      <!-- Dark Mode Toggle -->
+      <button id="darkModeToggle" class="text-on-surface/60 hover:text-v2-primary transition-colors duration-300 focus:outline-none" aria-label="Toggle dark mode">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="sunIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M12 3v2m0 14v2m9-9h-2M5 12H3m16.364-7.364l-1.414 1.414M6.05 17.95l-1.414 1.414M17.95 17.95l-1.414-1.414M6.05 6.05L4.636 7.464M12 5a7 7 0 100 14 7 7 0 000-14z"></path>
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="moonIcon" class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"></path>
+        </svg>
+      </button>
+
+      <!-- Consulting CTA -->
+      <a
+        href="#consulting"
+        data-cal-link="rohanmallya/30min"
+        data-cal-config='{"theme":"dark","backgroundColor":"#1F2937","textColor":"#F9FAFB","primaryColor":"#3B82F6","primaryHoverColor":"#2563EB"}'
+        class="bg-v2-primary text-on-primary px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 active:scale-95 transition-all shadow-md shadow-v2-primary/20"
+      >Consulting</a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobileMenuToggle" class="md:hidden text-on-surface focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white/95 dark:bg-surface-container-low/95 backdrop-blur-xl pb-4 px-8 border-t border-black/5 dark:border-white/5">
+    <a href="/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Home</a>
+    <a href="/bookshelf/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Bookshelf</a>
+    <a href="/til/" class="block py-3 text-sm font-semibold text-v2-primary">TIL</a>
+    <a href="/blog/" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Blogs</a>
+    <a href="http://cv.rohanmallya.com" class="block py-3 text-sm text-on-surface/70 hover:text-v2-primary transition-colors">Resume</a>
+  </div>
+
+  <script>
+    document.getElementById("mobileMenuToggle").addEventListener("click", () => {
+      document.getElementById("mobileMenu").classList.toggle("hidden");
+    });
+  </script>
+</nav>
+
+
+    <!-- Main Content -->
+    <main><article class="pt-32 min-h-screen px-4 md:px-12 pb-24 max-w-3xl mx-auto">
+  <div class="mb-12">
+    <a href="/til/" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors mb-8">
+      <span class="material-symbols-outlined mr-2">arrow_back</span>
+      Back to TIL
+    </a>
+    <div class="flex flex-wrap items-center gap-4 mb-6">
+      
+      
+        
+      
+        
+      
+        
+          
+          
+      <span class="text-on-surface-variant/50 text-xs font-bold">#03</span>
+      
+        <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">Finance</span>
+      
+      <span class="text-on-surface-variant text-xs flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">schedule</span> 8 min read
+      </span>
+      <span class="text-on-surface-variant text-xs font-medium">July 17, 2026</span>
+    </div>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface leading-tight mb-8">Regular Funds</h1>
+  </div>
+  
+  <div class="prose prose-lg dark:prose-invert max-w-none text-on-surface">
+    <p>I started my journey with Mutual Funds in 2019 and I was always exposed to Direct Funds thanks to the wonderful community <a href="https://reddit.com/r/indiainvestments">/r/IndiaInvestments</a>, <a href="https://tradingqna.com/t/why-invest-in-direct-mutual-funds-on-coin/11738/2">tradingqna</a> and <a href="https://kuvera.in/">Kuvera</a>.</p>
+
+<p>When I started discussing finances with friends, I found out about 50% of them had a portfolio similar to mine but chose to invest in regular funds because they had an advisor or those were the only funds available in the Mutual Fund platforms they were using.</p>
+
+<p>So, I was curious to understand how regular funds work?</p>
+
+<h2 id="buying-a-mutual-fund">Buying a Mutual Fund</h2>
+
+<p>Asset Management Companies (AMC) launch Mutual Funds that can be purchased in one of two ways:</p>
+
+<ol>
+  <li>Direct Funds: Bought by Investors directly from the AMC.</li>
+  <li>Regular Funds: Bought by Investors through Distributors/Brokers/Advisors.</li>
+</ol>
+
+<p>Whether you buy Direct Funds or Regular Funds - you invest in the same mutual fund.</p>
+
+<h2 id="why-regular-funds-give-you-a-slightly-lower-return">Why Regular Funds give you a slightly lower return?</h2>
+
+<p>Expense Ratio is a fee investors pay to the AMC for managing their investments. It is expressed as a percentage of the Assets Under Management (AUM).</p>
+
+<p>A direct fund has a lower expense ratio compared to a regular fund because the investors are cutting out the distributor/broker/advisor. When you buy a regular mutual fund, the intermediary gets a cut for the time that you’re invested, which is included in the expense ratio.</p>
+
+<h2 id="how-does-the-intermediary-earn">How does the intermediary earn?</h2>
+
+<p>Take an example of Parag Parikh Flexi Cap Fund. The regular fund has a NAV of 83.40 with an expense ratio of 1.05%</p>
+
+<p><img src="/assets/imgs/blog/regular-funds/regular.png" alt="alt text" /></p>
+
+<p>The similar direct plan has a NAV of 91.46 with an expense ratio of 0.53%</p>
+
+<p><img src="/assets/imgs/blog/regular-funds/direct.png" alt="alt text" /></p>
+
+<p>The difference in expense ratio is what the AMC uses to pay the intermediaries. The commission is annualized and calculated daily based on the formula - <code class="language-plaintext highlighter-rouge">Difference in Expense Ratio x Your Investment Value for the Day / 365</code>.</p>
+
+<p>The intermediary hence earns as long as you are invested, even if your portfolio lost, gained or stayed the same value.</p>
+
+<h2 id="rough-calculation">Rough Calculation</h2>
+
+<ul>
+  <li>Initial Investment (per month): 10,000</li>
+  <li>Step Up every year: 10%</li>
+  <li>Expected Return every year: 12%</li>
+  <li>Difference in Expense Ratio of Direct and Regular fund: 0.52%</li>
+  <li>Number of years invested: 20</li>
+</ul>
+
+<p>At the end of 20 Years, you’d have:</p>
+
+<ul>
+  <li>Total Investment: ₹68,73,000 (68.73L)</li>
+  <li>Corpus in Regular Funds: ₹1,76,40,065 (1.76Cr)</li>
+  <li>Corpus in Direct Funds: ₹1,86,35,965 (1.86Cr)</li>
+  <li>Total Commissions Paid: ₹9,95,900 (9.95L)</li>
+</ul>
+
+<p>That is ~₹83k per year that you’re paying to the intermediary for the time that you’re invested.</p>
+
+<h2 id="when-does-this-probably-make-sense">When does this <em>probably</em> make sense?</h2>
+
+<ol>
+  <li>Intermediary offers auxiliary Services like Tax Planning, Insurance, Estate Planning, etc.</li>
+  <li>You do not have the time to research and monitor your portfolio</li>
+  <li>You need a single platform that handles banking, trading, insurance, stocks and mutual funds and this platform only has regular funds.</li>
+</ol>
+
+<h2 id="what-should-you-realistically-do">What should you realistically do?</h2>
+
+<h3 id="as-a-beginner">As a beginner..</h3>
+
+<p>If you started your investment journey recently and are investing in regular funds:</p>
+
+<ol>
+  <li>Don’t panic sell and exit your existing investments. Plan a switch-over to direct funds</li>
+  <li>Continue with Regular Funds if you value your intermediary’s advice and are okay with the extra comission.</li>
+</ol>
+
+<h3 id="as-a-seasoned-investor">As a seasoned investor..</h3>
+
+<p>If you are someone that has been investing for a while:</p>
+
+<ol>
+  <li>Evaluate if the auxiliary services offered are worth the extra fee.</li>
+  <li>Evaluate if you did get sound advice from your intermediary, which you wouldn’t have gotten otherwise</li>
+  <li>Consider paying for a <a href="https://www.feeonlyindia.org/directory/">fee-only financial advisor</a> to build a portfolio for you, if you have a sizable portfolio. Most of your mutual fund investments are long-term and should be goal-oriented, so you will not see drastic changes month-on-month.</li>
+  <li>Read the <a href="https://www.indiainvestments.wiki/">Wiki on India Investments</a> to understand the basics of Mutual Funds and get on a platform that sells only Direct Mutual Funds!</li>
+</ol>
+
+<h2 id="resources">Resources</h2>
+
+<p>I got Gemini to spawn a simple calculator to demonstrate the comission outflow in Direct and Regular Funds over the years. The calculations are approximated and might not match the real-world number cent-per-cent - but it gives you an idea of the kind of money you’re paying in commissions over the years.</p>
+
+<p><a href="/calc/regular-vs-direct">Check out the Calculator</a></p>
+
+  </div>
+</article>
+</main>
+
+    <!-- Footer -->
+    <footer class="w-full py-12 border-t border-black/5 dark:border-white/10 bg-white dark:bg-surface">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto space-y-4 md:space-y-0">
+        <a href="/" class="text-sm font-bold tracking-tighter text-on-surface hover:opacity-70 transition-opacity">ROHAN.MALLYA</a>
+        <div class="flex space-x-12">
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://x.com/rohanrmallya">Twitter</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://www.linkedin.com/in/rohanmallya/">LinkedIn</a>
+          <a class="text-xs uppercase tracking-widest font-semibold text-on-surface/40 hover:text-v2-primary transition-colors" href="https://github.com/rohanrmallya">GitHub</a>
+        </div>
+        <div class="text-xs uppercase tracking-widest font-semibold text-on-surface/40">&copy; 2026 Rohan Mallya</div>
+      </div>
+    </footer>
+
+    <!-- Dark Mode Toggle Script -->
+  </body>
+  <script>
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const htmlElement = document.documentElement;
+
+    darkModeToggle.addEventListener("click", () => {
+      if (htmlElement.classList.contains("dark")) {
+        htmlElement.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+      } else {
+        htmlElement.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+
+    // Set initial theme based on localStorage or system preference
+    if (
+      localStorage.getItem("theme") === "dark" ||
+      (!localStorage.getItem("theme") &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      htmlElement.classList.add("dark");
+    } else {
+      htmlElement.classList.remove("dark");
+    }
+  </script>
+</html>

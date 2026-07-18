@@ -1,0 +1,716 @@
+---
+layout: base
+title: Mutual Fund Commission Impact Calculator
+permalink: /calc/regular-vs-direct.html
+---
+
+<style>
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  .table-container {
+    overflow-x: auto;
+  }
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .year-row {
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+  .year-row:hover {
+    background-color: var(--color-surface-container-highest) !important;
+  }
+  .month-row {
+    display: none;
+    animation: slideDown 0.2s ease-out;
+  }
+  .month-row.visible {
+    display: table-row;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .chevron {
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .chevron.expanded {
+    transform: rotate(90deg);
+  }
+  .year-summary-cell {
+    background: linear-gradient(135deg, var(--color-surface-container-low) 0%, var(--color-surface-container) 100%);
+  }
+</style>
+
+<div class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <!-- Back Button -->
+  <div class="mb-6">
+    <a href="#" id="backButton" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors">
+      <span class="material-symbols-outlined mr-2">arrow_back</span>
+      Back
+    </a>
+  </div>
+
+  <!-- Header -->
+  <header class="text-center mb-10 fade-in">
+    <h1 class="text-3xl sm:text-4xl font-bold text-on-surface mb-3">
+      Mutual Fund Commission Impact Calculator
+    </h1>
+    <p class="text-on-surface-variant max-w-2xl mx-auto">
+      Visualize the hidden cost of trailing commissions on your SIP
+      investments over time. Compare Direct vs Regular fund growth with
+      daily compounding accuracy.
+    </p>
+  </header>
+
+  <!-- Input Form -->
+  <section class="bg-surface-container-low rounded-2xl shadow-sm border border-outline-variant/30 p-6 sm:p-8 mb-8 fade-in">
+    <h2 class="text-xl font-semibold text-on-surface mb-6">
+      Simulation Parameters
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
+      <div>
+        <label for="sipAmount" class="block text-sm font-medium text-on-surface-variant mb-1.5">Monthly SIP (₹)</label>
+        <input
+          type="number"
+          id="sipAmount"
+          value="10000"
+          min="500"
+          max="10000000"
+          step="500"
+          class="w-full px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-on-surface placeholder-on-surface-variant/40 transition-colors"
+        />
+      </div>
+      <div>
+        <label for="stepUp" class="block text-sm font-medium text-on-surface-variant mb-1.5">Annual SIP Step-Up (%)</label>
+        <input
+          type="number"
+          id="stepUp"
+          value="10"
+          min="0"
+          max="50"
+          step="0.5"
+          class="w-full px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-on-surface placeholder-on-surface-variant/40 transition-colors"
+        />
+      </div>
+      <div>
+        <label for="cagr" class="block text-sm font-medium text-on-surface-variant mb-1.5">Expected Market CAGR (%)</label>
+        <input
+          type="number"
+          id="cagr"
+          value="12"
+          min="1"
+          max="30"
+          step="0.5"
+          class="w-full px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-on-surface placeholder-on-surface-variant/40 transition-colors"
+        />
+      </div>
+      <div>
+        <label for="drag" class="block text-sm font-medium text-on-surface-variant mb-1.5">Commission Drag (%)</label>
+        <input
+          type="number"
+          id="drag"
+          value="0.52"
+          min="0"
+          max="3"
+          step="0.01"
+          class="w-full px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-on-surface placeholder-on-surface-variant/40 transition-colors"
+        />
+      </div>
+      <div>
+        <label for="years" class="block text-sm font-medium text-on-surface-variant mb-1.5">Simulation Years</label>
+        <input
+          type="number"
+          id="years"
+          value="20"
+          min="1"
+          max="50"
+          step="1"
+          class="w-full px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 text-on-surface placeholder-on-surface-variant/40 transition-colors"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section B: Macro View (Simulation Summary) -->
+  <section class="bg-surface-container-low rounded-2xl shadow-sm border border-outline-variant/30 p-6 sm:p-8 mb-8 fade-in" id="macroView">
+    <!-- Wealth Lost Callout -->
+    <div id="wealthLostCallout" class="bg-danger-500/10 border border-danger-500/20 rounded-xl p-6 mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <p class="text-sm font-medium text-danger-700 dark:text-danger-400 uppercase tracking-wider mb-1">
+            Total Wealth Lost to Commissions
+          </p>
+          <p id="totalWealthLost" class="text-3xl sm:text-4xl font-bold text-danger-600 dark:text-danger-500">
+            ₹0
+          </p>
+        </div>
+        <div class="text-right sm:text-left">
+          <p class="text-sm text-danger-600 dark:text-danger-400 font-semibold" id="wealthLostPercentage">
+            0% of Direct Fund Corpus
+          </p>
+          <p class="text-xs text-danger-500 dark:text-danger-400/80 mt-1" id="commissionEquivalent">
+            Equivalent to X months of final SIP
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="text-xl font-semibold text-on-surface mb-6">
+      Macro View: Simulation Summary
+    </h2>
+
+    <!-- Legend / Summary Stats -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-outline-variant/30">
+      <div class="bg-surface-container-high rounded-lg p-4">
+        <p class="text-xs font-medium text-on-surface-variant uppercase tracking-wider mb-1">
+          Total Principal Invested
+        </p>
+        <p id="totalPrincipal" class="text-lg font-semibold text-on-surface font-mono">
+          ₹0
+        </p>
+      </div>
+      <div class="bg-danger-500/5 border border-danger-500/10 rounded-lg p-4">
+        <p class="text-xs font-medium text-danger-700 dark:text-danger-400 uppercase tracking-wider mb-1">
+          Regular Fund Corpus
+        </p>
+        <p id="regularCorpus" class="text-lg font-semibold text-danger-600 dark:text-danger-500 font-mono">
+          ₹0
+        </p>
+      </div>
+      <div class="bg-primary-500/5 border border-primary-500/10 rounded-lg p-4">
+        <p class="text-xs font-medium text-primary-700 dark:text-primary-400 uppercase tracking-wider mb-1">
+          Direct Fund Corpus
+        </p>
+        <p id="directCorpus" class="text-lg font-semibold text-primary-600 dark:text-primary-500 font-mono">
+          ₹0
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section A: Micro View (Month-by-Month Breakdown) -->
+  <section class="bg-surface-container-low rounded-2xl shadow-sm border border-outline-variant/30 p-6 sm:p-8 mb-8 fade-in" id="microView">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
+      <h2 class="text-xl font-semibold text-on-surface">
+        Micro View: Month-by-Month Breakdown
+      </h2>
+      <div class="flex items-center gap-3">
+        <p class="text-sm text-on-surface-variant">Click a year to expand</p>
+        <button
+          id="expandAll"
+          class="text-sm text-primary-600 hover:text-primary-700 font-medium px-3 py-1.5 border border-primary-500/20 rounded-lg hover:bg-primary-500/10 transition-colors"
+        >
+          Expand All
+        </button>
+        <button
+          id="collapseAll"
+          class="text-sm text-on-surface-variant hover:text-on-surface font-medium px-3 py-1.5 border border-outline-variant/50 rounded-lg hover:bg-surface-container-high transition-colors"
+        >
+          Collapse All
+        </button>
+      </div>
+    </div>
+    <div class="table-container bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden">
+      <table class="w-full text-sm sm:text-base">
+        <thead class="bg-surface-container-high border-b border-outline-variant/30">
+          <tr>
+            <th class="px-4 py-3 text-left font-semibold text-on-surface-variant uppercase tracking-wider text-xs">
+              Period
+            </th>
+            <th class="px-4 py-3 text-right font-semibold text-on-surface-variant uppercase tracking-wider text-xs">
+              SIP Amount
+            </th>
+            <th class="px-4 py-3 text-right font-semibold text-on-surface-variant uppercase tracking-wider text-xs">
+              Direct Fund
+            </th>
+            <th class="px-4 py-3 text-right font-semibold text-on-surface-variant uppercase tracking-wider text-xs">
+              Regular Fund
+            </th>
+            <th class="px-4 py-3 text-right font-semibold text-on-surface-variant uppercase tracking-wider text-xs">
+              Commission Lost
+            </th>
+          </tr>
+        </thead>
+        <tbody id="microTableBody" class="divide-y divide-outline-variant/10">
+          <!-- Rows inserted by JS -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Methodology Note -->
+  <section class="mt-8 bg-surface-container-low rounded-xl p-6 fade-in border border-outline-variant/30">
+    <h3 class="text-sm font-semibold text-on-surface mb-3 flex items-center gap-2">
+      <svg class="w-5 h-5 text-primary-600 dark:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      Calculation Methodology
+    </h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-on-surface-variant">
+      <div>
+        <p class="font-medium text-on-surface mb-1">
+          Daily Compounding Engine
+        </p>
+        <p>
+          Uses daily iteration (not monthly approximation) for precise NAV
+          drag simulation. Daily rates derived from annual rates:
+          <code class="bg-surface-container px-1.5 py-0.5 rounded text-xs font-mono text-on-surface border border-outline-variant/30">rd = (1+CAGR)^(1/365)-1</code>,
+          <code class="bg-surface-container px-1.5 py-0.5 rounded text-xs font-mono text-on-surface border border-outline-variant/30">cd = Drag/365</code>.
+        </p>
+      </div>
+      <div>
+        <p class="font-medium text-on-surface mb-1">SIP Timing & Step-Up</p>
+        <p>
+          SIP added on 1st of each calendar month. Annual step-up applied
+          every 12 months. Commission drag applied daily on the full AUM
+          (trailing commission model).
+        </p>
+      </div>
+      <div>
+        <p class="font-medium text-on-surface mb-1">
+          Indian Number Formatting
+        </p>
+        <p>
+          All currency displayed in Indian numbering system (lakhs/crores)
+          with ₹ symbol. Example: ₹1,00,000 = 1 Lakh, ₹1,00,00,000 = 1
+          Crore.
+        </p>
+      </div>
+      <div>
+        <p class="font-medium text-on-surface mb-1">Assumptions</p>
+        <p>
+          365-day year, no exit loads, no transaction costs, constant CAGR &
+          drag. Real returns will vary. This illustrates the mathematical
+          impact of expense ratio differentials.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // ============================================
+  // UTILITY FUNCTIONS
+  // ============================================
+
+  /**
+   * Format number in Indian Rupee format (lakhs, crores)
+   * @param {number} num - Number to format
+   * @returns {string} Formatted string with ₹ symbol
+   */
+  function formatINR(num) {
+    if (num === 0 || num === null || num === undefined) return "₹0";
+    const isNegative = num < 0;
+    const absNum = Math.abs(num);
+
+    if (absNum >= 1e7) {
+      // Crores
+      return `${isNegative ? "-₹" : "₹"}${(absNum / 1e7).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} Cr`;
+    } else if (absNum >= 1e5) {
+      // Lakhs
+      return `${isNegative ? "-₹" : "₹"}${(absNum / 1e5).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")} L`;
+    } else {
+      // Thousands and below
+      return `${isNegative ? "-₹" : "₹"}${absNum.toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
+    }
+  }
+
+  /**
+   * Format number with full Indian comma separation
+   * @param {number} num
+   * @returns {string}
+   */
+  function formatFullINR(num) {
+    if (num === 0 || num === null || num === undefined) return "₹0";
+    const isNegative = num < 0;
+    const absNum = Math.abs(num);
+    const parts = absNum.toFixed(0).split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return `${isNegative ? "-₹" : "₹"}${parts.join(".")}`;
+  }
+
+  // ============================================
+  // CORE CALCULATION ENGINE
+  // ============================================
+
+  /**
+   * Run the daily simulation
+   * @param {Object} params - Simulation parameters
+   * @returns {Object} Results including daily arrays and summary
+   */
+  function runSimulation(params) {
+    const {
+      sipAmount: initialSip,
+      stepUpPct,
+      cagrPct,
+      dragPct,
+      years,
+    } = params;
+
+    // Convert annual rates to daily rates
+    const rd = Math.pow(1 + cagrPct / 100, 1 / 365) - 1; // Daily market return
+    const cd = dragPct / 100 / 365; // Daily commission drag
+
+    const totalDays = years * 365;
+
+    // State variables
+    let directValue = 0;
+    let regularValue = 0;
+    let currentSip = initialSip;
+    let totalPrincipal = 0;
+
+    // Storage for yearly snapshots (for chart)
+    const yearlyData = [];
+
+    // Storage for first 24 months (for table)
+    const monthlyData = [];
+
+    // Track month boundaries
+    let dayOfMonth = 1;
+    let currentMonth = 1;
+    let absoluteMonth = 1; // Tracks absolute month count (1, 2, 3... up to 24)
+    let currentYear = 1;
+    let daysInCurrentMonth = 31; // Jan
+
+    // Month lengths for non-leap year
+    const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    // Simulation loop - daily iteration
+    for (let day = 1; day <= totalDays; day++) {
+      // Check if it's the 1st of the month (SIP date) - add SIP BEFORE growth
+      if (dayOfMonth === 1) {
+        directValue += currentSip;
+        regularValue += currentSip;
+        totalPrincipal += currentSip;
+      }
+
+      // Apply daily growth (after SIP addition so first SIP gets full day's growth)
+      directValue = directValue * (1 + rd);
+      regularValue = regularValue * (1 + rd - cd);
+
+      // Record monthly snapshot at END of month (after last day's growth)
+      // This makes it consistent with yearly snapshots which are at end of year
+      if (dayOfMonth === daysInCurrentMonth) {
+        monthlyData.push({
+          month: absoluteMonth,
+          sipAmount: currentSip,
+          directValue: directValue,
+          regularValue: regularValue,
+          cumulativeWealthLost: directValue - regularValue,
+        });
+      }
+
+      // Check for year boundary (step-up) - at end of year
+      if (day === currentYear * 365 && day < totalDays) {
+        currentSip = currentSip * (1 + stepUpPct / 100);
+        currentYear++;
+      }
+
+      // Record yearly snapshot at year end (after growth)
+      if (day % 365 === 0) {
+        yearlyData.push({
+          year: day / 365,
+          principal: totalPrincipal,
+          directValue: directValue,
+          regularValue: regularValue,
+        });
+      }
+
+      // Advance day of month
+      dayOfMonth++;
+      if (dayOfMonth > daysInCurrentMonth) {
+        dayOfMonth = 1;
+        currentMonth++;
+        absoluteMonth++;
+        if (currentMonth > 12) {
+          currentMonth = 1;
+        }
+        daysInCurrentMonth = monthLengths[currentMonth - 1];
+      }
+    }
+
+    // Final snapshot if not exactly on year boundary
+    if (totalDays % 365 !== 0) {
+      yearlyData.push({
+        year: years,
+        principal: totalPrincipal,
+        directValue: directValue,
+        regularValue: regularValue,
+      });
+    }
+
+    return {
+      yearlyData,
+      monthlyData,
+      finalDirect: directValue,
+      finalRegular: regularValue,
+      totalPrincipal,
+      totalWealthLost: directValue - regularValue,
+    };
+  }
+
+  // ============================================
+  // UI RENDERING FUNCTIONS
+  // ============================================
+
+  /**
+   * Render the micro view table (first 24 months) with collapsible year groups
+   * @param {Array} monthlyData
+   */
+  function renderMicroTable(monthlyData) {
+    const tbody = document.getElementById("microTableBody");
+    tbody.innerHTML = "";
+
+    // Compute incremental wealth lost for each month from cumulative data
+    let prevCumulativeLost = 0;
+    const enrichedData = monthlyData.map((row) => {
+      const incrementalLost = row.cumulativeWealthLost - prevCumulativeLost;
+      prevCumulativeLost = row.cumulativeWealthLost;
+      return { ...row, incrementalLost };
+    });
+
+    // Group by year (months 1-12 = Year 1, 13-24 = Year 2, etc.)
+    const years = {};
+    enrichedData.forEach((row) => {
+      const year = Math.ceil(row.month / 12);
+      if (!years[year]) years[year] = [];
+      years[year].push(row);
+    });
+
+    Object.keys(years)
+      .sort((a, b) => a - b)
+      .forEach((yearNum) => {
+        const months = years[yearNum];
+        // Year wealth lost = incremental sum for the year (or diff between last and first month cumulative)
+        const yearWealthLost = months.reduce(
+          (sum, m) => sum + m.incrementalLost,
+          0,
+        );
+        const yearStartSip = months[0].sipAmount;
+        const yearEndSip = months[months.length - 1].sipAmount;
+        const avgSip =
+          yearStartSip === yearEndSip
+            ? yearStartSip
+            : (yearStartSip + yearEndSip) / 2;
+
+        // Year header row (clickable)
+        const yearRow = document.createElement("tr");
+        yearRow.className = "year-row bg-surface-container-low font-medium border-b border-outline-variant/20";
+        yearRow.dataset.year = yearNum;
+        yearRow.innerHTML = `
+                <td class="px-4 py-3 text-on-surface year-summary-cell">
+                    <div class="flex items-center gap-2">
+                        <span class="chevron text-on-surface-variant/60" style="width: 16px;">▶</span>
+                        <span class="font-semibold">Year ${yearNum}</span>
+                        <span class="text-xs text-on-surface-variant px-2 py-0.5 bg-surface-container-high rounded-full">Months ${months[0].month}–${months[months.length - 1].month}</span>
+                    </div>
+                </td>
+                <td class="px-4 py-3 text-right text-on-surface-variant font-mono year-summary-cell">${formatFullINR(avgSip)} <span class="text-xs text-on-surface-variant/50 font-normal">(avg)</span></td>
+                <td class="px-4 py-3 text-right text-primary-600 dark:text-primary-500 font-mono font-medium year-summary-cell">${formatFullINR(months[months.length - 1].directValue)}</td>
+                <td class="px-4 py-3 text-right text-danger-600 dark:text-danger-500 font-mono year-summary-cell">${formatFullINR(months[months.length - 1].regularValue)}</td>
+                <td class="px-4 py-3 text-right text-danger-600 dark:text-danger-500 font-mono font-medium year-summary-cell">${formatFullINR(yearWealthLost)}</td>
+            `;
+        tbody.appendChild(yearRow);
+
+        // Month detail rows (hidden by default) - show INCREMENTAL loss for that month
+        months.forEach((row, idx) => {
+          const monthRow = document.createElement("tr");
+          monthRow.className = `month-row ${idx % 2 === 0 ? "bg-surface-container-low" : "bg-surface-container"}`;
+          monthRow.dataset.year = yearNum;
+          monthRow.innerHTML = `
+                    <td class="px-4 py-2.5 pl-10 text-on-surface-variant">
+                        <span class="inline-flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-outline-variant/60"></span>
+                            Month ${row.month}
+                        </span>
+                    </td>
+                    <td class="px-4 py-2.5 text-right text-on-surface-variant font-mono">${formatFullINR(row.sipAmount)}</td>
+                    <td class="px-4 py-2.5 text-right text-primary-600 dark:text-primary-500 font-mono">${formatFullINR(row.directValue)}</td>
+                    <td class="px-4 py-2.5 text-right text-danger-600 dark:text-danger-500 font-mono">${formatFullINR(row.regularValue)}</td>
+                    <td class="px-4 py-2.5 text-right text-danger-600 dark:text-danger-500 font-mono font-medium">${formatFullINR(row.incrementalLost)}</td>
+                `;
+          tbody.appendChild(monthRow);
+        });
+      });
+
+    // Add click handlers for year rows
+    document.querySelectorAll(".year-row").forEach((row) => {
+      row.addEventListener("click", () => toggleYear(row.dataset.year));
+    });
+
+    // Add click handlers for expand/collapse all buttons
+    document
+      .getElementById("expandAll")
+      .addEventListener("click", expandAll);
+    document
+      .getElementById("collapseAll")
+      .addEventListener("click", collapseAll);
+  }
+
+  function toggleYear(year) {
+    const monthRows = document.querySelectorAll(
+      `.month-row[data-year="${year}"]`,
+    );
+    const yearRow = document.querySelector(
+      `.year-row[data-year="${year}"]`,
+    );
+    const chevron = yearRow.querySelector(".chevron");
+    const isExpanded = chevron.classList.contains("expanded");
+
+    monthRows.forEach((r) => r.classList.toggle("visible", !isExpanded));
+    chevron.classList.toggle("expanded", !isExpanded);
+  }
+
+  function expandAll() {
+    document
+      .querySelectorAll(".month-row")
+      .forEach((r) => r.classList.add("visible"));
+    document
+      .querySelectorAll(".chevron")
+      .forEach((c) => c.classList.add("expanded"));
+  }
+
+  function collapseAll() {
+    document
+      .querySelectorAll(".month-row")
+      .forEach((r) => r.classList.remove("visible"));
+    document
+      .querySelectorAll(".chevron")
+      .forEach((c) => c.classList.remove("expanded"));
+  }
+
+
+
+  /**
+   * Render summary stats and callout
+   * @param {Object} summary
+   */
+  function renderSummary(summary) {
+    const { totalPrincipal, finalDirect, finalRegular, totalWealthLost } =
+      summary;
+    const pctLost =
+      finalDirect > 0
+        ? ((totalWealthLost / finalDirect) * 100).toFixed(1)
+        : 0;
+
+    // Estimate final monthly SIP for "months of SIP" equivalence
+    const sipInput = document.getElementById("sipAmount");
+    const stepUpInput = document.getElementById("stepUp");
+    const yearsInput = document.getElementById("years");
+    // Rough final SIP calculation
+    let finalSip =
+      parseFloat(sipInput.value) *
+      Math.pow(
+        1 + parseFloat(stepUpInput.value) / 100,
+        parseInt(yearsInput.value) - 1,
+      );
+    const monthsEquivalent =
+      finalSip > 0 ? (totalWealthLost / finalSip).toFixed(1) : 0;
+
+    document.getElementById("totalWealthLost").textContent =
+      formatFullINR(totalWealthLost);
+    document.getElementById("wealthLostPercentage").textContent =
+      `${pctLost}% of Direct Fund Corpus`;
+    document.getElementById("commissionEquivalent").textContent =
+      `Equivalent to ~${monthsEquivalent} months of final SIP (₹${formatFullINR(finalSip)}/mo)`;
+
+    document.getElementById("totalPrincipal").textContent =
+      formatFullINR(totalPrincipal);
+    document.getElementById("regularCorpus").textContent =
+      formatFullINR(finalRegular);
+    document.getElementById("directCorpus").textContent =
+      formatFullINR(finalDirect);
+  }
+
+  // ============================================
+  // MAIN UPDATE FUNCTION
+  // ============================================
+
+  function updateAll() {
+    const params = {
+      sipAmount:
+        parseFloat(document.getElementById("sipAmount").value) || 0,
+      stepUpPct: parseFloat(document.getElementById("stepUp").value) || 0,
+      cagrPct: parseFloat(document.getElementById("cagr").value) || 0,
+      dragPct: parseFloat(document.getElementById("drag").value) || 0,
+      years: parseInt(document.getElementById("years").value) || 0,
+    };
+
+    // Validate inputs
+    if (params.sipAmount <= 0 || params.years <= 0 || params.cagrPct <= 0) {
+      return;
+    }
+
+    const results = runSimulation(params);
+
+    renderMicroTable(results.monthlyData);
+    renderSummary(results);
+  }
+
+  // ============================================
+  // EVENT LISTENERS & INITIALIZATION
+  // ============================================
+
+  // Debounce function for performance
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  const debouncedUpdate = debounce(updateAll, 150);
+
+  // Attach listeners to all inputs
+  ["sipAmount", "stepUp", "cagr", "drag", "years"].forEach((id) => {
+    const el = document.getElementById(id);
+    el.addEventListener("input", debouncedUpdate);
+    el.addEventListener("change", updateAll); // Also trigger on change for immediate feedback
+  });
+
+  // Initial render
+  document.addEventListener("DOMContentLoaded", () => {
+    updateAll();
+
+    // Back button behavior
+    document.getElementById("backButton").addEventListener("click", (e) => {
+      e.preventDefault();
+      if (document.referrer && document.referrer.includes(window.location.host)) {
+        history.back();
+      } else {
+        window.location.href = "{{ '/' | relative_url }}";
+      }
+    });
+  });
+
+
+</script>

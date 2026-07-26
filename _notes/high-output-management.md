@@ -57,7 +57,7 @@ Principle Architects and Technical Leads would hold a magic wand of veto, as a l
 
 Two questions that I wanted to address in the baby days of the team, **"Who can become a lead?** and **"What should a lead know?"**
 
-A lead does not need to know everything, but nor can they be pure delegators. An ideal candidate for a lead would be someone that understands the products we are offering, is an excellent representative for the product and can step into the technical details when required.
+A lead does not need to know everything, but they cannot be pure delegators either. An ideal candidate for a lead would be someone that understands the products we are offering, is an excellent representative for the product and can step into the technical details when required.
 
 Every lead had to own a part of the component and contribute back to the codebase, in whatever little capacity possible. This ensured that the leads remained technically grounded and did not move into oversight mode.
 
@@ -82,9 +82,9 @@ Learning from Higher Output Management, I wanted to identify high-leverage activ
 
 Decided what "kind" of meetings the team will have and for how long
 
-1. Intro: Typically every 3 months, to understand scope of work, problem statements, themes that we are focusing on.
-2. Retro: Every 3 weeks, understanding how we stand on our goals, what went well, what could be better and changes that will be incorporated for the next cycle
-3. One-on-ones: Typically every month, to understand how each member feels about their work, their growth, their challenges, their feedback
+1. **Intro:** Typically every 3 months, to understand scope of work, problem statements, themes that we are focusing on.
+2. **Retro:** Every 3 weeks, understanding how we stand on our goals, what went well, what could be better and changes that will be incorporated for the next cycle
+3. **One-on-ones:** Typically every month, to understand how each member feels about their work, their growth, their challenges, their feedback
 
 ## Task-Relevant Maturity
 

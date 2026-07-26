@@ -17,7 +17,7 @@ For the longest time, I had a problem with reducing attention span. The only thi
 
 A "large goal" was set every Thursday to spend the next weekend waking up early, picking a book, leaving the phone aside for the entire day and just reading. The weekend never came. Maybe the next one? While it might sound simple, staying away from doomscrolling the dozen of apps that vie for our attention every second is no easy feat.
 
-## Goal: Data Collection
+## Collecting Data
 
 Learning from Tiny Experiments, I started collecting life data, observing my daily behavior and identifying patterns. I tried to capture how I felt and how I perceived the world around me and mostly, about how I utilize my time. My field notes were not detailed as I did not have the attention-span required to spend that 10-15 minutes to write them down.
 
@@ -27,19 +27,19 @@ Sample from what I found in field notes:
 | ------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
 | I am adding at least 5 articles and 1 book to the "Read Later" pile | Why am I unable to clear the backlog of articles that I have to read? | Building a structured, priority-based plan to reduce the "Read Later" pile might help |
 
-## Goal: Build the Experiment
+## Designing the Experiment
 
-At this stage, I had data-backed (well, somewhat) insights into my behavior. I designed my first tiny experiment. I wanted to **read 30 pages or emails** everyday for **15 days**. I kept the duration short to verify if the hypothesis was correct or not.
+At this stage, I had data-backed (well, somewhat) insights into my behavior. I designed my first tiny experiment. I wanted to **read 30 pages or at least 10 old, unread emails** everyday for **15 days**. I kept the duration short to verify if the hypothesis was correct or not.
 
-## Goal: Understanding time
+## Understanding Time
 
-Tiny Experiments speaks about two different _kind_ of time. One is what the clock measures and another is what we feel and experience. The Greeks had two different words to show time: `Chrono` to represent the quantitative time that you can measure with a clock, and `Kairos` to represent the qualitative time that you experience.
+Tiny Experiments speaks about two different _kind_ of time. One is what the clock measures and another is what we feel and experience. The Greeks had two different words to show time: `Chronos` to represent the quantitative time that you can measure with a clock, and `Kairos` to represent the qualitative time that you experience.
 
 Identifying the `Kairos` helps in making the tiny experiment successful. From my personal field notes, I could see that I do almost nothing from 8:00AM to 9:00AM everyday. I would either be preparing for the day ahead (something I could do in 10-15 minutes) or aimlessly finding things to do or be on my phone. The second time-slot which I would be free is between 11PM - 12AM, where I am mostly on my phone.
 
 I blocked that time-slot for reading. I did not focus on reading anything outside that time slot.
 
-## Goal: Building Growth Loops
+## Building Growth Loops
 
 While I ran the tiny experiment, I maintained a [Plus-Minus-Next](https://nesslabs.com/plus-minus-next) log. The experiment ran well initially, but I could look at the Minus pile up somewhere in the 7-day mark.
 
@@ -54,23 +54,23 @@ While I ran the tiny experiment, I maintained a [Plus-Minus-Next](https://nessla
 - Having 2 time-slots meant procrastination. Morning slot would become evening, evening slot would become next morning.
 - Content Retention was de-prioritized. Pace of reading was prioritized over depth of understanding.
 
-### Changes to the experiment
+### Changes to the experiment / Pivots
 
 - Move to a single time slot.
 - Reduce the time spent reading to prioritize depth over pace.
 - Re-read, annotate, revise before moving ahead
 
-## Goal: Evaluate
+## Reviewing the Results
 
 After 15 days, I had read _something_ for at least 10 days. That is 10 extra days from my previous plan, but 5 days less from what I had designed for in the experiment.
 
-Tiny Experiments recommends evaluating the experiment to decide if it is good to continue, if it must be paused or modified. I realized that **just** Reading it is probably not my thing. I want the content to be interesting, I need to retain what I have read and be okay with dropping off if I don't like the book.
+Tiny Experiments recommends evaluating the experiment to decide if it is good to continue, if it must be paused or modified. I realized that **just** reading is probably not my thing. I want the content to be interesting, I need to retain what I have read and be okay with dropping off if I don't like the book.
 
 I changed the experiment to accommodate the quality of content and pivoted to a slightly different tiny experiment!
 
 ## Closing Notes
 
-Overall, the framework was super-interesting and has been useful in helping take baby steps towards larger goals. I'm not using the framework prescribed to create other tiny experiments and focus on growth loops!
+Overall, the framework was super-interesting and has been useful in helping take baby steps towards larger goals. I'm using the framework prescribed to create other tiny experiments and focus on growth loops!
 
 ## Resources
 

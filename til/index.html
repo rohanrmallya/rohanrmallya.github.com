@@ -124,193 +124,219 @@
     <!-- Main Content -->
     <main><main class="max-w-7xl mx-auto px-8 pt-32 pb-12 relative min-h-screen">
   <!-- Visual Texture Element (Glow) -->
-  <div class="absolute -top-24 -left-20 w-80 h-80 bg-v2-primary/10 dark:bg-v2-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
-  <div class="absolute top-10 left-32 w-64 h-64 bg-v2-primary-container/30 dark:bg-v2-primary/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
+  <div
+    class="absolute -top-24 -left-20 w-80 h-80 bg-v2-primary/10 dark:bg-v2-primary/10 blur-[120px] rounded-full pointer-events-none -z-10"
+  ></div>
+  <div
+    class="absolute top-10 left-32 w-64 h-64 bg-v2-primary-container/30 dark:bg-v2-primary/5 blur-[100px] rounded-full pointer-events-none -z-10"
+  ></div>
 
-  <!-- Header Section -->
+  <!-- Hero Section / Title -->
   <header class="mb-12">
-    <h1 class="text-[3.5rem] font-bold tracking-[-0.04em] text-on-surface mb-4">
-      Today I Learned
-    </h1>
-    <p class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light">
-      Notes on things that stuck with me
-    </p>
+    <div class="max-w-4xl">
+      <h1
+        class="text-[3.5rem] font-bold tracking-[-0.04em] leading-tight mb-6 text-on-surface"
+      >
+        Today I Learned
+      </h1>
+      <p class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light">
+        Notes on things that stuck with me.
+      </p>
+    </div>
   </header>
 
   <!-- Controls Section -->
   <section class="mb-10 space-y-6">
     <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
-      <div class="w-full md:max-w-md hidden">
-      </div>
+      <div class="w-full md:max-w-md hidden"></div>
       <div class="flex items-center gap-2 text-on-surface-variant">
-        <span class="text-[0.7rem] font-semibold uppercase tracking-widest">Category:</span>
-        <select class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none">
-          <option>All Categories</option>
+        <span class="text-[0.7rem] font-semibold uppercase tracking-widest"
+          >Category:</span
+        >
+        <select
+          id="til-category-filter"
+          class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none"
+        >
+          <option value="all">All Categories</option>
           
           
-          <option>Development</option>
+          <option value="development">Development</option>
           
-          <option>Finance</option>
+          <option value="finance">Finance</option>
           
-          <option>Life</option>
+          <option value="life">Life</option>
           
         </select>
       </div>
     </div>
   </section>
 
-  <!-- Feed Content -->
-  <section>
-    <div class="space-y-24">
+  <!-- TIL List -->
+  <section class="flex flex-col gap-0">
+    
+    
+    
+    
+    <div class="mb-12 year-group">
+      <span
+        class="text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-outline mb-8 block"
+        >2026</span
+      >
+      
       
         
+      
         
-        <article class="space-y-12">
-          <header class="flex items-center gap-4">
-            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
-            <span class="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant whitespace-nowrap">July 17, 2026</span>
-            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
-          </header>
-
-          <div class="grid gap-12">
-            
-            
-            
-              
-            
-              
-            
-              
-                
-                
-            <div class="group relative bg-surface-container-low rounded-lg p-8 border border-outline-variant/20 hover:border-v2-primary/40 transition-all duration-500">
-              <div class="flex flex-wrap items-center gap-4 mb-6">
-                <span class="text-on-surface-variant/40 text-[10px] font-bold">#03</span>
-                
-                  <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">Finance</span>
-                
-                <span class="text-on-surface-variant text-xs flex items-center gap-1">
-                  <span class="material-symbols-outlined text-sm">schedule</span> 8 min read
-                </span>
-              </div>
-
-              <h3 class="text-2xl md:text-3xl font-semibold mb-6 tracking-tight leading-snug group-hover:text-v2-primary transition-colors">
-                <a href="/til/regular-funds/">Regular Funds</a>
-              </h3>
-
-              <div class="space-y-4 text-on-surface-variant leading-relaxed text-lg line-clamp-3">
-                I started my journey with Mutual Funds in 2019 and I was always exposed to Direct Funds thanks to the wonderful community /r/IndiaInvestments, tradingqna and Kuvera. When I started discussing finances with friends, I found out about 50% of them...
-              </div>
-
-              <div class="mt-8 pt-6 border-t border-outline-variant/20 flex justify-between items-center">
-                <a href="/til/regular-funds/" class="text-v2-primary text-sm font-bold uppercase tracking-widest hover:underline decoration-2 underline-offset-8">Read More</a>
-                <div class="flex gap-2">
-                  <span class="material-symbols-outlined text-on-surface-variant hover:text-v2-primary cursor-pointer transition-colors" title="Bookmark">bookmark</span>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </article>
+      
         
-        <article class="space-y-12">
-          <header class="flex items-center gap-4">
-            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
-            <span class="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant whitespace-nowrap">May 21, 2026</span>
-            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
-          </header>
-
-          <div class="grid gap-12">
-            
-            
-            
-              
-            
-              
-                
-                
-            <div class="group relative bg-surface-container-low rounded-lg p-8 border border-outline-variant/20 hover:border-v2-primary/40 transition-all duration-500">
-              <div class="flex flex-wrap items-center gap-4 mb-6">
-                <span class="text-on-surface-variant/40 text-[10px] font-bold">#02</span>
-                
-                  <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">Life</span>
-                
-                <span class="text-on-surface-variant text-xs flex items-center gap-1">
-                  <span class="material-symbols-outlined text-sm">schedule</span> 5 min read
-                </span>
-              </div>
-
-              <h3 class="text-2xl md:text-3xl font-semibold mb-6 tracking-tight leading-snug group-hover:text-v2-primary transition-colors">
-                <a href="/til/maslovs-hierarchy/">Maslow's Hierarchy of Needs</a>
-              </h3>
-
-              <div class="space-y-4 text-on-surface-variant leading-relaxed text-lg line-clamp-3">
-                What is it? Maslow’s Hierarchy of Needs is a psychological theory that states that people are motivated to fulfill basic needs before moving on to other, more advanced needs. From the bottom of the pyramid to the top: Physiological needs...
-              </div>
-
-              <div class="mt-8 pt-6 border-t border-outline-variant/20 flex justify-between items-center">
-                <a href="/til/maslovs-hierarchy/" class="text-v2-primary text-sm font-bold uppercase tracking-widest hover:underline decoration-2 underline-offset-8">Read More</a>
-                <div class="flex gap-2">
-                  <span class="material-symbols-outlined text-on-surface-variant hover:text-v2-primary cursor-pointer transition-colors" title="Bookmark">bookmark</span>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </article>
+          
+          
+      <a
+        class="post-card group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl"
+        href="/til/regular-funds/"
+        data-category="finance"
+      >
+        <span
+          class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0"
+        >
+          <span class="text-emerald-600/80 dark:text-emerald-400/60 mr-1"
+            >#03</span
+          >
+          JUL 17
+        </span>
+        <span
+          class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
+        >
+          TIL <span class="text-outline/60 font-normal">· Finance</span>
+        </span>
+        <div class="flex-1">
+          <h2
+            class="text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-emerald-500 dark:group-hover:text-emerald-300 transition-colors"
+          >
+            Regular Funds
+          </h2>
+          
+          <p class="text-sm text-on-surface-variant font-light mt-1">
+            Understanding expense ratios, intermediary commissions, and direct vs regular mutual funds
+          </p>
+          
+        </div>
+      </a>
+      
+      
         
-        <article class="space-y-12">
-          <header class="flex items-center gap-4">
-            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
-            <span class="text-[0.7rem] font-bold uppercase tracking-[0.2em] text-on-surface-variant whitespace-nowrap">May 17, 2026</span>
-            <div class="h-[1px] flex-1 bg-outline-variant/30"></div>
-          </header>
-
-          <div class="grid gap-12">
-            
-            
-            
-              
-                
-                
-            <div class="group relative bg-surface-container-low rounded-lg p-8 border border-outline-variant/20 hover:border-v2-primary/40 transition-all duration-500">
-              <div class="flex flex-wrap items-center gap-4 mb-6">
-                <span class="text-on-surface-variant/40 text-[10px] font-bold">#01</span>
-                
-                  <span class="bg-v2-primary/10 text-v2-primary px-3 py-1 rounded text-[10px] font-bold uppercase tracking-widest border border-v2-primary/20">Development</span>
-                
-                <span class="text-on-surface-variant text-xs flex items-center gap-1">
-                  <span class="material-symbols-outlined text-sm">schedule</span> 2 min read
-                </span>
-              </div>
-
-              <h3 class="text-2xl md:text-3xl font-semibold mb-6 tracking-tight leading-snug group-hover:text-v2-primary transition-colors">
-                <a href="/til/lazy-with-git/">TIL About Git Alias</a>
-              </h3>
-
-              <div class="space-y-4 text-on-surface-variant leading-relaxed text-lg line-clamp-3">
-                I work Git a lot. About ~30% of the times, I stare at a branch name before pushing and start re-thinking why I created a branch with such a descriptive name. The other 70% of the times, I make a...
-              </div>
-
-              <div class="mt-8 pt-6 border-t border-outline-variant/20 flex justify-between items-center">
-                <a href="/til/lazy-with-git/" class="text-v2-primary text-sm font-bold uppercase tracking-widest hover:underline decoration-2 underline-offset-8">Read More</a>
-                <div class="flex gap-2">
-                  <span class="material-symbols-outlined text-on-surface-variant hover:text-v2-primary cursor-pointer transition-colors" title="Bookmark">bookmark</span>
-                </div>
-              </div>
-            </div>
-            
-          </div>
-        </article>
+      
         
+          
+          
+      <a
+        class="post-card group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl"
+        href="/til/maslovs-hierarchy/"
+        data-category="life"
+      >
+        <span
+          class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0"
+        >
+          <span class="text-emerald-600/80 dark:text-emerald-400/60 mr-1"
+            >#02</span
+          >
+          MAY 21
+        </span>
+        <span
+          class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
+        >
+          TIL <span class="text-outline/60 font-normal">· Life</span>
+        </span>
+        <div class="flex-1">
+          <h2
+            class="text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-emerald-500 dark:group-hover:text-emerald-300 transition-colors"
+          >
+            Maslow's Hierarchy of Needs
+          </h2>
+          
+          <p class="text-sm text-on-surface-variant font-light mt-1">
+            Understanding human motivation to build better teams and connections
+          </p>
+          
+        </div>
+      </a>
+      
+      
+        
+          
+          
+      <a
+        class="post-card group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl"
+        href="/til/lazy-with-git/"
+        data-category="development"
+      >
+        <span
+          class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0"
+        >
+          <span class="text-emerald-600/80 dark:text-emerald-400/60 mr-1"
+            >#01</span
+          >
+          MAY 17
+        </span>
+        <span
+          class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
+        >
+          TIL <span class="text-outline/60 font-normal">· Development</span>
+        </span>
+        <div class="flex-1">
+          <h2
+            class="text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-emerald-500 dark:group-hover:text-emerald-300 transition-colors"
+          >
+            TIL About Git Alias
+          </h2>
+          
+          <p class="text-sm text-on-surface-variant font-light mt-1">
+            Shortening repetitive git commands to speed up daily workflow
+          </p>
+          
+        </div>
+      </a>
       
     </div>
-
-    <!-- Pagination UI -->
     
-
+    
   </section>
+
+  <!-- Pagination UI -->
+  
 </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const filterSelect = document.getElementById("til-category-filter");
+    if (!filterSelect) return;
+
+    filterSelect.addEventListener("change", function () {
+      const selectedCategory = this.value;
+      const postCards = document.querySelectorAll(".post-card");
+      
+      postCards.forEach(function (card) {
+        const cardCategory = card.getAttribute("data-category");
+        if (selectedCategory === "all" || cardCategory === selectedCategory) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      const yearGroups = document.querySelectorAll(".year-group");
+      yearGroups.forEach(function (group) {
+        const visibleCards = group.querySelectorAll('.post-card:not([style*="display: none"])');
+        if (visibleCards.length === 0) {
+          group.style.display = "none";
+        } else {
+          group.style.display = "";
+        }
+      });
+    });
+  });
+</script>
+
 </main>
 
     <!-- Footer -->

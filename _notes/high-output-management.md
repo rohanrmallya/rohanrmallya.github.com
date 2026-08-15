@@ -1,6 +1,7 @@
 ---
 layout: note
 title: "High Output Management"
+subtitle: "Key takeaways on team leverage, indicators, TRM, and decision frameworks"
 author: "Rohan R Mallya"
 date: 2026-05-22
 tags: ["leadership"]

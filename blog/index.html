@@ -31,22 +31,41 @@ pagination:
 
   <!-- Controls Section -->
   <section class="mb-10 space-y-6">
-    <div class="flex flex-col md:flex-row gap-6 items-end justify-between">
+    <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
       <div class="w-full md:max-w-md hidden"></div>
-      <div class="flex items-center gap-2 text-on-surface-variant">
-        <span class="text-[0.7rem] font-semibold uppercase tracking-widest"
-          >Category:</span
-        >
-        <select
-          class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none"
-        >
-          <option>All Categories</option>
-          <option>Book Notes</option>
-          {% assign blog_categories = site.blog | map: "category" | compact |
-          uniq | sort %} {% for category in blog_categories %}
-          <option>{{ category }}</option>
-          {% endfor %}
-        </select>
+      <div class="flex flex-wrap items-center gap-6 text-on-surface-variant">
+        <div class="flex items-center gap-2">
+          <span class="text-[0.7rem] font-semibold uppercase tracking-widest"
+            >Type:</span
+          >
+          <select
+            id="blog-type-filter"
+            class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none"
+          >
+            <option value="all">All Types</option>
+            <option value="blog">Blog</option>
+            <option value="notes">Notes</option>
+            <option value="til">TIL</option>
+          </select>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="text-[0.7rem] font-semibold uppercase tracking-widest"
+            >Category:</span
+          >
+          <select
+            id="blog-category-filter"
+            class="bg-transparent border-none text-v2-primary font-medium focus:ring-0 text-sm cursor-pointer py-0 outline-none"
+          >
+            <option value="all">All Categories</option>
+            <option value="book-notes">Book Notes</option>
+            {% assign all_posts = site.blog | concat: site.notes | concat: site.til %}
+            {% assign blog_categories = all_posts | map: "category" | compact | uniq | sort %}
+            {% for category in blog_categories %}
+            <option value="{{ category | slugify }}">{{ category }}</option>
+            {% endfor %}
+          </select>
+        </div>
       </div>
     </div>
   </section>
@@ -57,7 +76,7 @@ pagination:
     concat: site.notes | concat: site.til %} {% assign sorted_blog = combined_posts | sort: "date"
     %} {% assign posts_by_year = paginator.posts | group_by_exp: "post",
     "post.date | date: '%Y'" %} {% for year_group in posts_by_year %}
-    <div class="{% if forloop.first %}mb-12{% else %}mt-12{% endif %}">
+    <div class="{% if forloop.first %}mb-12{% else %}mt-12{% endif %} year-group">
       <span
         class="text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-outline mb-8 block"
         >{{ year_group.name }}</span
@@ -66,8 +85,10 @@ pagination:
       == post.url %} {% assign post_num = forloop.index %} {% break %} {% endif
       %} {% endfor %}
       <a
-        class="group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl"
+        class="post-card group flex flex-col md:flex-row items-baseline py-10 border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 px-4 -mx-4 rounded-xl"
         href="{{ post.url | relative_url }}{% if post.collection == 'notes' or post.collection == 'til' %}?from=blog{% endif %}"
+        data-type="{{ post.collection }}"
+        data-category="{% if post.collection == 'notes' %}book-notes{% else %}{{ post.category | slugify }}{% endif %}"
       >
         <span
           class="md:w-32 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-on-surface-variant mb-2 md:mb-0"
@@ -92,32 +113,53 @@ pagination:
         >
           Book/Notes
         </span>
-        <h2
-          class="flex-1 text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-amber-500 dark:group-hover:text-amber-300 transition-colors"
-        >
-          {{ post.title }}
-        </h2>
+        <div class="flex-1">
+          <h2
+            class="text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-amber-500 dark:group-hover:text-amber-300 transition-colors"
+          >
+            {{ post.title }}
+          </h2>
+          {% if post.subtitle %}
+          <p class="text-sm text-on-surface-variant font-light mt-1">
+            {{ post.subtitle }}
+          </p>
+          {% endif %}
+        </div>
         {% elsif post.collection == 'til' %}
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
         >
           TIL {% if post.category %}<span class="text-outline/60 font-normal">· {{ post.category }}</span>{% endif %}
         </span>
-        <h2
-          class="flex-1 text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-emerald-500 dark:group-hover:text-emerald-300 transition-colors"
-        >
-          {{ post.title }}
-        </h2>
+        <div class="flex-1">
+          <h2
+            class="text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-emerald-500 dark:group-hover:text-emerald-300 transition-colors"
+          >
+            {{ post.title }}
+          </h2>
+          {% if post.subtitle %}
+          <p class="text-sm text-on-surface-variant font-light mt-1">
+            {{ post.subtitle }}
+          </p>
+          {% endif %}
+        </div>
         {% else %}
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-v2-primary/70 dark:text-v2-primary/50 mb-4 md:mb-0 group-hover:text-v2-primary transition-colors"
           >{{ post.category | default: "Blog" }}</span
         >
-        <h2
-          class="flex-1 text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-v2-primary transition-colors"
-        >
-          {{ post.title }}
-        </h2>
+        <div class="flex-1">
+          <h2
+            class="text-2xl md:text-[1.75rem] font-semibold tracking-[-0.02em] text-on-surface group-hover:text-v2-primary transition-colors"
+          >
+            {{ post.title }}
+          </h2>
+          {% if post.subtitle %}
+          <p class="text-sm text-on-surface-variant font-light mt-1">
+            {{ post.subtitle }}
+          </p>
+          {% endif %}
+        </div>
         {% endif %}
       </a>
       {% endfor %}
@@ -223,3 +265,44 @@ pagination:
   </div>
   {% endif %}
 </main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const typeFilter = document.getElementById("blog-type-filter");
+    const categoryFilter = document.getElementById("blog-category-filter");
+    if (!typeFilter || !categoryFilter) return;
+
+    function filterPosts() {
+      const selectedType = typeFilter.value;
+      const selectedCategory = categoryFilter.value;
+      const postCards = document.querySelectorAll(".post-card");
+
+      postCards.forEach(function (card) {
+        const cardType = card.getAttribute("data-type");
+        const cardCategory = card.getAttribute("data-category");
+
+        const matchesType = selectedType === "all" || cardType === selectedType;
+        const matchesCategory = selectedCategory === "all" || cardCategory === selectedCategory;
+
+        if (matchesType && matchesCategory) {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      const yearGroups = document.querySelectorAll(".year-group");
+      yearGroups.forEach(function (group) {
+        const visibleCards = group.querySelectorAll('.post-card:not([style*="display: none"])');
+        if (visibleCards.length === 0) {
+          group.style.display = "none";
+        } else {
+          group.style.display = "";
+        }
+      });
+    }
+
+    typeFilter.addEventListener("change", filterPosts);
+    categoryFilter.addEventListener("change", filterPosts);
+  });
+</script>

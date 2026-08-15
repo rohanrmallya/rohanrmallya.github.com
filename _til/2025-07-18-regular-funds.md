@@ -1,6 +1,7 @@
 ---
 layout: til_single
 title: "Regular Funds"
+subtitle: "Understanding expense ratios, intermediary commissions, and direct vs regular mutual funds"
 category: "Finance"
 date: 2026-07-18 00:26:58 +0530
 read_time: 8

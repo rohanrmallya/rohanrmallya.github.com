@@ -1,6 +1,7 @@
 ---
 layout: note
 title: "Tiny Experiments"
+subtitle: "Using experimental toolkits and feedback loops to achieve personal growth"
 author: "Rohan R Mallya"
 date: 2026-05-21
 tags: ["self-help"]

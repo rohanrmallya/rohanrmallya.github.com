@@ -141,6 +141,7 @@ layout: post # Use til_single for TIL
 title: "Your Post Title"
 date: YYYY-MM-DD
 category: YourCategory
+subtitle: SomeSubTitle
 published: true # Set to false to keep as a draft
 read_time: 2 # Default: 5 minutes
 ---
@@ -170,6 +171,7 @@ If a book has notes, you can write them as a note page that looks like a post bu
    layout: note
    title: "Notes on: Book Title"
    date: YYYY-MM-DD
+   subtitle: "Some Subtitle"
    category: "CategoryName" # Match the book's category
    read_time: 5 # Estimated reading time in minutes
    ---
@@ -190,12 +192,17 @@ To display images or GIFs in your Blog posts, TIL entries, or Book Notes:
    ```markdown
    ![Alt Text](/assets/imgs/my-image.gif){: .mx-auto .block width="350" }
    ```
-   *Alternatively, you can write inline HTML directly:*
+   _Alternatively, you can write inline HTML directly:_
    ```html
-   <img src="/assets/imgs/my-image.gif" alt="Alt Text" width="350" class="mx-auto block rounded-lg" />
+   <img
+     src="/assets/imgs/my-image.gif"
+     alt="Alt Text"
+     width="350"
+     class="mx-auto block rounded-lg"
+   />
    ```
 
-*Note: Avoid using relative paths (like `./images/`) or placing images inside folders starting with `_` (like `_notes/` or `_blog/`), as Jekyll will not process or copy them to the compiled site correctly.*
+_Note: Avoid using relative paths (like `./images/`) or placing images inside folders starting with `_`(like`_notes/`or`\_blog/`), as Jekyll will not process or copy them to the compiled site correctly._
 
 ---
 

@@ -28,7 +28,10 @@ layout: base
       </span>
       <span class="text-on-surface-variant text-xs font-medium">{{ page.date | date: "%B %d, %Y" }}</span>
     </div>
-    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface leading-tight mb-8">{{ page.title }}</h1>
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface leading-tight {% if page.subtitle %}mb-4{% else %}mb-8{% endif %}">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="text-lg md:text-xl text-on-surface-variant font-light mb-8">{{ page.subtitle }}</p>
+    {% endif %}
   </div>
   
   <div class="post-content e-content prose prose-lg dark:prose-invert max-w-none text-on-surface" itemprop="articleBody">

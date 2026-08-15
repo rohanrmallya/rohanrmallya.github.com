@@ -1,6 +1,7 @@
 ---
 layout: til_single
 title: "TIL About Git Alias"
+subtitle: "Shortening repetitive git commands to speed up daily workflow"
 date: 2026-05-17
 category: Development
 published: true

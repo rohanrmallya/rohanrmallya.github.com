@@ -1,6 +1,7 @@
 ---
 layout: til_single
 title: "Maslow's Hierarchy of Needs"
+subtitle: "Understanding human motivation to build better teams and connections"
 category: "Life"
 date: 2026-05-22 00:26:58 +0530
 read_time: 5

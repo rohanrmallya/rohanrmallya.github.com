@@ -175,9 +175,7 @@
           >
             <option value="all">All Categories</option>
             <option value="book-notes">Book Notes</option>
-            
-            
-            
+              
             <option value="development">Development</option>
             
             <option value="finance">Finance</option>
@@ -193,7 +191,9 @@
   <!-- Blog List -->
   <section class="flex flex-col gap-0">
         
-    <div class="mb-12 year-group">
+    <div
+      class="mb-12 year-group"
+    >
       <span
         class="text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-outline mb-8 block"
         >2026</span
@@ -218,7 +218,9 @@
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
         >
-          TIL <span class="text-outline/60 font-normal">· Finance</span>
+          TIL <span class="text-outline/60 font-normal"
+            >· Finance</span
+          >
         </span>
         <div class="flex-1">
           <h2
@@ -254,7 +256,7 @@
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-amber-600/80 dark:text-amber-400/80 mb-4 md:mb-0 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors flex items-center gap-1.5"
         >
-          Book/Notes
+          Book Notes
         </span>
         <div class="flex-1">
           <h2
@@ -290,7 +292,9 @@
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
         >
-          TIL <span class="text-outline/60 font-normal">· Life</span>
+          TIL <span class="text-outline/60 font-normal"
+            >· Life</span
+          >
         </span>
         <div class="flex-1">
           <h2
@@ -326,7 +330,7 @@
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-amber-600/80 dark:text-amber-400/80 mb-4 md:mb-0 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors flex items-center gap-1.5"
         >
-          Book/Notes
+          Book Notes
         </span>
         <div class="flex-1">
           <h2
@@ -362,7 +366,9 @@
         <span
           class="md:w-48 text-[0.75rem] font-semibold tracking-[0.05em] uppercase text-emerald-600/80 dark:text-emerald-400/80 mb-4 md:mb-0 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors flex items-center gap-1.5"
         >
-          TIL <span class="text-outline/60 font-normal">· Development</span>
+          TIL <span class="text-outline/60 font-normal"
+            >· Development</span
+          >
         </span>
         <div class="flex-1">
           <h2
@@ -403,7 +409,8 @@
         const cardCategory = card.getAttribute("data-category");
 
         const matchesType = selectedType === "all" || cardType === selectedType;
-        const matchesCategory = selectedCategory === "all" || cardCategory === selectedCategory;
+        const matchesCategory =
+          selectedCategory === "all" || cardCategory === selectedCategory;
 
         if (matchesType && matchesCategory) {
           card.style.display = "";
@@ -414,7 +421,9 @@
 
       const yearGroups = document.querySelectorAll(".year-group");
       yearGroups.forEach(function (group) {
-        const visibleCards = group.querySelectorAll('.post-card:not([style*="display: none"])');
+        const visibleCards = group.querySelectorAll(
+          '.post-card:not([style*="display: none"])',
+        );
         if (visibleCards.length === 0) {
           group.style.display = "none";
         } else {

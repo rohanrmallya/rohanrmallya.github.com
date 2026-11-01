@@ -21,11 +21,8 @@ permalink: /projects/
       >
         Projects
       </h1>
-      <p
-        class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light leading-relaxed"
-      >
-        Long-running architectures, developer tools, and experiments I've built
-        and actively maintain.
+      <p class="text-[1.125rem] text-on-surface-variant max-w-2xl font-light leading-relaxed">
+        Long-running architectures, developer tools, and experiments I've built and actively maintain.
       </p>
     </div>
   </header>
@@ -33,9 +30,9 @@ permalink: /projects/
   <!-- 3-Card Grid -->
   <section>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {% for project in site.data.projects %} {% assign project_url =
-      '/projects/' | append: project.slug | append: '/' %} {% assign project_img
-      = project.image | default: project.logo %}
+      {% for project in site.data.projects %}
+      {% assign project_url = '/projects/' | append: project.slug | append: '/' %}
+      {% assign project_img = project.image | default: project.logo %}
       <div
         class="group relative flex flex-col justify-between rounded-2xl bg-surface-container-low hover:bg-surface-container border border-outline-variant/10 hover:border-v2-primary/30 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
       >
@@ -102,9 +99,7 @@ permalink: /projects/
             </p>
             {% endif %}
 
-            <p
-              class="text-sm text-on-surface-variant leading-relaxed line-clamp-3"
-            >
+            <p class="text-sm text-on-surface-variant leading-relaxed line-clamp-3">
               {{ project.description }}
             </p>
           </div>
@@ -122,13 +117,12 @@ permalink: /projects/
                 class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-v2-primary text-on-primary hover:opacity-90 active:scale-95 transition-all shadow-sm shadow-v2-primary/20"
                 title="Watch {{ project.name }} live"
               >
-                <span class="material-symbols-outlined text-sm"
-                  >open_in_new</span
-                >
+                <span class="material-symbols-outlined text-sm">open_in_new</span>
                 <span>Watch it Live</span>
               </a>
-              {% endif %} {% if project.github_url and project.github_url != ""
-              %}
+              {% endif %}
+
+              {% if project.github_url and project.github_url != "" %}
               <a
                 href="{{ project.github_url }}"
                 target="_blank"
@@ -150,9 +144,7 @@ permalink: /projects/
               class="text-xs font-semibold text-v2-primary group-hover:translate-x-1 transition-transform inline-flex items-center gap-0.5"
             >
               <span>Writeup</span>
-              <span class="material-symbols-outlined text-sm"
-                >chevron_right</span
-              >
+              <span class="material-symbols-outlined text-sm">chevron_right</span>
             </span>
           </div>
         </div>

@@ -6,7 +6,7 @@
 @layer utilities {}
 
 @theme {
-    /* v2 "Architectural Fluidity" – Dark (Default) */
+    /* v2 "Architectural Fluidity" – Terracotta Theme (Dark Default) */
     --color-surface: #131314;
     --color-surface-bright: #3a393a;
     --color-surface-container-lowest: #0e0e0f;
@@ -16,22 +16,22 @@
     --color-surface-container-highest: #353436;
     --color-surface-variant: #353436;
     --color-on-surface: #e5e2e3;
-    --color-on-surface-variant: #c2c6d4;
-    --color-outline: #8c909e;
-    --color-outline-variant: #424752;
-    --color-v2-primary: #acc7ff;
-    --color-v2-primary-container: #0056b3;
-    --color-on-primary: #002f67;
-    --color-on-primary-container: #bbd0ff;
-    --color-primary-fixed-dim: #acc7ff;
-    --color-secondary: #b3c7f1;
-    --color-secondary-container: #36496d;
-    --color-on-secondary-container: #a5b9e2;
+    --color-on-surface-variant: #d5c3ba;
+    --color-outline: #9e8e86;
+    --color-outline-variant: #51433d;
+    --color-v2-primary: #e5a88c;
+    --color-v2-primary-container: #834324;
+    --color-on-primary: #431b08;
+    --color-on-primary-container: #f9ded2;
+    --color-primary-fixed-dim: #a66f54;
+    --color-secondary: #dcc0b3;
+    --color-secondary-container: #533d32;
+    --color-on-secondary-container: #eed8cd;
 
     /* Inverse Tokens */
     --color-inverse-surface: #e5e2e3;
     --color-inverse-on-surface: #313031;
-    --color-inverse-primary: #115cb9;
+    --color-inverse-primary: #9c5535;
 
     /* Typography */
     --font-sans: "Inter", "system-ui", "sans-serif";
@@ -43,8 +43,8 @@
     --radius-xl: 24px;
 
     /* Consulting Gradient Variables */
-    --color-consulting-from: #0056b3;
-    --color-consulting-to: #36496d;
+    --color-consulting-from: #8f4721;
+    --color-consulting-to: #4e2614;
 
     /* Calculator Specific Colors */
     --color-primary-50: #f0fdf4;
@@ -65,29 +65,29 @@
 /* ── Light Mode Overrides ── */
 @layer base {
     :root:not(.dark) {
-        --color-surface: #f9f9fb;
+        --color-surface: #fcf9f7;
         --color-surface-bright: #ffffff;
         --color-surface-container-lowest: #ffffff;
-        --color-surface-container-low: #f7f6f7;
-        --color-surface-container: #f0f0f2;
-        --color-surface-container-high: #eceaeb;
-        --color-surface-container-highest: #e6e2e3;
-        --color-surface-variant: #e6e2e3;
-        --color-on-surface: #1c1b1c;
-        --color-on-surface-variant: #44474e;
-        --color-outline: #74777f;
-        --color-outline-variant: #c4c6d0;
-        --color-v2-primary: #0056b3;
-        --color-v2-primary-container: #d7e2ff;
+        --color-surface-container-low: #f6f3f0;
+        --color-surface-container: #f0ece9;
+        --color-surface-container-high: #eae5e2;
+        --color-surface-container-highest: #e4deda;
+        --color-surface-variant: #e4deda;
+        --color-on-surface: #1d1b1a;
+        --color-on-surface-variant: #51443e;
+        --color-outline: #83746c;
+        --color-outline-variant: #d5c3b9;
+        --color-v2-primary: #9c5535;
+        --color-v2-primary-container: #f9ded2;
         --color-on-primary: #ffffff;
-        --color-on-primary-container: #001a40;
-        --color-secondary: #535f71;
-        --color-secondary-container: #d7e2ff;
-        --color-on-secondary-container: #101c2b;
+        --color-on-primary-container: #3d1c0c;
+        --color-secondary: #745749;
+        --color-secondary-container: #fae3d7;
+        --color-on-secondary-container: #2c170d;
 
         /* Consulting Gradient Override */
-        --color-consulting-from: #0056b3;
-        --color-consulting-to: #004491;
+        --color-consulting-from: #8f4721;
+        --color-consulting-to: #5e2a14;
     }
 }
 
@@ -112,7 +112,7 @@ html.dark .liquid-glass {
     background: rgba(58, 57, 58, 0.4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-top: 1px solid rgba(140, 144, 158, 0.15);
+    border-top: 1px solid rgba(158, 142, 134, 0.15);
 }
 
 /* ── Liquid Glass – light ── */

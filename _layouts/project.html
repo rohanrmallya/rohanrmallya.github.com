@@ -1,0 +1,126 @@
+---
+layout: base
+---
+
+{% assign pdata = nil %}
+{% assign doc_slug = page.slug | default: page.title | slugify %}
+{% for p in site.data.projects %}
+  {% if p.slug == doc_slug or page.url contains p.slug %}
+    {% assign pdata = p %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% assign p_num = pdata.num | default: page.num %}
+{% assign p_name = pdata.name | default: page.title | default: pdata.title %}
+{% assign p_desc = pdata.description | default: page.description %}
+{% assign p_image = pdata.image | default: page.image | default: pdata.logo | default: page.logo %}
+{% assign p_image_fit = pdata.image_fit | default: page.image_fit | default: "cover" %}
+{% assign p_live = pdata.live_url | default: page.live_url %}
+{% assign p_github = pdata.github_url | default: page.github_url %}
+{% assign p_version = pdata.version | default: page.version %}
+{% assign p_updated = pdata.last_updated | default: page.last_updated %}
+
+<article class="pt-32 min-h-screen px-4 md:px-12 pb-24 max-w-4xl mx-auto">
+  <div class="mb-10">
+    <a
+      id="back-button"
+      href="/projects/"
+      class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-on-surface-variant hover:text-v2-primary transition-colors mb-8"
+    >
+      <span class="material-symbols-outlined mr-2">arrow_back</span>
+      Back to Projects
+    </a>
+
+    <!-- Project Metadata Card -->
+    <div class="rounded-2xl bg-surface-container-low border border-outline-variant/15 p-6 md:p-10 mb-12 shadow-sm">
+      <!-- Top info line: Number, Version, Last Updated -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-outline-variant/10">
+        <div class="flex items-center gap-3">
+          {% if p_num %}
+          <span class="font-mono text-xs font-bold text-v2-primary bg-v2-primary/10 px-3 py-1 rounded-full border border-v2-primary/20">
+            #{{ p_num }}
+          </span>
+          {% endif %}
+          {% if p_version %}
+          <span class="text-xs font-medium text-on-surface-variant bg-surface-container-highest px-3 py-1 rounded-full border border-outline-variant/20">
+            Version {{ p_version }}
+          </span>
+          {% endif %}
+        </div>
+        {% if p_updated %}
+        <span class="text-xs text-on-surface-variant/70 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm">schedule</span>
+          Last Updated: {{ p_updated }}
+        </span>
+        {% endif %}
+      </div>
+
+      <!-- Identity Header: Title, Description, Buttons -->
+      <div class="mb-8">
+        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-on-surface leading-tight mb-4">
+          {{ p_name }}
+        </h1>
+        {% if p_desc %}
+        <p class="text-base md:text-lg text-on-surface-variant font-light leading-relaxed mb-6 max-w-3xl">
+          {{ p_desc }}
+        </p>
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap items-center gap-3">
+          {% if p_live and p_live != "" %}
+          <a
+            href="{{ p_live }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-v2-primary text-on-primary hover:opacity-90 active:scale-95 transition-all shadow-md shadow-v2-primary/20"
+          >
+            <span class="material-symbols-outlined text-base">open_in_new</span>
+            Watch it Live
+          </a>
+          {% endif %}
+
+          {% if p_github and p_github != "" %}
+          <a
+            href="{{ p_github }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant/20 hover:border-v2-primary/30 transition-all"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Featured Image / Screenshot / Logo Preview -->
+      {% if p_image and p_image != "" %}
+      <div class="w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden bg-surface-container-highest/50 border border-outline-variant/15 shadow-inner">
+        <img
+          src="{{ p_image }}"
+          alt="{{ p_name }} preview"
+          class="w-full h-full {% if p_image_fit == 'contain' %}object-contain p-8{% else %}object-cover object-top{% endif %}"
+        />
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Markdown Writeup -->
+  <div class="post-content prose prose-lg dark:prose-invert max-w-none text-on-surface">
+    {{ content }}
+  </div>
+</article>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const backBtn = document.getElementById("back-button");
+    if (backBtn && document.referrer && document.referrer.includes("/projects")) {
+      backBtn.href = document.referrer;
+    }
+  });
+</script>

@@ -46,6 +46,12 @@
     --color-consulting-from: #8f4721;
     --color-consulting-to: #4e2614;
 
+    /* Decorative Glows (Dark Default) */
+    --color-glow-primary: color-mix(in srgb, var(--color-v2-primary) 12%, transparent);
+    --color-glow-secondary: color-mix(in srgb, var(--color-v2-primary) 8%, transparent);
+    --glow-size-primary: 36rem;
+    --glow-size-secondary: 32rem;
+
     /* Calculator Specific Colors */
     --color-primary-50: #f0fdf4;
     --color-primary-100: #dcfce7;
@@ -88,7 +94,16 @@
         /* Consulting Gradient Override */
         --color-consulting-from: #8f4721;
         --color-consulting-to: #5e2a14;
+
+        /* Decorative Glows Override (Light Mode) */
+        --color-glow-primary: color-mix(in srgb, var(--color-v2-primary) 12%, transparent);
+        --color-glow-secondary: color-mix(in srgb, var(--color-v2-primary-container) 35%, transparent);
     }
+}
+
+/* ── Prevent horizontal overflow from ambient glow elements ── */
+html, body {
+    overflow-x: hidden;
 }
 
 /* ── Material Symbols rendering ── */
@@ -124,24 +139,31 @@ html:not(.dark) .liquid-glass {
 }
 
 /* ── Decorative glows ──
-   These replace the old `filter: blur(100-120px)` divs. A blur that large
-   forces WebKit to rasterise an enormous layer, which makes iOS Safari sit
-   on a blank page for 10-30s before it will present the new page. A radial
-   gradient produces the same soft glow with no filter cost. */
+   Soft atmospheric ambient glows using radial gradients.
+   Size/radius can be adjusted via --glow-size-primary and --glow-size-secondary. */
 .glow-primary {
-    background: radial-gradient(closest-side, rgba(229, 168, 140, 0.1), rgba(229, 168, 140, 0) 70%);
-}
-
-html:not(.dark) .glow-primary {
-    background: radial-gradient(closest-side, rgba(156, 85, 53, 0.1), rgba(156, 85, 53, 0) 70%);
+    width: var(--glow-size-primary, 36rem);
+    height: var(--glow-size-primary, 36rem);
+    background: radial-gradient(circle closest-side, var(--color-glow-primary) 0%, color-mix(in srgb, var(--color-glow-primary) 40%, transparent) 45%, transparent 100%);
 }
 
 .glow-secondary {
-    background: radial-gradient(closest-side, rgba(229, 168, 140, 0.05), rgba(229, 168, 140, 0) 70%);
+    width: var(--glow-size-secondary, 32rem);
+    height: var(--glow-size-secondary, 32rem);
+    background: radial-gradient(circle closest-side, var(--color-glow-secondary) 0%, color-mix(in srgb, var(--color-glow-secondary) 40%, transparent) 45%, transparent 100%);
 }
 
-html:not(.dark) .glow-secondary {
-    background: radial-gradient(closest-side, rgba(249, 222, 210, 0.3), rgba(249, 222, 210, 0) 70%);
+/* Corner glow specifically sized for cards and tiles (e.g. homepage hero) */
+.glow-card-corner {
+    width: 14rem;
+    height: 14rem;
+}
+
+@media (min-width: 768px) {
+    .glow-card-corner {
+        width: 22rem;
+        height: 22rem;
+    }
 }
 
 

@@ -18,6 +18,11 @@
         >Home</a
       >
       <a
+        href="/projects/"
+        class="text-sm {% if page.url contains '/projects' %}font-semibold text-v2-primary{% else %}font-medium text-on-surface/70 hover:text-v2-primary{% endif %} transition-colors duration-300"
+        >Projects</a
+      >
+      <a
         href="/bookshelf/"
         class="text-sm {% if page.url contains '/bookshelf' %}font-semibold text-v2-primary{% else %}font-medium text-on-surface/70 hover:text-v2-primary{% endif %} transition-colors duration-300"
         >Bookshelf</a
@@ -113,6 +118,11 @@
       href="/"
       class="block py-3 text-sm {% if page.url == '/' or page.url == '/index.html' %}font-semibold text-v2-primary{% else %}text-on-surface/70 hover:text-v2-primary transition-colors{% endif %}"
       >Home</a
+    >
+    <a
+      href="/projects/"
+      class="block py-3 text-sm {% if page.url contains '/projects' %}font-semibold text-v2-primary{% else %}text-on-surface/70 hover:text-v2-primary transition-colors{% endif %}"
+      >Projects</a
     >
     <a
       href="/bookshelf/"

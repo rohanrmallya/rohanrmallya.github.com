@@ -39,6 +39,9 @@ collections:
   notes:
     output: true
     permalink: /bookshelf/notes/:title/
+  projects:
+    output: true
+    permalink: /projects/:title/
 
 
 # Build settings

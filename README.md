@@ -48,12 +48,13 @@ You can run the development server in different modes depending on whether you w
 
 ## 📝 Drafts Support
 
-Drafts are supported for both **Blog** and **TIL** sections.
+Drafts are supported for **Blog**, **TIL**, and **Projects** sections.
 
 ### Draft Locations:
 
 - **Blog Drafts:** Placed under `_blog/drafts/` (e.g. `_blog/drafts/my-draft-post.md`).
 - **TIL Drafts:** Placed under `_til/drafts/` (e.g. `_til/drafts/my-draft-til.md`).
+- **Projects Drafts:** Placed under `_projects/drafts/` (e.g. `_projects/drafts/my-project.md`).
 
 ### Draft Front Matter:
 
@@ -120,6 +121,8 @@ npm install tailwindcss@latest
 
 ## 📂 Project Structure
 
+- `_projects/`: Markdown writeups for long-running projects.
+- `_data/projects.yml`: Data source for the Projects 3-card grid (metadata, version, links).
 - `_til/`: Markdown entries for the "Today I Learned" section.
 - `_blog/`: Blog essays and deep-dives.
 - `_notes/`: Markdown entries for Book Notes.
@@ -179,7 +182,38 @@ If a book has notes, you can write them as a note page that looks like a post bu
 3. **Write your notes** in markdown below the front matter.
 4. **Link the book**: Make sure the `notes_url` property of the book in `_data/book.yml` points to `/bookshelf/notes/your-note-slug/` so the badge is rendered on the book card.
 
-### 4. Adding Images and GIFs
+### 4. Projects
+
+To add a new project, add an entry to `_data/projects.yml`:
+
+```yaml
+- num: "01"
+  name: "Project Title"
+  slug: "project-slug"
+  description: "Brief description of the project."
+  image: "/assets/imgs/projects/my-screenshot.png" # Screenshot, mockup, or logo
+  image_fit: "cover" # "cover" for screenshots/banners, "contain" for standalone logos
+  version: "v1.0.0"
+  last_updated: "July 2026"
+  live_url: "https://example.com" # Optional
+  github_url: "https://github.com/your-username/repo" # Optional
+```
+
+Then create a matching writeup file at `_projects/<project-slug>.md`:
+
+```markdown
+---
+layout: project
+title: "Project Title"
+slug: "project-slug"
+---
+
+Your project writeup, architecture details, and deep dive here...
+```
+
+The writeup page will automatically inherit all card metadata, featured screenshots, and action buttons.
+
+### 5. Adding Images and GIFs
 
 To display images or GIFs in your Blog posts, TIL entries, or Book Notes:
 

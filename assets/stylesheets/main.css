@@ -123,6 +123,27 @@ html:not(.dark) .liquid-glass {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* ── Decorative glows ──
+   These replace the old `filter: blur(100-120px)` divs. A blur that large
+   forces WebKit to rasterise an enormous layer, which makes iOS Safari sit
+   on a blank page for 10-30s before it will present the new page. A radial
+   gradient produces the same soft glow with no filter cost. */
+.glow-primary {
+    background: radial-gradient(closest-side, rgba(229, 168, 140, 0.1), rgba(229, 168, 140, 0) 70%);
+}
+
+html:not(.dark) .glow-primary {
+    background: radial-gradient(closest-side, rgba(156, 85, 53, 0.1), rgba(156, 85, 53, 0) 70%);
+}
+
+.glow-secondary {
+    background: radial-gradient(closest-side, rgba(229, 168, 140, 0.05), rgba(229, 168, 140, 0) 70%);
+}
+
+html:not(.dark) .glow-secondary {
+    background: radial-gradient(closest-side, rgba(249, 222, 210, 0.3), rgba(249, 222, 210, 0) 70%);
+}
+
 
 
 @custom-variant dark (&:where(.dark, .dark *));

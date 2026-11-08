@@ -1561,12 +1561,6 @@
   .bg-v2-primary-container {
     background-color: var(--color-v2-primary-container);
   }
-  .bg-v2-primary-container\/30 {
-    background-color: color-mix(in srgb, #834324 30%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      background-color: color-mix(in oklab, var(--color-v2-primary-container) 30%, transparent);
-    }
-  }
   .bg-v2-primary\/5 {
     background-color: color-mix(in srgb, #e5a88c 5%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -2099,14 +2093,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-v2-primary) 20%, transparent) var(--tw-shadow-alpha), transparent);
     }
-  }
-  .blur-\[100px\] {
-    --tw-blur: blur(100px);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
-  }
-  .blur-\[120px\] {
-    --tw-blur: blur(120px);
-    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -2801,22 +2787,6 @@
       }
     }
   }
-  .dark\:bg-v2-primary\/5 {
-    &:where(.dark, .dark *) {
-      background-color: color-mix(in srgb, #e5a88c 5%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--color-v2-primary) 5%, transparent);
-      }
-    }
-  }
-  .dark\:bg-v2-primary\/10 {
-    &:where(.dark, .dark *) {
-      background-color: color-mix(in srgb, #e5a88c 10%, transparent);
-      @supports (color: color-mix(in lab, red, red)) {
-        background-color: color-mix(in oklab, var(--color-v2-primary) 10%, transparent);
-      }
-    }
-  }
   .dark\:text-amber-200 {
     &:where(.dark, .dark *) {
       color: var(--color-amber-200);
@@ -2970,6 +2940,18 @@ html:not(.dark) .liquid-glass {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.glow-primary {
+  background: radial-gradient(closest-side, rgba(229, 168, 140, 0.1), rgba(229, 168, 140, 0) 70%);
+}
+html:not(.dark) .glow-primary {
+  background: radial-gradient(closest-side, rgba(156, 85, 53, 0.1), rgba(156, 85, 53, 0) 70%);
+}
+.glow-secondary {
+  background: radial-gradient(closest-side, rgba(229, 168, 140, 0.05), rgba(229, 168, 140, 0) 70%);
+}
+html:not(.dark) .glow-secondary {
+  background: radial-gradient(closest-side, rgba(249, 222, 210, 0.3), rgba(249, 222, 210, 0) 70%);
 }
 @property --tw-translate-x {
   syntax: "*";

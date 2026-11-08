@@ -126,6 +126,17 @@ permalink: /projects/
                 >
                 <span>Watch it Live</span>
               </a>
+              {% endif %} {% if project.download_url and project.download_url != "" %}
+              <a
+                href="{{ project.download_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-v2-primary text-on-primary hover:opacity-90 active:scale-95 transition-all shadow-sm shadow-v2-primary/20"
+                title="Download and set up {{ project.name }}"
+              >
+                <span class="material-symbols-outlined text-sm">download</span>
+                <span>Download & Set Up</span>
+              </a>
               {% endif %} {% if project.github_url and project.github_url != ""
               %}
               <a

@@ -10,5 +10,17 @@
 #   - version: Current project version (e.g. "v1.2.0")
 #   - last_updated: Human-readable or ISO date (e.g. "July 2026" or "2026-07-19")
 #   - live_url: (Optional) URL for the "Watch it Live" button
+#   - download_url: (Optional) URL for the "Download & Set Up" button
 #   - github_url: (Optional) URL for the "Github" button
 
+- num: "01"
+  name: "Wridhy"
+  slug: "wridhy"
+  description: "A personal wealth manager that tracks spends, income, investments and net worth."
+  image: "/assets/imgs/projects/wridhy.png"
+  image_fit: "cover"
+  logo: ""
+  version: "0.0.1"
+  last_updated: "01 Nov 2026"
+  download_url: "https://github.com/prodalignHQ/wridhy-oss/releases"
+  github_url: "https://github.com/prodalignHQ/wridhy-oss"
